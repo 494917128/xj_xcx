@@ -1,0 +1,4 @@
+<view class='container'>
+  <view class='title'>标题标题这是标题</view>
+  <rich-text nodes="{{nodes}}" bindtap="tap"></rich-text>
+</view>

@@ -1,0 +1,8 @@
+<view class='index-container'>
+  <image src='/images/list_none.png' mode='widthFix' class='list_none'></image>
+  <view class='list'>
+  </view>
+  <myAdd nav='{{nav}}' />
+</view>
+
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

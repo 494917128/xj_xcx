@@ -1,0 +1,15 @@
+.index-container{
+  background-color: #f0f4f7;
+  min-height: 100vh;
+}
+.index-container .list_none{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 60vw;
+  margin: auto;
+  padding-bottom: 80rpx;
+}
+

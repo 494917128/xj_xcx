@@ -1,0 +1,10 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#e2edf3",
+  "navigationBarTitleText": "我的",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "myHeader": "/components/myHeader/myHeader"
+  }
+}

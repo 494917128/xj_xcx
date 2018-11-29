@@ -1,0 +1,8 @@
+<view class='container flex_column flex_center'>
+  <image src='/images/my_bg4.jpg' mode='aspectFill' class='image'></image>
+  <view class='title'>恭喜达成</view>
+  <view class='line'></view>
+  <view class='text'>获得积分</view>
+  <view class='text'>10个</view>
+  <button open-type='share' class='share flex_row flex_center'>分享</button>
+</view>

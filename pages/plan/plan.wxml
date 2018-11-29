@@ -1,0 +1,11 @@
+<view class='container flex_column'>
+  <navigator url='/pages/planImage/planImage?image={{title_image}}' class='title-image'>
+    <image src='{{user_defined?user_defined:image_url+title_image}}' mode='widthFix'></image>
+    <view class='prompt flex_row flex_center'>修改背景图</view>
+  </navigator>
+  <textarea placeholder-class='input_placeholder' placeholder='今日总结'></textarea>
+  <textarea placeholder-class='input_placeholder' placeholder='今日收获'></textarea>
+  <textarea placeholder-class='input_placeholder' placeholder='明日计划'></textarea>
+
+  <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定</view>
+</view>

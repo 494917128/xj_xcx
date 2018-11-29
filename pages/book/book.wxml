@@ -1,0 +1,5 @@
+<image src='{{image_url}}haibao/book.jpg' mode='widthFix'></image>
+
+<navigator url='/pages/bookBuy/bookBuy' class='add flex_row flex_center' bindtap='Add'>购买</navigator>
+
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

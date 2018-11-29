@@ -1,0 +1,7 @@
+<view class='container flex_column'>
+  <myHeader bg_color='#73cbcf' font_color='#ffffff' bg_image='/images/my_bg5.jpg' ></myHeader>
+  
+  <textarea placeholder-class='input_placeholder' placeholder='阅后感'></textarea>
+
+  <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定</view>
+</view>

@@ -1,0 +1,69 @@
+
+.container .header_image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 1px solid #000;
+  margin: 0 36rpx;
+}
+.container .header_content{
+  width: 100%;
+  color: #000;
+  font-size: 32rpx;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.container .header .header_bg{
+  width: 100%;
+  z-index: -1;
+}
+
+.container .nav{
+  height: 150rpx;
+  border-bottom: 30rpx solid #f2f2f2;
+}
+.container .nav .item{
+  border-left: 1px solid #E7E7E7;
+  border-right: 1px solid #E7E7E7;
+  height: 100rpx;
+  font-size: 34rpx;
+}
+.container .nav navigator:first-child .item{
+  border-left: 0;
+}
+.container .nav navigator:last-child .item{
+  border-right: 0;
+}
+.container .nav .item image{
+  margin-right: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.container .list .item{
+  padding: 0 30rpx;
+  height: 120rpx;
+  font-size: 34rpx;
+  position: relative;
+}
+.container .list .item .icon{
+  margin-right: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 40rpx;
+  text-align: center;
+}
+.container .list .item::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 30rpx;
+  left: 110rpx;
+  height: 1px;
+  background-color: #E6E6E6;
+  box-shadow: 0 2rpx 2rpx #E6E6E6;
+}

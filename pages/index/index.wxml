@@ -1,0 +1,14 @@
+<view class='container flex_column'>
+
+  <myHeader bg_color='#58c7c3' font_color='#ffffff' bg_image='/images/my_bg6.png' ></myHeader>
+
+  <view class='flex_row flex_center' style='position: relative;flex: 1'>
+    <navigator url='/pages/plan/plan?title=行动计划' class='btn flex_row flex_center' hover-class='button_hover'>开始旅行</navigator>
+    <myAdd nav='{{nav}}' class='add' bg_color='#76cec7' />
+  </view>
+
+  <image src='/images/bg_7.png' mode='widthFix' style='width:100%;display:block'></image>
+</view>
+
+
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

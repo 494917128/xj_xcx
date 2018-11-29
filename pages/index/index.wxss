@@ -1,0 +1,35 @@
+.container{
+  background-color: #fff;
+  min-height: 100vh;
+}
+.container .list_none{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 60vw;
+  margin: auto;
+  padding-bottom: 80rpx;
+}
+
+.add{
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20rpx;
+  margin: auto;
+  height: 100rpx; */
+}
+.btn{
+  background-color: #76cec7;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  height: 100rpx;
+  width: 400rpx;
+  border-radius: 50rpx;
+  letter-spacing: 8rpx;
+  margin: 0 60rpx;
+
+}

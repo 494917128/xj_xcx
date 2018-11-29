@@ -1,0 +1,12 @@
+<view class='container'>
+  <myHeader bg_color='#e2edf3' font_color='#000000' bg_image='/images/my_bg.jpg' >
+    <view class='header flex_column'>
+      <view class='header_title'>{{title}}</view>
+
+      <view class='header_num col-1 flex_row'>
+        3<text style='font-size: 24rpx;padding:10rpx;'>个</text>
+      </view>
+    </view>
+  </myHeader>
+  <myList type='order' list='{{list}}' />
+</view>

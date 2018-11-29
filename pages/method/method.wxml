@@ -1,0 +1,13 @@
+<view class='container'>
+  <myHeader bg_color='#e2edf3' font_color='#000000' bg_image='/images/my_bg.jpg' >
+
+  </myHeader>
+
+  <view class='list'>
+    <navigator url='/pages/methodContent/methodContent' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
+      <text class='col-1'>{{item.name}}</text>
+      <view class='iconfont icon-right'></view>
+    </navigator>
+  </view>
+
+</view>

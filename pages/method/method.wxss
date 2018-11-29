@@ -1,0 +1,23 @@
+.container .list .item{
+  padding: 0 30rpx;
+  height: 120rpx;
+  font-size: 34rpx;
+  position: relative;
+}
+.container .list .item .icon{
+  margin-right: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 40rpx;
+  text-align: center;
+}
+.container .list .item::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 30rpx;
+  left: 30rpx;
+  height: 1px;
+  background-color: #E6E6E6;
+  box-shadow: 0 2rpx 2rpx #E6E6E6;
+}

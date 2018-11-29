@@ -1,0 +1,25 @@
+.container{
+  background-color: #f0f4f7;
+  min-height: 100vh;
+}
+
+.container textarea{
+  margin: 50rpx 50rpx 30rpx;
+  width: calc(100% - 100rpx);
+  height: 500rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx 30rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+.container .btn{
+  align-self: center;
+  width: 580rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  font-size: 36rpx;
+  margin-top: 40rpx;
+  background-color: #21e495;
+  color: #fff;
+}

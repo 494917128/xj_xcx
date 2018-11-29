@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "了解玩法",
+  "usingComponents": {
+    "myHeader": "/components/myHeader/myHeader",
+    "myList": "/components/myList/myList"
+  }
+}

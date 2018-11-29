@@ -1,0 +1,6 @@
+<view class='flex_column header' style='color: {{font_color}}'>
+  <image src='{{bg_image}}' class='header_bg' mode='widthFix'></image>
+  <view class='content'>
+    <slot></slot>
+  </view>
+</view>

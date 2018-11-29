@@ -1,0 +1,14 @@
+  <view class='add-cover {{add?"active":""}}' bindtap='Add'>
+  </view>
+  <view class='add-container {{add?"active":""}}'>
+    <view class='add-view flex_row' catchtap='stop'>
+      <view data-url='{{item.url}}?title={{item.title}}' class='add-item flex_column flex_center' bindtap='addActivity' wx:for='{{nav}}' wx:key='{{index}}'>
+  
+  
+        <image src='{{item.image}}' class='image' wx:if='{{item.image}}' style='background-color: {{item.image_bg}};box-shadow:0 0 20rpx {{item.image_bg}}'></image>
+        <view class='{{item.icon}} iconfont flex_row flex_center' wx:else></view>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+    <view class='add iconfont icon-close flex_row flex_center {{add?"active":""}}' style='background-color: {{bg_color}};box-shadow:0 0 20rpx {{item.image_bg}}' bindtap='Add'></view>
+  </view>

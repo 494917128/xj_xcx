@@ -1,0 +1,4 @@
+    
+  <view class='person_center flex_column flex_center'>
+    <slot></slot>
+  </view>

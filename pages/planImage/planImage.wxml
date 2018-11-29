@@ -1,0 +1,7 @@
+<view class='container flex_column'>
+  <view class='add flex_column flex_center' bindtap='userDefined'>
+    <view></view>
+    <text>自定义添加</text>
+  </view>
+  <image src='{{image_url+item}}' class='image {{select_image==item?"active":""}}' mode='widthFix' bindtap='selectImage' data-index='{{index}}' wx:for='{{list}}' wx:key='{{index}}'></image>
+</view>

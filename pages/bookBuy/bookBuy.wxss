@@ -1,0 +1,43 @@
+.container{
+  min-height: 100vh;
+  padding: 30rpx;
+  background-color: #f7f4f0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.input-view{
+  height: 100rpx;
+  border-bottom: 1px solid #dcdcdc;
+  color: #000;
+}
+.input-view .title{
+  padding: 0 20rpx;
+  font-size: 36rpx;
+  width: 180rpx;
+}
+.input-view input,.input-view picker,.input-view .picker{
+  height: 100rpx;
+  font-size: 32rpx;
+}
+.input-view .picker{
+  align-items: center;
+}
+
+.container .price{
+  font-size: 36rpx;
+  margin-top: 40rpx;
+  margin-left: 20rpx;
+  line-height: 2;
+}
+
+.container .btn{
+  align-self: center;
+  width: 580rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  font-size: 36rpx;
+  margin-top: 120rpx;
+  background-color: #21e495;
+  color: #fff;
+}

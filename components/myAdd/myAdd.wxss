@@ -1,0 +1,84 @@
+@import '/fonts/iconfont.wxss';
+@import '/app.wxss';
+
+.add{
+  background-color: #21e495;
+  color: #fff;
+  border: 1px soild #29D695;
+  box-shadow: 0 0 20rpx #21e495;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: relative;
+
+  font-size: 40rpx;
+}
+.add::before{
+  transform: rotate(45deg);
+  transition: all .3s;
+}
+.add.active::before{
+  transform: rotate(0);
+}
+
+.add-cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .3);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+}
+.add-cover.active{
+  opacity: 1;
+  visibility: initial;
+}
+.add-view{
+  width: calc(100vw - 60rpx);
+  background-color: #fff;
+  border-radius: 20rpx;
+  position: absolute;
+  right: 30rpx;
+  bottom: 120rpx;
+  flex-wrap: wrap;
+  padding: 35rpx 50rpx;
+  box-sizing: border-box;
+  color: #000;
+
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: 110% 120%;
+  transition: all .3s;
+}
+.add-container.active .add-view{
+  transform: scale(1);
+  opacity: 1;
+}
+.add-item{
+  width: 33.33333333%;
+  font-size: 28rpx;
+  margin: 20rpx 0;
+}
+.add-item .image{
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+  margin-bottom: 16rpx;
+  overflow: hidden;  
+  border-radius: 50%;
+}
+.add-item .iconfont{
+  background-color: #21e495;
+  color: #fff;
+  border: 1px soild #29D695;
+  box-shadow: 0 0 20rpx #21e495;
+  width: 120rpx;
+  height: 120rpx;
+  font-size: 60rpx;
+  border-radius: 50%;
+  margin-bottom: 16rpx;
+}

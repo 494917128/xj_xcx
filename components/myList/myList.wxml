@@ -1,0 +1,29 @@
+<view class='list flex_column'>
+  <view class='item' wx:for='{{list}}' wx:key='{{index}}'>
+    <view class='order' wx:if='{{type=="order"}}'>
+      <view class='title flex_row'>
+        <view class='col-1'>
+          <text class='number'>123456789123456</text>
+        </view>
+        <view class='status'>
+          <view>已收货</view>
+        </view>
+      </view>
+      <view class='flex_row'>
+        <image src='/images/image_none.png' mode='aspectFill' class='image'></image>
+        <view class='info col-1 flex_column'>
+          <view class='info-title two_line'>title</view>
+          <text class='info-num'>*1</text>
+        </view>
+      </view>
+      <view class='price flex_row'>￥1000</view>
+    </view>
+    <view class='content flex_row' wx:else>
+      <view class='flex_column'>
+        <text class='title'>{{item.title}}</text>
+        <text class='time'>{{item.date}}</text>
+      </view>
+      <view class='price'>{{item.price}}</view>
+    </view>
+  </view>
+</view>

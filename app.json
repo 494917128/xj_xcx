@@ -1,0 +1,59 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index2/index2",
+    "pages/poster/poster",
+    "pages/plan/plan",
+    "pages/planSuccess/planSuccess",
+    "pages/planImage/planImage",
+    "pages/afterBook/afterBook",
+    "pages/afterBookSuccess/afterBookSuccess",
+    
+    "pages/indexCreat/indexCreat",
+
+    "pages/found/found",
+    
+    "pages/book/book",
+    "pages/bookBuy/bookBuy",
+    "pages/bookBuySuccess/bookBuySuccess",
+    
+    "pages/my/my",
+    "pages/myInfo/myInfo",
+    "pages/myIntegral/myIntegral",
+    "pages/myOrder/myOrder",
+    "pages/method/method",
+    "pages/methodContent/methodContent"
+  ],
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#FFCB57",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon/ziyuan24.png",
+        "selectedIconPath": "images/icon/ziyuan24.png"
+      },
+      {
+        "pagePath": "pages/found/found",
+        "text": "发现",
+        "iconPath": "images/icon/ziyuan23.png",
+        "selectedIconPath": "images/icon/ziyuan23.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/icon/ziyuan.png",
+        "selectedIconPath": "images/icon/ziyuan.png"
+      }
+    ]
+  },
+    
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f0f4f7",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f0f4f7"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#CCCCCC",
+  "navigationBarTitleText": "21天改变之旅",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "myAdd": "/components/myAdd/myAdd",
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting"
+  }
+}

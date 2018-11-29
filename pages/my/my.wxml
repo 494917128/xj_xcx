@@ -1,0 +1,34 @@
+<view class='container'>
+  <myHeader bg_color='#e2edf3' font_color='#000000' bg_image='/images/my_bg.jpg' >
+    <view class='header_content flex_row'>
+      <image src='{{userInfo.avatarUrl}}' class='header_image'></image>
+      <text>{{userInfo.nickName}}</text>
+    </view>
+  </myHeader>
+
+
+  <view class='nav flex_row'>
+    <navigator url='/pages/myInfo/myInfo?title=消息' class='flex_row flex_center col-1'>
+      <view class='item flex_row flex_center col-1'>
+        <image src='/images/icon/ziyuan15.png'></image>
+        我的消息
+      </view>
+    </navigator>
+    <navigator url='/pages/myIntegral/myIntegral?title=积分' class='flex_row flex_center col-1'>
+      <view class='item flex_row flex_center col-1'>
+        <image src='/images/icon/ziyuan13.png'></image>
+        我的积分100
+      </view>
+    </navigator>
+  </view>
+
+  <view class='list'>
+    <navigator url='{{item.link}}' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
+      <image src='{{item.image}}' class='icon'></image>
+      <text class='col-1'>{{item.name}}</text>
+      <view class='iconfont icon-right'></view>
+    </navigator>
+  </view>
+</view>
+
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

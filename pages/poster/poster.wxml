@@ -1,0 +1,15 @@
+<view class='login-container'>
+  <swiper previous-margin='100rpx' next-margin='100rpx' bindchange='swiper'>
+    <swiper-item class='flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
+      <image src='{{image_url+item}}' mode='widthFix' bindtap='previewImage' data-url='{{item}}'></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class='btn-view flex_row flex_center'>
+  <view class='btn flex_row flex_center' hover-class='button_hover' bindtap='saveImage'>保存</view>
+  <button open-type='share' class='btn flex_row flex_center' hover-class='button_hover'>分享</button>
+</view>
+<!-- <view class='skip flex_row flex_center' hover-class='skip_hover'>跳过</view> -->
+
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

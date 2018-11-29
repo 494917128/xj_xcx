@@ -1,0 +1,19 @@
+.container{
+  background-color: #f0f4f7;
+  min-height: 100vh;
+}
+
+.header{
+  height: 100%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.header_title{
+  font-size: 45rpx;
+  box-sizing: border-box;
+}
+.header_num{
+  align-items: flex-end;
+  font-size: 100rpx;
+  line-height: 1;
+}

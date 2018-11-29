@@ -1,0 +1,6 @@
+<view class='activity-container flex_column'>
+  <input class='input' placeholder-class='input_placeholder' placeholder='请输入'></input>
+  <textarea placeholder-class='input_placeholder' placeholder='备注'></textarea>
+
+  <view hover-class='button_hover' class='btn flex_row flex_center'>确定</view>
+</view>
