@@ -1,0 +1,67 @@
+.list{
+  padding: 15rpx 0;
+}
+
+.list .item{
+  margin: 15rpx 30rpx;
+  background-color: #fff;
+  border-radius: 6rpx;
+  box-shadow: 2rpx 4rpx 20rpx #ddd;
+}
+.list .item:nth-child(3n+1){
+  border-left: 10rpx solid #7583FF;
+}
+.list .item:nth-child(3n+2){
+  border-left: 10rpx solid #498EFF;
+}
+.list .item:nth-child(3n){
+  border-left: 10rpx solid #FF5858;
+}
+
+.list .content,.list .order{
+  padding: 20rpx 30rpx;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.7;
+}
+.list .content .title{
+  font-size: 30rpx;
+}
+.list .content .time{
+  color: #a0a0a0;
+  font-size: 24rpx;
+}
+.list .content .price{
+  font-size: 36rpx;
+  color: #666;
+}
+
+.list .order .title{
+  justify-content: space-between;
+  align-items: center;
+}
+.list .order .number{
+  font-size: 28rpx;
+}
+.list .order .status{
+  font-size: 28rpx;
+}
+.list .order .image{
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+}
+.list .order .info{
+  
+}
+.list .order .info-title{
+  font-size: 32rpx;
+}
+.list .order .info-num{
+  align-self: flex-end;
+  font-size: 36rpx;
+}
+.list .order .price{
+  justify-content: flex-end;
+  font-size: 36rpx;
+}

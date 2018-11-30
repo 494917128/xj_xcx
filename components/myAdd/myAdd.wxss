@@ -37,13 +37,17 @@
   opacity: 1;
   visibility: initial;
 }
+
 .add-view{
   width: calc(100vw - 60rpx);
   background-color: #fff;
   border-radius: 20rpx;
   position: absolute;
   right: 30rpx;
-  bottom: 120rpx;
+  top: -140rpx;
+  bottom: 140rpx;
+  height: 274rpx;
+  margin: auto;
   flex-wrap: wrap;
   padding: 35rpx 50rpx;
   box-sizing: border-box;

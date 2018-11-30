@@ -21,6 +21,7 @@
     "pages/myInfo/myInfo",
     "pages/myIntegral/myIntegral",
     "pages/myOrder/myOrder",
+    "pages/myOrderDetail/myOrderDetail",
     "pages/method/method",
     "pages/methodContent/methodContent"
   ],

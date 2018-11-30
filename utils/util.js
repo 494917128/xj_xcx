@@ -660,5 +660,6 @@ module.exports = {
   wxLogin,
   authorize,
   saveImage,
-  prevPage
+  prevPage,
+  request,
 }

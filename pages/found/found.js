@@ -38,7 +38,7 @@ Page({
         is_content: true,
         is_anim: true
       })
-    },100)
+    },50)
   },
   like() {
     this.setData({
