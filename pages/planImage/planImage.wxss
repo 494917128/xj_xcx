@@ -1,7 +1,7 @@
 .container{
   background-color: #f0f4f7;
   min-height: 100vh;
-  padding: 0 50rpx;
+  padding: 0 30rpx;
 }
 
 .add{

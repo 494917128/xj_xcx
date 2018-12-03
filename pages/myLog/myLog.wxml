@@ -1,0 +1,76 @@
+<view class='container flex_column'>
+  <view class='header'>
+    <image src='/images/my_bg9.jpg' mode='widthFix' class='bg'></image>
+    <view class='dateTime flex_row' bindtap='nav'>
+      <view class='date-mouth'>{{month}}月</view>
+      <view>
+        <view class='date-day'>1天前</view>
+        <view class='date-year flex_row flex_center'>{{year}}年<text class='iconfont icon-jiantou-copy {{is_nav?"active":""}}'></text></view>
+      </view>
+    </view>
+
+    <view class='nav-container {{is_nav?"active":""}}'>
+      <view class='nav flex_row'>
+        <view class='nav-item flex_column flex_center col-1' bindtap='navIndex' data-index='{{0}}'>
+          <text class='iconfont icon-PC-keyanchengguo'></text>
+          <text>月视图</text>
+        </view>
+        <view class='nav-item flex_column flex_center col-1' bindtap='navIndex' data-index='{{1}}'>
+          <text class='iconfont icon-PC-keyanchengguo'></text>
+          <text>日程</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='search'>
+      <view></view>
+    </view>
+  </view>
+
+  <view class='calendar' wx:if='{{nav_index==0}}'>
+    <view class='calendar-header flex_row'>
+      <text class='calendar-week flex_row flex_center' wx:for='{{date}}' wx:key='{{index}}'>{{item}}</text>
+    </view>
+    <swiper current='{{current}}' bindanimationfinish='swiper' duration='{{duration}}'>
+      <swiper-item class='calendar-body flex_row' wx:for='{{dateList}}' wx:key='{{index}}'>
+        <block wx:for='{{item.list}}' wx:for-item='date' wx:for-index='idx' wx:key='{{idx}}'>
+          <view class='calendar-date before flex_row flex_center' bindtap='beforeMonth' data-day='{{date.num}}' wx:if='{{date.type=="before"}}'><text class='text'>{{date.num}}</text></view>
+          <view class='calendar-date flex_row flex_center {{date.num==day&&current==index?"active":""}}' bindtap='selectDay' data-day='{{date.num}}' wx:elif='{{date.type=="now"}}'><text class='text'>{{date.num}}</text></view>
+          <view class='calendar-date flex_row flex_center {{date.num==day&&current==index?"active":""}}' bindtap='selectDay' data-day='{{date.num}}' wx:elif='{{date.type=="today"}}'><view class='text flex_column flex_center'><text>.</text>{{date.num}}</view></view>
+          <view class='calendar-date after flex_row flex_center' bindtap='afterMonth' data-day='{{date.num}}' wx:elif='{{date.type=="after"}}'><text class='text'>{{date.num}}</text></view>
+        </block>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <scroll-view scroll-y class='list'>
+    <view class='list-item-view' wx:for='{{nav_index==0?list_1:list_2}}' wx:key='{{index}}'>
+      <view class='list-mouth flex_row'>
+        2018年11月
+      </view>
+      <navigator url='/pages/myLogDetail/myLogDetail' class='list-item flex_row flex_center' wx:for='{{item.list}}' wx:key='{{index}}'>
+        <view class='list-day flex_column flex_center'>
+          <view class='list-number'>21</view>
+          <view>周三</view>
+        </view>
+        <view class='list-content flex_column'>
+          <view class='flex_row flex_center'>
+            <text class='iconfont icon-PC-keyanchengguo'></text>
+            <text class='one_line'>今日总结：今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结</text>
+          </view>
+          <view class='flex_row flex_center'>
+            <text class='iconfont icon-nidinghuibao'></text>
+            <text class='one_line'>今日收货：今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货</text>
+          </view>
+          <view class='flex_row flex_center'>
+            <text class='iconfont icon-jihua'></text>
+            <text class='one_line'>明日计划：明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </scroll-view>
+
+  <view class='today_btn flex_row flex_center' bindtap='gotoToday'>今</view>
+  <navigator url='/pages/plan/plan' class='add_btn iconfont icon-close flex_row flex_center'></navigator>
+</view>

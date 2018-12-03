@@ -4,6 +4,7 @@
   "navigationBarTitleText": "购买书籍",
   "navigationBarTextStyle": "black",
   "usingComponents": {
-    "myOpenSetting": "/components/myOpenSetting/myOpenSetting"
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "myHeader": "/components/myHeader/myHeader"
   }
 }

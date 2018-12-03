@@ -1,30 +1,38 @@
 <view class='container flex_column'>
-  <view class='input-view flex_row flex_center'>
-    <view class='title'>收货人</view>
-    <input placeholder='姓名' class='col-1' placeholder-class='input_placeholder'></input>
-  </view>
-  <view class='input-view flex_row flex_center'>
-    <view class='title'>手机号码</view>
-    <input placeholder='手机号码' class='col-1' placeholder-class='input_placeholder'></input>
-  </view>
-  <view class='input-view flex_row flex_center'>
-    <view class='title'>地区信息</view>
-    <picker mode="region" class='col-1' bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-      <view class="picker flex_row">
-        {{region[0]}}，{{region[1]}}，{{region[2]}}
-      </view>
-    </picker>
-  </view>
-  <view class='input-view flex_row flex_center'>
-    <view class='title'>详细地址</view>
-    <input placeholder='详细地址' class='col-1' placeholder-class='input_placeholder'></input>
+  <myHeader bg_color='#F24A6B' font_color='#ffffff' bg_image='/images/my_bg7.jpg' />
+<view class='flex_column' style='padding: 30rpx;'>
+  <view class='book-info flex_row' style='padding: 10rpx 20rpx;'>
+    <image src='/images/image_none.png' mode='aspectFill' class='book-image'></image>
+    <view>
+      <view class='book-name one_line'>****书</view>
+      <view class='book-number'>数量：1</view>
+      <view class='book-price'>支付金额：￥100</view>
+    </view>
   </view>
 
-  <view class='price'>
-    <view>支付金额：￥100</view>
-    <view>****书：数量（1）</view>
+  <view class='book-info'>
+    <view class='input-view flex_row flex_center'>
+      <view class='title'>收货人</view>
+      <input placeholder='姓名' class='col-1' placeholder-class='input_placeholder'></input>
+    </view>
+    <view class='input-view flex_row flex_center'>
+      <view class='title'>手机号码</view>
+      <input placeholder='手机号码' class='col-1' placeholder-class='input_placeholder'></input>
+    </view>
+    <view class='input-view flex_row flex_center'>
+      <view class='title'>地区信息</view>
+      <picker mode="region" class='col-1' bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker flex_row">
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+      </picker>
+    </view>
+    <view class='input-view flex_row flex_center'>
+      <view class='title'>详细地址</view>
+      <input placeholder='详细地址' class='col-1' placeholder-class='input_placeholder'></input>
+    </view>
   </view>
 
   <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定并支付</view>
-
+</view>
 </view>

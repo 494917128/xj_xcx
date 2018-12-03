@@ -1,0 +1,49 @@
+<view class='container'>
+  <view class='item content-page'>
+    <view class='item flex_column'>
+      <view class='item-title flex_row'>
+        <image src='{{image_url+"back_pic/1.jpg"}}' mode='aspectFill' class='item-bg'></image>
+        <view class='item-title-content col-1 flex_row'>
+          <image src='{{list[content_index]?list[content_index]:userInfo.avatarUrl}}' class='item-image'></image>
+          <view class='col-1' style='margin-top: 40rpx;'>
+            <view>名字名字名字</view>
+            <view class='date'>2018-12-12 12:12</view>
+            <view class='like flex_row flex_center'>
+              <view class='like_image flex_row'>
+                <image src='{{list[index]?list[index]:userInfo.avatarUrl}}' wx:for='{{8}}' wx:key='{{index}}'></image>
+              </view>
+              <text class='iconfont icon-zan2'></text>100
+            </view>
+          </view>
+        </view>
+      </view>
+      <image src='/images/dotted.png' class='dotted' mode='aspectFill'></image>
+      <scroll-view scroll-y style='height: calc(100vh - 340rpx)'>
+        <view class='content flex_column'>
+          <view class='text flex_row flex_center'>
+            <text class='iconfont icon-PC-keyanchengguo'></text>
+            <text>今日总结：今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今</text>
+          </view>
+          <view class='text flex_row flex_center'>
+            <text class='iconfont icon-nidinghuibao'></text>
+            <text>今日收货：今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今</text>
+          </view>
+          <view class='text flex_row flex_center'>
+            <text class='iconfont icon-jihua'></text>
+            <text>明日计划：明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划</text>
+          </view>
+        </view>
+      </scroll-view>
+      <view class='button-view flex_row flex_center'>
+        <view class='button flex_column flex_center'>
+          <view class='iconfont icon-bianji'></view>
+          编辑
+        </view>
+        <view class='button flex_column flex_center'>
+          <view class='iconfont icon-lajitong'></view>
+          删除
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

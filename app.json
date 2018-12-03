@@ -12,6 +12,9 @@
     "pages/indexCreat/indexCreat",
 
     "pages/found/found",
+
+    "pages/myLog/myLog",
+    "pages/myLogDetail/myLogDetail",
     
     "pages/book/book",
     "pages/bookBuy/bookBuy",

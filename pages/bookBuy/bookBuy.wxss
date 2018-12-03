@@ -1,9 +1,25 @@
 .container{
   min-height: 100vh;
-  padding: 30rpx;
   background-color: #f7f4f0;
   position: relative;
   box-sizing: border-box;
+}
+
+.book-image{
+  width: 180rpx;
+  height: 180rpx;
+  border: 1px solid #fff;
+  margin-right: 20rpx;
+}
+.book-info{
+  font-size: 32rpx;
+  border-bottom: 1px solid #dcdcdc;
+  line-height: 1.8;
+  margin: 15rpx 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 2rpx 4rpx 20rpx #ddd;
 }
 
 .input-view{
@@ -24,20 +40,13 @@
   align-items: center;
 }
 
-.container .price{
-  font-size: 36rpx;
-  margin-top: 40rpx;
-  margin-left: 20rpx;
-  line-height: 2;
-}
-
 .container .btn{
   align-self: center;
   width: 580rpx;
   height: 100rpx;
   border-radius: 100rpx;
   font-size: 36rpx;
-  margin-top: 120rpx;
-  background-color: #21e495;
+  margin-top: 40rpx;
+  background-color: #F25975;
   color: #fff;
 }

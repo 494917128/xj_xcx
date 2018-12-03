@@ -3,7 +3,7 @@
   <myHeader bg_color='#58c7c3' font_color='#ffffff' bg_image='/images/my_bg6.png' ></myHeader>
 
   <view class='flex_row flex_center' style='position: relative;flex: 1'>
-    <navigator url='/pages/plan/plan?title=行动计划' class='btn flex_row flex_center' hover-class='button_hover'>开始旅行</navigator>
+    <navigator url='/pages/plan/plan' class='btn flex_row flex_center' hover-class='button_hover'>开始旅行</navigator>
     <myAdd nav='{{nav}}' class='add' bg_color='#76cec7' />
   </view>
 

@@ -13,8 +13,6 @@ Page({
     })
   },
   onLoad(options) {
-    wx.setNavigationBarTitle({
-      title: options.title
-    })
+
   }
 })

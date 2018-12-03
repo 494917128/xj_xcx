@@ -1,0 +1,202 @@
+.container{
+  background-color: #f7f4f0;
+  height: 100vh;
+}
+.header{
+  border-bottom: 1px solid #dcdcdc;
+  background-color: #4A52F2;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.header .bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dateTime{
+  position: relative;
+  align-items: center;
+  padding: 10rpx 40rpx;
+}
+.date-mouth{
+  font-size: 60rpx;
+  font-weight: bold;
+  line-height: 1;
+  margin-right: 10rpx;
+}
+.date-day,.date-year{
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+.date-year .iconfont{
+  font-size: 20rpx;
+  padding: 0 10rpx;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+.date-year .iconfont.active{
+  transform: rotate(180deg);
+}
+
+
+.nav-container{
+  position: relative;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: all 0.5s;
+}
+.nav-container.active{
+  opacity: 1;
+  height: 90rpx;
+  visibility: initial;  
+}
+.nav{
+  height: 90rpx;
+}
+.nav-item{
+  font-size: 28rpx;
+}
+.nav-item .iconfont{
+  font-size: 32rpx;
+  padding: 0 0 12rpx;
+}
+
+.search{
+  position: relative;
+  margin: 10rpx 30rpx 20rpx;
+  background-color: #E6E6E6;
+  opacity: 0.7;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+
+/* 日历 */
+swiper{
+  height: 480rpx;
+}
+.calendar-header{
+  border-bottom: 1px solid #dcdcdc;
+  padding: 20rpx 0;
+  background-color: #fff;
+}
+.calendar-week{
+  width: calc(100% / 7);
+}
+.calendar-body{
+  flex-wrap: wrap;
+}
+.calendar-date{
+  width: calc(100% / 7);
+  position: relative;
+}
+.calendar-date.active .text{
+  border-radius: 50%;
+  background-color: #4A52F2;
+  color: #fff;
+}
+.calendar-date.before,.calendar-date.after{
+  color: #ccc;
+}
+.calendar-date .text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80rpx;
+  height: 80rpx;
+}
+.calendar-date .text text{
+  position: absolute;
+  width: 10rpx;
+  height: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+/* 列表 */
+.list{
+  height: 100%;
+  overflow: hidden;
+}
+.list-item-view{
+  overflow: hidden;
+  border-radius: 20rpx;
+  background-color: #fff;
+  box-shadow: 2rpx 4rpx 20rpx #ccc;
+  margin: 20rpx 30rpx 0;
+  padding-left: 36rpx;
+}
+.list-item-view:last-child{
+  margin-bottom: 20rpx;
+}
+.list-mouth{
+  align-items: center;
+  font-size: 30rpx;
+  color: #167bE0;
+  border-bottom: 1px solid #dcdcdc;
+  height: 70rpx;
+}
+.list-item{
+  padding-right: 40rpx;
+  border-bottom: 1px solid #dcdcdc;
+}
+.list-item:last-child{
+  border-bottom: none;
+}
+.list-day{
+  flex-shrink: 0;
+  font-size: 24rpx;
+  width: 60rpx;
+  margin-right: 30rpx;
+}
+.list-number{
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.list-content{
+  justify-content: center;
+  overflow: hidden;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  font-weight: bold;
+  height: 160rpx;
+}
+.list-content .iconfont{
+  margin-right: 16rpx;
+  font-size: 28rpx;
+}
+
+
+.today_btn,.add_btn{
+  position: absolute;
+  bottom: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 32rpx;
+}
+.today_btn{
+  right: 190rpx;
+  background-color: #4A52F2;
+  box-shadow: 2rpx 4rpx 20rpx #4A52F2;
+}
+.add_btn{
+  right: 50rpx;
+  background-color: #B5B8C9;
+  box-shadow: 2rpx 4rpx 20rpx #B5B8C9;
+  transform: rotate(45deg);
+}

@@ -35,7 +35,7 @@
 </scroll-view>
 
 <myBtn>
-  <navigator url='/pages/program/meetingHeaderExample/meetingHeaderExample'>
+  <navigator url='/pages/myLog/myLog'>
     <image src='{{userInfo.avatarUrl}}' mode='aspectFill' class='person_center_iconfont iconfont icon-wode flex_row flex_center'></image>
     <view>我的</view>
     <view>日志</view>

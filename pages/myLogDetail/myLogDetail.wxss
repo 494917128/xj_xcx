@@ -1,25 +1,15 @@
-@import '/components/myBtn/myBtn.wxss';
 .container{
   height: 100vh;
-}
-
-.container .header{
-  margin: 50rpx 30rpx 0;
-  width: calc(100vw - 60rpx);
-  height: 360rpx;
-  border-radius: 20rpx;
 }
 
 .container .title{
   padding: 0 30rpx;
 }
 .container .list{
-  padding: 0 30rpx;
   flex-wrap: wrap;
   padding-bottom: 30rpx;
 }
 .item{
-  border-radius: 20rpx;
   overflow: hidden;
   margin-top: 30rpx;
   box-shadow: 2rpx 4rpx 20rpx #ccc;
@@ -93,22 +83,15 @@
   
 }
 
-
-
 .content-page{
   position: fixed;
-  width: calc(100vw - 60rpx);
+  width: calc(100vw);
   background-color: #fff;
   top: 0;
-  left: 30rpx;  
-  height: 372rpx;
+  left: 0;  
   overflow-y: auto;
-  visibility: hidden;
-  transform: initial;
-}
-.content-page.active{
-  height: calc(100vh - 60rpx);
-  transform: translateY(30rpx)!important;
+
+  height: calc(100vh);
   visibility: initial;
 }
 .content-page .item{
@@ -121,12 +104,6 @@
 .like_image{
   margin-right: 10rpx;
   transform-origin: 100% 50%;
-
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.5s;
-}
-.content-page.active .like_image{
   opacity: 1;
   transform: scale(1);
 }
@@ -138,31 +115,16 @@
   margin-left: -10rpx;
 }
 
-.content_button_view{
-  position: absolute;
-  bottom: 40rpx;
-  left: 20rpx;
 
-  transform: scale(0);
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.5s;
+
+.button-view{
+  height: 100rpx;
 }
-.content_button_view.show{
-  transform: scale(1);
-  visibility: initial;
-  opacity: 1;
+.button-view .iconfont{
+  margin-bottom: 10rpx;
+  font-size: 36rpx;
 }
-.content_button{
-  width: 80rpx;
-  height: 80rpx;
-  margin-right: 20rpx;
-  box-shadow: 0 0 20rpx #999;
-  color: #888;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  font-size: 24rpx;
-}
-.content_button.active .iconfont{
-  color: red;
+.button{
+  padding: 0 40rpx;
+  font-size: 28rpx;
 }
