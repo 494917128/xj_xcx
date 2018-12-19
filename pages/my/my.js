@@ -6,8 +6,8 @@ Page({
   data: {
     aa: 1,
     list: [
-      { name: '我的订单', image: '/images/icon/ziyuan9.png', link: '/pages/myOrder/myOrder?title=订单' },
-      { name: '了解玩法', image: '/images/icon/faxian.png', link: '/pages/method/method?title=' },
+      { name: '我的订单', icon: 'icon-order', link: '/pages/myOrder/myOrder?title=订单' },
+      { name: '了解玩法', icon: 'icon-flag', link: '/pages/method/method?title=' },
     ]
   },
   onLoad() { 

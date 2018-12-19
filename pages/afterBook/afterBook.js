@@ -8,7 +8,7 @@ Page({
   },
   submit() {
     wx.redirectTo({
-      url: '/pages/afterBookSuccess/afterBookSuccess',
+      url: '/pages/success/success',
     })
   },
   onLoad() {

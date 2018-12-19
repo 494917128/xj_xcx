@@ -15,7 +15,7 @@ Page({
   },
   submit() {
     wx.redirectTo({
-      url: '/pages/bookBuySuccess/bookBuySuccess',
+      url: '/pages/success/success',
     })
   },
   onLoad() {

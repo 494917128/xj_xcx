@@ -1,22 +1,28 @@
 <view class='container'>
-  <myHeader bg_color='#e2edf3' font_color='#000000' bg_image='/images/my_bg.jpg' >
+  <myHeader bg_color='#90D4C5' font_color='#ffffff' bg_image='/images/my_bg.jpg' >
     <view class='header_content flex_row'>
       <image src='{{userInfo.avatarUrl}}' class='header_image'></image>
       <text>{{userInfo.nickName}}</text>
     </view>
+    <image src='/images/index_cloud.png' mode='widthFix' class='index_cloud'></image>
+    <image src='/images/balloon1.png' mode='widthFix' class='balloon'></image>
+    <image src='/images/balloon2.png' mode='widthFix' class='balloon balloon2'></image>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud'></image>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud2'></image>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud3'></image>
   </myHeader>
 
 
   <view class='nav flex_row'>
     <navigator url='/pages/myInfo/myInfo?title=消息' class='flex_row flex_center col-1'>
       <view class='item flex_row flex_center col-1'>
-        <image src='/images/icon/ziyuan15.png'></image>
+        <view class='iconfont icon-interactive'></view>
         我的消息
       </view>
     </navigator>
     <navigator url='/pages/myIntegral/myIntegral?title=积分' class='flex_row flex_center col-1'>
       <view class='item flex_row flex_center col-1'>
-        <image src='/images/icon/ziyuan13.png'></image>
+        <view class='iconfont icon-select'></view>
         我的积分100
       </view>
     </navigator>
@@ -24,7 +30,7 @@
 
   <view class='list'>
     <navigator url='{{item.link}}' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
-      <image src='{{item.image}}' class='icon'></image>
+      <view class='icon iconfont {{item.icon}} flex_row flex_center'></view>
       <text class='col-1'>{{item.name}}</text>
       <view class='iconfont icon-right'></view>
     </navigator>

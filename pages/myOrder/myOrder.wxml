@@ -1,5 +1,5 @@
 <view class='container'>
-  <myHeader bg_color='#e2edf3' font_color='#000000' bg_image='/images/my_bg.jpg' >
+  <myHeader bg_color='#90D4C5' font_color='#ffffff' bg_image='/images/my_bg.jpg' >
     <view class='header flex_column'>
       <view class='header_title'>{{title}}</view>
 

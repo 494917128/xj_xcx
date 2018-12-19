@@ -8,17 +8,11 @@
           <view class='col-1' style='margin-top: 40rpx;'>
             <view>名字名字名字</view>
             <view class='date'>2018-12-12 12:12</view>
-            <view class='like flex_row flex_center'>
-              <view class='like_image flex_row'>
-                <image src='{{list[index]?list[index]:userInfo.avatarUrl}}' wx:for='{{8}}' wx:key='{{index}}'></image>
-              </view>
-              <text class='iconfont icon-zan2'></text>100
-            </view>
           </view>
         </view>
       </view>
       <image src='/images/dotted.png' class='dotted' mode='aspectFill'></image>
-      <scroll-view scroll-y style='height: calc(100vh - 340rpx)'>
+      <scroll-view scroll-y style='height: calc(100vh - 470rpx)'>
         <view class='content flex_column'>
           <view class='text flex_row flex_center'>
             <text class='iconfont icon-PC-keyanchengguo'></text>
@@ -33,12 +27,45 @@
             <text>明日计划：明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划</text>
           </view>
         </view>
+
+        <view class='scroll-title flex_row'><text class='iconfont icon-dianzan'></text>点赞：</view>
+        <scroll-view scroll-x class='like-scroll'>
+          <view class='like flex_row'>
+            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
+              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
+              <view class='one_line'>名字名字名字名字名字</view>
+            </view>
+            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
+              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
+              <text>名字</text>
+            </view>
+            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
+              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
+              <text>名字</text>
+            </view>
+          </view>
+        </scroll-view>
+        <view class='scroll-title flex_row'><text class='iconfont icon-shoucang1'></text>关注：</view>
+        <scroll-view scroll-x class='like-scroll'>
+          <view class='like flex_row'>
+            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
+              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
+              <view class='one_line'>名字名字名字名字名字</view>
+            </view>
+            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
+              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
+              <text>名字</text>
+            </view>
+            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
+              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
+              <text>名字</text>
+            </view>
+          </view>
+        </scroll-view>
       </scroll-view>
+
+
       <view class='button-view flex_row flex_center'>
-        <view class='button flex_column flex_center'>
-          <view class='iconfont icon-bianji'></view>
-          编辑
-        </view>
         <view class='button flex_column flex_center'>
           <view class='iconfont icon-lajitong'></view>
           删除

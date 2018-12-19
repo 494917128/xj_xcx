@@ -1,6 +1,14 @@
 <view class='container flex_column'>
 
-  <myHeader bg_color='#58c7c3' font_color='#ffffff' bg_image='/images/my_bg6.png' ></myHeader>
+  <myHeader bg_color='#58c7c3' font_color='#ffffff' bg_image='/images/my_bg6.png' >
+    <view class='circle'></view>
+    <view class='circle circle2'></view>
+    <view class='circle circle3'></view>
+    <view class='circle circle4'></view>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud'></image>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud2'></image>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud3'></image>
+  </myHeader>
 
   <view class='flex_row flex_center' style='position: relative;flex: 1'>
     <navigator url='/pages/plan/plan' class='btn flex_row flex_center' hover-class='button_hover'>开始旅行</navigator>

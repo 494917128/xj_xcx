@@ -1,0 +1,18 @@
+<view class='container flex_column'>
+  <myHeader bg_color='#0074C7' font_color='#ffffff' bg_image='/images/my_bg10.jpg' >
+    <view class='success flex_column flex_center'>
+      <view class='success_line success_line1'></view>
+      <view class='success_line success_line2'></view>
+      <view class='success_ring'></view>
+    </view>
+    <image src='/images/successCloud.png' mode='widthFix' class='cloud'></image>
+    <image src='/images/successCloud.png' mode='widthFix' class='cloud2'></image>
+    <image src='/images/successCloud.png' mode='widthFix' class='cloud3'></image>
+    <view class='cover'></view>
+  </myHeader>
+  <view class='flex_column flex_center'>
+    <view class='title'>恭喜达成 坚持1天</view>
+    <view class='text'>获得积分 10个</view>
+    <button open-type='share' class='share flex_row flex_center'>分享</button>
+  </view>
+</view>

@@ -3,12 +3,12 @@
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
-  border: 1px solid #000;
+  border: 1px solid #fff;
   margin: 0 36rpx;
 }
 .container .header_content{
   width: 100%;
-  color: #000;
+  color: #fff;
   font-size: 32rpx;
   align-items: center;
   position: absolute;
@@ -16,32 +16,87 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
 }
 .container .header .header_bg{
   width: 100%;
   z-index: -1;
 }
+.balloon{
+  width: 60rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  animation: balloon 16s ease-in-out infinite;
+}
+.balloon2{
+  right: 240rpx;
+  width: 100rpx;
+  bottom: 50rpx;
+  animation-delay: -8s;
+  animation-duration: 20s;
+}
+@keyframes balloon{
+  0%{ transform: translateY(-30%) }
+  50%{ transform: translateY(30%) }
+  100%{ transform: translateY(-30%) }
+}
+.cloud,.cloud2,.cloud3{
+  position: absolute;
+  right: 0;
+  bottom: 15rpx;
+  width: 400%;
+  animation: cloud 15s linear infinite;
+}
+.cloud2 {
+  opacity: .6;
+  animation-duration: 10s;
+  animation-delay: -2s;
+}
+.cloud3{
+  opacity: .3;
+  animation-duration: 20s;
+  animation-delay: -4s;
+}
+@keyframes cloud {
+  from {transform: translate(0)}
+  to {transform: translate(75%)}
+}
+.index_cloud{
+  position: absolute;
+  right: 0;
+  top: -40rpx;
+  width: 200%;
+  animation: index_cloud 15s linear infinite;
+}
+@keyframes index_cloud{
+  from {transform: translate(0)}
+  to {transform: translate(50%)}
+}
+
+
 
 .container .nav{
   height: 150rpx;
   border-bottom: 30rpx solid #f2f2f2;
 }
 .container .nav .item{
-  border-left: 1px solid #E7E7E7;
-  border-right: 1px solid #E7E7E7;
+  border-right: 1px solid #90D4C5;
   height: 100rpx;
   font-size: 34rpx;
 }
-.container .nav navigator:first-child .item{
-  border-left: 0;
-}
+
 .container .nav navigator:last-child .item{
   border-right: 0;
 }
-.container .nav .item image{
+.container .nav .item .iconfont{
   margin-right: 20rpx;
   width: 50rpx;
   height: 50rpx;
+  font-size: 50rpx;
+  color: #76cec7;
 }
 
 .container .list .item{
@@ -52,10 +107,11 @@
 }
 .container .list .item .icon{
   margin-right: 40rpx;
-  width: 40rpx;
-  height: 40rpx;
-  font-size: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
+  font-size: 50rpx;
   text-align: center;
+  color: #76cec7;
 }
 .container .list .item::after{
   content: '';
@@ -64,6 +120,5 @@
   right: 30rpx;
   left: 110rpx;
   height: 1px;
-  background-color: #E6E6E6;
-  box-shadow: 0 2rpx 2rpx #E6E6E6;
+  background-color: #90D4C5;
 }

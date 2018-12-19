@@ -13,5 +13,15 @@ Page({
 
   onLoad() { 
     util.wxLogin()
+  },
+  onShareAppMessage: function () {
+    return {
+      success: (res) => {
+        wx.navigateTo({ url: '/pages/success/success' })
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
   }
 })

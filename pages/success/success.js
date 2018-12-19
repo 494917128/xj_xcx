@@ -5,14 +5,10 @@ const app = getApp(),
 Page({
   data: {
     image_url: app.image_url,
-    title_image: 'back_pic/1.jpg',
-  },
-  submit(){
-    wx.redirectTo({
-      url: '/pages/success/success',
-    })
   },
   onLoad(options) {
 
+  },
+  onShareAppMessage: function () {
   }
 })

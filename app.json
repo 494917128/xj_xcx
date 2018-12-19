@@ -8,6 +8,8 @@
     "pages/planImage/planImage",
     "pages/afterBook/afterBook",
     "pages/afterBookSuccess/afterBookSuccess",
+
+    "pages/success/success",
     
     "pages/indexCreat/indexCreat",
 
@@ -30,25 +32,25 @@
   ],
   "tabBar": {
     "color": "#666666",
-    "selectedColor": "#FFCB57",
+    "selectedColor": "#76CEC7",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/icon/ziyuan24.png",
-        "selectedIconPath": "images/icon/ziyuan24.png"
+        "iconPath": "images/icon/index.png",
+        "selectedIconPath": "images/icon/index_active.png"
       },
       {
         "pagePath": "pages/found/found",
         "text": "发现",
-        "iconPath": "images/icon/ziyuan23.png",
-        "selectedIconPath": "images/icon/ziyuan23.png"
+        "iconPath": "images/icon/found.png",
+        "selectedIconPath": "images/icon/found_active.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "images/icon/ziyuan.png",
-        "selectedIconPath": "images/icon/ziyuan.png"
+        "iconPath": "images/icon/user.png",
+        "selectedIconPath": "images/icon/user_active.png"
       }
     ]
   },
