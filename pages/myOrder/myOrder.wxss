@@ -6,7 +6,7 @@
 
 .header{
   height: 100%;
-  color: #000;
+  color: #fff;
   padding: 20rpx 30rpx;
   box-sizing: border-box;
 }
@@ -18,4 +18,39 @@
   align-items: flex-end;
   font-size: 100rpx;
   line-height: 1;
+}
+
+
+.order_item{
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+}
+.order_item_image{
+  width: 160rpx;
+  height: 160rpx;
+  flex-shrink: 0;
+  padding: 20rpx 0;
+}
+.order_item_info{
+  align-self: stretch;
+  color: #999;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  margin-left: 30rpx;
+  line-height: 1.6;
+  flex: 1;
+}
+.order_item_info_name{
+  font-size: 32rpx;
+  justify-content: space-between;
+}
+.icon-right.iconfont{
+  flex-shrink: 0;
+  color: #bbb;
+  font-size: 32rpx;
+  width: 60rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-top: 3rpx solid #F3F3F3;
+  border-bottom: 3rpx solid #F3F3F3;
 }

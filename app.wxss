@@ -39,7 +39,7 @@ rich-text .rich-img {
   margin: auto;
   width: 60rpx;
   height: 4rpx;
-  background-color: #03A9F4;
+  background-color: #21e495;
 }
 .main_line{
   height: 60rpx;
@@ -76,7 +76,7 @@ rich-text .rich-img {
 }
 .secondary_title::after{
   content: "";
-  background-color: #03A9F4;
+  background-color: #21e495;
   width: 110rpx;
   height: 4rpx;
 }
@@ -174,7 +174,7 @@ rich-text .rich-img {
 
 
 .main_color{
-  color: #03A9F4;
+  color: #21e495;
 }
 .primary_bg{
   color: #ffffff;
@@ -182,7 +182,7 @@ rich-text .rich-img {
 }
 .info_bg{
   color: #ffffff;
-  background-color: #03a9f4;
+  background-color: #21e495;
 }
 .danger_bg{
   color: #ffffff;
@@ -199,11 +199,12 @@ rich-text .rich-img {
   background-color: #ddd;
 }
 .main_bg{
-  background-color: #03A9F4;
+  /* background-color: #76cec7; */
+  background-color: #21e495;
   color: #fff;
 }
 .main_border{
-  border: 1px solid #03A9F4;
+  border: 1px solid #21e495;
 }
 
 
@@ -225,6 +226,16 @@ rich-text .rich-img {
   word-wrap: break-word;
   white-space: normal;
   -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.three_line{
+	display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 

@@ -28,6 +28,8 @@
 }
 .content .title{
   font-size: 30rpx;
+  line-height: 1.4;
+  padding-bottom: 10rpx;
 }
 .content .time{
   color: #a0a0a0;

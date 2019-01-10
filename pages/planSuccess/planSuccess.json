@@ -1,9 +1,0 @@
-{
-  "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#162542",
-  "navigationBarTitleText": "恭喜达成",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "myHeader": "/components/myHeader/myHeader"
-  }
-}

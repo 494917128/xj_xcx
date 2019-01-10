@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "myHeader": "/components/myHeader/myHeader",
-    "myList": "/components/myList/myList"
-  }
+    "myList": "/components/myList/myList",
+    "myLoading": "/components/myLoading/myLoading"
+  },
+  "enablePullDownRefresh": true
 }

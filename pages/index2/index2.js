@@ -12,6 +12,6 @@ Page({
   },
 
   onLoad() {
-    util.wxLogin()
+    util.getUserInfo()
   }
 })

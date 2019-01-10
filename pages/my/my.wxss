@@ -1,7 +1,11 @@
-
+.container{
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
 .container .header_image{
-  width: 100rpx;
-  height: 100rpx;
+  width: 180rpx;
+  height: 180rpx;
   border-radius: 50%;
   border: 1px solid #fff;
   margin: 0 36rpx;
@@ -10,6 +14,7 @@
   width: 100%;
   color: #fff;
   font-size: 32rpx;
+  line-height: 2;
   align-items: center;
   position: absolute;
   top: 0;
@@ -46,8 +51,10 @@
 .cloud,.cloud2,.cloud3{
   position: absolute;
   right: 0;
-  bottom: 15rpx;
-  width: 400%;
+  bottom: 0;
+  width: 100%;
+  transform-origin: 100% 100%;
+  transform: scale(4);
   animation: cloud 15s linear infinite;
 }
 .cloud2 {
@@ -61,19 +68,21 @@
   animation-delay: -4s;
 }
 @keyframes cloud {
-  from {transform: translate(0)}
-  to {transform: translate(75%)}
+  from {transform: translate(0) scale(4)}
+  to {transform: translate(300%) scale(4)}
 }
 .index_cloud{
   position: absolute;
   right: 0;
   top: -40rpx;
-  width: 200%;
+  width: 100%;
+  transform-origin: 100% 0;
+  transform: scale(2);
   animation: index_cloud 15s linear infinite;
 }
 @keyframes index_cloud{
-  from {transform: translate(0)}
-  to {transform: translate(50%)}
+  from {transform: translate(0) scale(2)}
+  to {transform: translate(100%) scale(2)}
 }
 
 
@@ -81,22 +90,28 @@
 .container .nav{
   height: 150rpx;
   border-bottom: 30rpx solid #f2f2f2;
+  align-items: center;
 }
 .container .nav .item{
-  border-right: 1px solid #90D4C5;
-  height: 100rpx;
+  height: 60rpx;
   font-size: 34rpx;
 }
+.nav_line{
+  width: 1px;
+  height: 100rpx;
+  background-color: #90D4C5;
+}
 
-.container .nav navigator:last-child .item{
-  border-right: 0;
+.icon-image{
+  margin-right: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 .container .nav .item .iconfont{
   margin-right: 20rpx;
   width: 50rpx;
   height: 50rpx;
   font-size: 50rpx;
-  color: #76cec7;
 }
 
 .container .list .item{
@@ -105,13 +120,21 @@
   font-size: 34rpx;
   position: relative;
 }
+.message_prompt{
+  position: absolute;
+  top: -6rpx;
+  right: -8rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #F43530;
+}
 .container .list .item .icon{
   margin-right: 40rpx;
   width: 50rpx;
   height: 50rpx;
   font-size: 50rpx;
   text-align: center;
-  color: #76cec7;
 }
 .container .list .item::after{
   content: '';

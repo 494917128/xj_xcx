@@ -1,6 +1,9 @@
 <view class='container flex_column'>
 
-  <myHeader bg_color='#58c7c3' font_color='#ffffff' bg_image='/images/my_bg6.png' >
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' style='border-top:180rpx solid #58c7c3' >
+    <view class='myHeader_title flex_row flex_center'>
+      <image src='{{title_image}}' mode='widthFix'></image>
+    </view>
     <view class='circle'></view>
     <view class='circle circle2'></view>
     <view class='circle circle3'></view>
@@ -11,12 +14,18 @@
   </myHeader>
 
   <view class='flex_row flex_center' style='position: relative;flex: 1'>
-    <navigator url='/pages/plan/plan' class='btn flex_row flex_center' hover-class='button_hover'>开始旅行</navigator>
-    <myAdd nav='{{nav}}' class='add' bg_color='#76cec7' />
+    <navigator url='/pages/plan/plan' class='btn flex_row flex_center main_bg' hover-class='button_hover'>开始旅行</navigator>
+    <myAdd nav='{{nav}}' class='add' bg_color='#39B54A' />
   </view>
 
-  <image src='/images/bg_7.png' mode='widthFix' style='width:100%;display:block'></image>
+  <image src='{{foot_image}}' mode='widthFix' style='width:100%;display:block'></image>
 </view>
 
+<view class='guide-cover flex_row flex_center {{guide?"active":""}}' bindtap='guideClose'>
+  <view class='guide'>
+    <image src='{{guide_image}}' mode='widthFix' catchtap='close'></image>
+    <view class='guide-close iconfont icon-close flex_row flex_center'></view>
+  </view>
+</view>
 
 <myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

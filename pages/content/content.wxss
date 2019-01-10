@@ -1,0 +1,23 @@
+.container{
+  padding: 10rpx 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #f0f4f7;
+}
+.title{
+  font-size: 44rpx;
+  line-height: 1.4;
+  padding: 30rpx 5rpx;
+  font-weight: bold;
+}
+.time{
+  font-size: 32rpx;
+  color: #a0a0a0;
+  padding: 10rpx 0;
+}
+
+rich-text{
+  margin-top: 30rpx;
+  font-size: 32rpx;
+  line-height: 1.5;
+}

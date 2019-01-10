@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarTitleText": "读后感",
+  "usingComponents": {
+    "myHeader": "/components/myHeader/myHeader",
+    "myLoading": "/components/myLoading/myLoading"
+  },
+  "enablePullDownRefresh": true
+}

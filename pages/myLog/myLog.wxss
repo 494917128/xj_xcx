@@ -23,7 +23,7 @@
 .dateTime{
   position: relative;
   align-items: center;
-  padding: 10rpx 40rpx;
+  padding: 10rpx 40rpx 20rpx;
 }
 .date-mouth{
   font-size: 60rpx;
@@ -78,6 +78,12 @@
   height: 80rpx;
   border-radius: 10rpx;
 }
+.search input{
+  height: 100%;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+  color: #333;
+}
 
 /* 日历 */
 swiper{
@@ -113,17 +119,21 @@ swiper{
   width: 80rpx;
   height: 80rpx;
 }
-.calendar-date .text text{
+.calendar-date .text .has_plan{
   position: absolute;
-  width: 10rpx;
-  height: 10rpx;
+
   display: flex;
   align-items: center;
   justify-content: center;
   top: 0;
   left: 0;
   right: 0;
-  margin: auto;
+  margin: 8rpx auto;
+
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background-color: #a0a0a0;
 }
 
 /* 列表 */
@@ -168,15 +178,25 @@ swiper{
 }
 .list-content{
   justify-content: center;
+  align-items: flex-start;
   overflow: hidden;
   font-size: 28rpx;
   line-height: 42rpx;
   font-weight: bold;
   height: 160rpx;
 }
+.list-content-text{
+  width: 100%;
+  overflow: hidden;
+}
 .list-content .iconfont{
   margin-right: 16rpx;
   font-size: 28rpx;
+}
+.list-none{
+  font-size: 32rpx;
+  width: 100%;
+  height: calc(100% - 1px);
 }
 
 

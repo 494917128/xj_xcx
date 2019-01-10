@@ -1,0 +1,25 @@
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' >
+      <!-- <view class='moments_title'>
+        <text class='moments_title_name one_line'>{{userinfo.nickname}}</text>
+        <image src='{{userinfo.headimgurl}}' mode='aspectFill' class='moments_title_photo'></image>
+      </view> -->
+  </myHeader>
+
+      <view class='moments_item flex_row' wx:for='{{list}}' wx:key='{{index}}'>
+        <image src='{{item.user.head_portrait}}' mode='aspectFill' class='moments_item_photo'></image>
+        <view class='flex_column' style='width: calc(100% - 110rpx);'>
+          <view class='moments_item_title flex_row'>
+            <text class='moments_item_name one_line'>{{item.user.nickname}}</text>
+          </view>
+          <text class='moments_item_text'>{{item.content}}</text>
+          <view class='flex_row moments_item_image_view'>
+            <!-- 多个图片时显示 -->
+            <image src='{{image}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.images}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{idx<9}}" bindtap="previewImage" data-image="{{image}}" data-images="{{item.images}}"></image>
+          </view>
+          <view class='flex_row flex_centere' style='justify-content:space-between'>
+            <text class='moments_item_time'>{{item.add_times}}</text>
+          </view>
+        </view>
+      </view>
+
+    <myLoading loading='{{loading}}' list_max='{{list_max}}' />

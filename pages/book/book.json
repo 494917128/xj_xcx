@@ -1,8 +1,6 @@
 {
   "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#430292",
   "navigationBarTitleText": "书籍",
-  "navigationBarTextStyle": "white",
   "usingComponents": {
     "myOpenSetting": "/components/myOpenSetting/myOpenSetting"
   }

@@ -5,14 +5,21 @@
       <view class='success_line success_line2'></view>
       <view class='success_ring'></view>
     </view>
+    <!-- <canvas class='cloud_canvas' canvas-id='cloud1'></canvas>
+    <canvas class='cloud_canvas' canvas-id='cloud2'></canvas>
+    <canvas class='cloud_canvas' canvas-id='cloud3'></canvas> -->
     <image src='/images/successCloud.png' mode='widthFix' class='cloud'></image>
     <image src='/images/successCloud.png' mode='widthFix' class='cloud2'></image>
     <image src='/images/successCloud.png' mode='widthFix' class='cloud3'></image>
     <view class='cover'></view>
   </myHeader>
-  <view class='flex_column flex_center'>
-    <view class='title'>恭喜达成 坚持1天</view>
-    <view class='text'>获得积分 10个</view>
-    <button open-type='share' class='share flex_row flex_center'>分享</button>
+
+  <view class='flex_column flex_center col-1' style='position: relative;overflow: initial'>
+    <view class='bg flex_row flex_center'>
+      <image src='/images/success_bg.png' mode='widthFix'></image>
+    </view>
+    <text class='title'>{{title}}</text>
+    <view class='text'>获得积分 {{integral}}个</view>
+    <button open-type='share' hover-class='button_hover' class='share flex_row flex_center'>分享</button>
   </view>
 </view>

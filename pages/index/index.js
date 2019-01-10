@@ -10,18 +10,36 @@ Page({
       { title: '购买书籍', icon: 'icon-wodeshouhuo', image: '/images/book2.png', image_bg: '#21e495', url: '/pages/book/book' },
     ],
   },
-
+  guideClose() {
+    this.setData({
+      guide: false
+    })
+  },
   onLoad() { 
+    var _this = this
+    // if(!wx.getStorageSync('firstLogin')){
+      this.setData({
+        guide: true,
+      })
+      // wx.setStorageSync('firstLogin', true)
+    // }
+    // wx.removeStorageSync('firstLogin')
+    util.wxSys(function(){
+      _this.setData({ 
+        title_image: app.globalData.sys.min_index_title_images,
+        guide_image: app.globalData.sys.min_index_modal_images,
+        foot_image: app.globalData.sys.min_index_foot_images,
+      })
+      util.getHeader('index')
+
+    })
     util.wxLogin()
   },
   onShareAppMessage: function () {
     return {
-      success: (res) => {
-        wx.navigateTo({ url: '/pages/success/success' })
-      },
-      fail: (res) => {
-        console.log("转发失败", res);
-      }
+      path: '/pages/index/index',
+      title: app.globalData.sys.min_default_share_prompt,
+      imageUrl: app.globalData.sys.min_default_share_images,
     }
   }
 })

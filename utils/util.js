@@ -34,97 +34,6 @@ const myCode = (_this) => {
   })
 }
 
-// 首页加载各种数据（restart代表是否要重新加载）
-const requestIndex = (_this, user_id, restart) => {
-  if (app.globalData.userInfo && !restart) {
-    _this.setData({
-      user: app.globalData.userInfo,
-      goods: app.globalData.goods,
-      goods_text: app.globalData.goods_text,
-      meida: app.globalData.meida,
-      region: app.globalData.region,
-      address: app.globalData.address,
-      intro: app.globalData.intro,
-      case_label: app.globalData.case_label,
-      carousel_img: app.globalData.carousel_img,
-      is_up: app.globalData.is_up,
-      is_admin: app.globalData.is_admin,
-    })
-  } else {
-    request({
-      url: 'minfo/index',
-      method: 'get',
-      data: {
-        uid: user_id || ''
-      },
-      success: function (res) {
-        var data = JSON.parse(res.data)
-        for (var i = 0, len = data.meida.length; i < len; i++) {
-          data.meida[i].date = formatTime(new Date(Number(data.meida[i].add_time) * 1000))
-        }
-        console.log(data)
-
-        app.globalData.userInfo = data.user
-        app.globalData.goods = data.goods
-        app.globalData.goods_text = data.goods_text
-        app.globalData.meida = data.meida
-        app.globalData.region = data.region
-        app.globalData.address = data.address
-        app.globalData.intro = data.intro
-        app.globalData.case_label = data.label
-        app.globalData.carousel_img = data.carousel_img
-        app.globalData.is_up = data.is_up
-
-        app.globalData.show_user = data.user.user_id// 更改小程序显示的人变成用户
-        app.globalData.is_admin = data.is_admin || 0// 判断是否是管理员
-
-
-        _this.setData({
-          user: app.globalData.userInfo,
-          goods: app.globalData.goods,
-          goods_text: app.globalData.goods_text,
-          meida: app.globalData.meida,
-          region: app.globalData.region,
-          address: app.globalData.address,
-          intro: app.globalData.intro,
-          case_label: app.globalData.case_label,
-          carousel_img: app.globalData.carousel_img,
-          is_up: app.globalData.is_up,
-          is_admin: app.globalData.is_admin,
-        })
-      },
-
-    })
-  }
-  if (app.globalData.qrCode && !restart) {
-    _this.setData({
-      qrCode: app.globalData.qrCode
-    })
-  } else {
-    requestCode(_this, user_id)
-  }
-}
-const requestCode = (_this, user_id) => {
-  request({
-    url: 'qrcode%2Findex',
-    method: 'get',
-    data: {
-      u: user_id || ''
-    },
-    success: function (res) {
-      console.log(res)
-      if (res.data.state == 0) {
-        _this.setData({ qrCode_msg: res.data.data })
-        app.globalData.qrCode_msg = res.data.data
-        console.log(res.data.data)
-      } else {
-        _this.setData({ qrCode: res.data.images })
-        app.globalData.qrCode = res.data.images
-      }
-    }
-  })
-}
-
 const tokenReset = (callback) => {
   var refresh_token = wx.getStorageSync('refreshToken') || ''
   request2({
@@ -159,38 +68,11 @@ const tokenReset = (callback) => {
 // request
 var before_network
 const request = ({ prefix_url, url, data, method, type, success }) => {
-  var token = wx.getStorageSync('userId')
-  if (token) { data.token = token }
-  var ajax = wx.request({
-    url: (prefix_url || app.url) + url,
-    data: data,
-    header: {
-      'content-type': type == 'form' ? 'application/x-www-form-urlencoded' : 'application/json'
-    },
-    method: method || 'POST',
-    dataType: 'json',
-    responseType: 'text',
-    success: success,
-    fail: function () {
-      var callback = () => {
-        request({ prefix_url, url, data, method, type, success })
-      }
-      wx.getNetworkType({
-        success: function (res) {
-          // 返回网络类型
-          noneNetworl(res, callback)
-        }
-      })
-    }
-  })
-  return ajax // 返回实例用于中断请求
-}
-const request2 = ({ prefix_url, url, data, method, type, success }) => {
   var token = wx.getStorageSync('accessToken'),
     old_url = url;
   if (token) { url = url + '&accessToken=' + token; console.log(token) }
   var ajax = wx.request({
-    url: (prefix_url || app.url2) + url,
+    url: (prefix_url || app.url) + url,
     data: data,
     header: {
       'content-type': type == 'form' ? 'application/x-www-form-urlencoded' : 'application/json'
@@ -220,6 +102,7 @@ const request2 = ({ prefix_url, url, data, method, type, success }) => {
         setTimeout(() => {
           // wx.navigateTo({ url: '/pages/login/agent/agent?again=1' })
           wxLogin()
+          wxSys()
         }, 1500)
       } else if (res.data.code == 429) { // 请求过快
         wx.showToast({
@@ -229,7 +112,7 @@ const request2 = ({ prefix_url, url, data, method, type, success }) => {
         })
       } else {
         wx.showToast({
-          title: '请求出错',
+          title: res.data.message||'请求出错',
           icon: 'none',
         })
       }
@@ -249,7 +132,17 @@ const request2 = ({ prefix_url, url, data, method, type, success }) => {
   return ajax // 返回实例用于中断请求
 }
 
-const wxLogin = () => { // √
+const wxSys = (callback) => {
+  request({
+    url: 'v1/sys/index',
+    success(res) {
+      app.globalData.sys = res.data.data
+      callback && callback()
+    }
+  })
+}
+
+const wxLogin = () => { // 
   wx.login({
     success: function (ress) {
       if (ress.code) {
@@ -279,31 +172,49 @@ const wxLogin = () => { // √
 }
 const login = (res) => {
   console.log(res)
-  // var userInfo = JSON.stringify(res.userInfo)
-  // wx.showLoading({
-  //   title: '登录中...',
-  // })
+  var userInfo = JSON.stringify(res.userInfo)
+  wx.showLoading({
+    title: '登录中...',
+  })
   var pages = getCurrentPages();
   var Page = pages[pages.length - 1];  //当前页面
   Page.setData({
     userInfo: res.userInfo
   })
-  // request({
-  //   url: 'login/register',
-  //   data: {
-  //     appid: app.AppID,
-  //     secret: app.AppSecret,
-  //     code: res.code,
-  //     userInfo: userInfo,
-  //     iv: res.iv,
-  //     encryptedData: res.encryptedData,
-  //   },
-  //   method: 'post',
-  //   type: 'form',
-  //   success: function (res) {
-  //     loginCallback(res)
-  //   }
-  // })
+  app.globalData.userInfo = res.userInfo
+  console.log(res)
+  request({
+    url: 'v1/mini-program/login',
+    data: {
+      // appid: app.AppID,
+      // secret: app.AppSecret,
+      code: res.code,
+      // userInfo: userInfo,
+      iv: res.iv,
+      rawData: res.rawData,
+      signature: res.signature,
+      encryptedData: res.encryptedData,
+    },
+    method: 'post',
+    type: 'form',
+    success: function (res) {
+      wx.setStorageSync('accessToken', res.data.data.access_token)
+      wx.setStorageSync('refreshToken', res.data.data.refresh_token)
+      wx.hideLoading()
+      wx.showToast({
+        icon: 'none',
+        title: '登录成功'
+      })
+
+      if (Number(res.data.data.messages_total) > 0) {
+        wx.showTabBarRedDot({ index: 2 })
+      }
+      
+      var pages = getCurrentPages();
+      var Page = pages[pages.length - 1];  //当前页面
+      Page.pageData && Page.pageData()
+    }
+  })
 
 }
 var loginTime = 1
@@ -357,6 +268,19 @@ const loginCallback = (res) => {
     })
   }
 }
+const getUserInfo = () => {
+  var pages = getCurrentPages();
+  var Page = pages[pages.length - 1];  //当前页面
+  if (app.globalData.userInfo){
+    Page.setData({ userInfo: app.globalData.userInfo })
+  } else { 
+    wx.getUserInfo({
+      success: function (res) {
+        Page.setData({ userInfo: res.userInfo })
+      },
+    })
+  }
+}
 
 const upload = ({ url, tempFilePath, callback }) => {
   var token = wx.getStorageSync('accessToken')
@@ -364,10 +288,19 @@ const upload = ({ url, tempFilePath, callback }) => {
     title: '上传中...',
   })
   wx.uploadFile({
-    url: app.upload_url + '&accessToken=' + token + '&file=' + url,
+    url: app.upload_url + '&accessToken=' + token,
     filePath: tempFilePath,
+    formData: {
+      guid: 'wu_1cvfqk6cepb31hipobs32s1744o',
+      id: 'WU_FILE_1',
+      name: 'alipay.jpeg',
+      type: 'image/jpeg',
+      lastModifiedDate: new Date(),
+      size: 167890,
+    },
     name: 'file',
     success: function (res) {
+      console.log(res)
       res = JSON.parse(res.data)
       if (res.code == 200) {
         callback && callback(res.data)
@@ -508,158 +441,64 @@ const saveImage = ({ _this, url, callback, callbackFail }) => {
   })
 }
 
-// 内容列表的搜索
-const contentNavbar = ({ _this, list_name = 'list', ajax, pageData, e }) => {
-  _this.noticeBack && _this.noticeBack()
-  var index = e.detail.currentTarget.dataset.index
-
-  if (index == _this.data.nav_index)
-    return;
-  _this.setData({
-    nav_index: index,
-    notice_content: false,
-  })
-  if (index != 0 && _this.data[list_name].length == 0) {
-    ajax && ajax.abort()
-    pageData && pageData()
-  }
-}
-const contentSearch = ({ _this, search_name = 'search', list_name = 'list', page_name = 'page', ajax, index, search_value = '', pageData }) => {
-  _this.setData({
-    [search_name]: search_value,
-    [list_name]: [],
-    [page_name]: 1,
-  })
-  ajax && ajax.abort()// 结束之前的请求
-  pageData && pageData()
-  console.log(search_value)
-}
-const noticeNext = ({ _this, list_name = 'list', ajax, pageData }) => {
-  var notice_index = _this.data.notice_index
-  if (notice_index == _this.data[list_name].length - 1) {
-    ajax && ajax.abort()
-    pageData && pageData(function () {
-      _this.setData({
-        notice_index: notice_index + 1
-      })
-    })
-  } else {
-    _this.setData({
-      notice_index: notice_index + 1
-    })
-  }
-}
-//type：1为公司通告，2为百问百答，3为公司政策，4为培训资料
-const contentPageData = ({ _this, type, search_name = 'search', list_name = 'list', page_name = 'page', loading_name = 'loading', ajax_name = 'ajax', index, callback, text_type }) => {
-  _this.setData({ [loading_name]: true })// 加载中
-  var list = _this.data[list_name],
-    page = _this.data[page_name],
-    search = _this.data[search_name],
-    data = {
-      Page: page,
-      type: type,
-      content: search || '',
-    }
-  if (text_type) { // 学习资料有专有（文档、语音、视频、其他）
-    data.text_type = text_type
-  }
-
-  var url = 'v1/media/get-media-list'
-  if (type == 2) { url = 'v1/article/get-article-list' } // 百问百答
-  if (type == 5) { url = 'v1/case/get-case-list' } // 客户案例
-  _this[ajax_name] = request2({
-    url: url,
-    method: 'post',
-    data: data,
+// wxPay
+const getWxPay = (order_id, callback, callbackFail) => {
+  request({
+    url: 'v1/order/order-pay',
+    data: {
+      order_id: order_id,
+    },
     type: 'form',
-    success: function (res) {
-      var data = res.data
-      console.log(data)
-      list.push(...data.data.list)
-
-      if (data.data.list.length == 0) {
-        wx.showToast({
-          icon: 'none',
-          title: (search && (page == 1)) ? '未搜索到内容' : '没有更多了'
-        })
-      } else {
-        _this.setData({
-          [page_name]: page + 1,//页数自增
-        })
-      }
-
-      _this.setData({
-        [list_name]: list,
-        [loading_name]: false,
-      })
-
-      data.data.list.length != 0 && callback && callback(data)
+    success(res) {
+      var data = res.data.data
+      wxPay(data.timestamp, data.nonceStr, data.package, data.signType, data.paySign, callback, callbackFail)
     }
   })
 }
-const contentReachBottom = ({ _this, boolean = true, loading_name = 'loading', ajax, index, pageData }) => {
-  console.log('上拉加载')
-  if (!_this.data[loading_name] && !_this.data.notice_content && boolean) {
-    ajax && ajax.abort()
-    pageData && pageData()
-  }
+const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callbackFail) => {
+  wx.requestPayment({
+    timeStamp: timeStamp,
+    nonceStr: nonceStr,
+    package: _package,
+    signType: signType,
+    paySign: paySign,
+    success(res) {
+      wx.hideLoading()
+      callback && callback()
+      wx.redirectTo({
+        url: '/pages/success/success?type=cart',
+      })
+    },
+    fail(res) {
+      wx.hideLoading()
+      callbackFail && callbackFail()
+      console.log(res)
+    }
+  })
 }
-const contentDownRefresh = ({ _this, boolean = true, search_name = 'search', list_name = 'list', page_name = 'page', ajax, index, pageData }) => {
-  console.log('下拉刷新')
-  if (!_this.data.notice_content && boolean) {
-    _this.setData({
-      [search_name]: '',
-      [list_name]: [],
-      [page_name]: 1,
-    })
-    ajax && ajax.abort()
-    pageData()
-    setTimeout(() => { wx.stopPullDownRefresh() }, 1000)
-  } else {
-    wx.stopPullDownRefresh()
-  }
-}
-// 通过转发消息进来
-const contentShare = ({ _this, options, list_name = 'list', ajax, pageData, type }) => {
-  if (options.nav_index) {
-    var e = { detail: { currentTarget: { dataset: { index: Number(options.nav_index) } } } }
-    contentNavbar({
-      _this: _this,
-      list_name: list_name,
-      ajax: ajax,
-      pageData: pageData,
-      e: e
-    })
-  }
-  if (options.notice_id) {
-    _this.setData({
-      notice_content: true,
-    })
-    var data = { id: options.notice_id, type: type ? type : 0, },
-      url = 'minfo/details'
-    if (type == 1) { data = { id: options.notice_id }; url = 'minfo/media-detail' }
-    if (type == 2) { data = { article_id: options.notice_id }; url = 'minfo/article-detail' }
-    request({
-      url: url,
-      method: 'post',
-      type: 'form',
-      data: data,
-      success(res) {
-        var data = JSON.parse(res.data)
-        console.log(data)
-        _this.setData({
-          notice_detail: data.data
-        })
-      }
-    })
-  }
-  app.globalData.show_user = app.globalData.show_user || options.show_user || 1
+
+// 获取myHeader的参数
+const getHeader = (name) => {
+  var image = app.globalData.sys['min_' + name + '_banner_images'],
+    color = app.globalData.sys['min_' + name + '_banner_color']
+
+  var pages = getCurrentPages();
+  var prevPage = pages[pages.length - 1];  // 当前页面
+  prevPage.setData({
+    myHeader_image: image,
+    myHeader_color: color,
+  })
 }
 
 module.exports = {
+  wxSys,
   wxLogin,
+  getUserInfo,
   authorize,
   saveImage,
   prevPage,
   request,
+  upload,
+  getWxPay,
+  getHeader,
 }

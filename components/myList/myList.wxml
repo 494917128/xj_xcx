@@ -20,10 +20,10 @@
     </view>
     <view class='content flex_row' wx:else>
       <view class='flex_column'>
-        <text class='title'>{{item.title}}</text>
-        <text class='time'>{{item.date}}</text>
+        <text class='title two_line'>{{item.change_desc}}</text>
+        <text class='time'>{{item.change_time}}</text>
       </view>
-      <view class='price'>{{item.price}}</view>
+      <view class='price'>{{item.account}}</view>
     </view>
   </view>
 </view>

@@ -1,7 +1,22 @@
 <view class='container flex_column'>
-  <myHeader bg_color='#73cbcf' font_color='#ffffff' bg_image='/images/my_bg5.jpg' ></myHeader>
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' />
   
-  <textarea placeholder-class='input_placeholder' placeholder='阅后感'></textarea>
+  <view class='content'>
+    <textarea placeholder-class='input_placeholder' placeholder='改变的觉醒-请填写书籍阅后感，只要提交就有奖励，优质内容更有意外惊喜' bindinput='content'></textarea>
 
+    <view class='flex_row'>
+      <!-- <button class='img_button flex_row flex_center info_bg' hover-class='button_hover' bindtap='chooseImage'>选择图片</button> -->
+    </view>
+    <view class='img_view flex_row'>
+      <image src='{{image}}' mode='aspectFill' class='item_img' wx:for="{{images}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' bindtap="sheet" data-image="{{image}}" data-images="{{images}}" data-index='{{idx}}'></image>
+      <view class='img_view_add iconfont icon-plus-add flex_row flex_center' bindtap='chooseImage' wx:if='{{images.length<9}}'></view>
+    </view>
+    <checkbox-group class='prompt' bindchange="checkboxChange" style='padding-bottom: 30rpx;'>
+      <label class="checkbox flex_row flex_center" >
+        <checkbox value="1" />同意此读后感公开展示
+      </label>
+    </checkbox-group>
+    <!-- <view class='prompt'>只要提交就有奖励，优质内容更有意外惊喜</view> -->
+  </view>
   <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定</view>
 </view>

@@ -1,38 +1,59 @@
 <view class='container flex_column'>
-  <myHeader bg_color='#F24A6B' font_color='#ffffff' bg_image='/images/my_bg7.jpg' />
-<view class='flex_column' style='padding: 30rpx;'>
-  <view class='book-info flex_row' style='padding: 10rpx 20rpx;'>
-    <image src='/images/image_none.png' mode='aspectFill' class='book-image'></image>
-    <view>
-      <view class='book-name one_line'>****书</view>
-      <view class='book-number'>数量：1</view>
-      <view class='book-price'>支付金额：￥100</view>
-    </view>
-  </view>
-
-  <view class='book-info'>
-    <view class='input-view flex_row flex_center'>
-      <view class='title'>收货人</view>
-      <input placeholder='姓名' class='col-1' placeholder-class='input_placeholder'></input>
-    </view>
-    <view class='input-view flex_row flex_center'>
-      <view class='title'>手机号码</view>
-      <input placeholder='手机号码' class='col-1' placeholder-class='input_placeholder'></input>
-    </view>
-    <view class='input-view flex_row flex_center'>
-      <view class='title'>地区信息</view>
-      <picker mode="region" class='col-1' bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-        <view class="picker flex_row">
-          {{region[0]}}，{{region[1]}}，{{region[2]}}
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' />
+  <view class='flex_column' style='padding: 30rpx;'>
+    <view class='book-info flex_row flex_center' style='padding: 10rpx 20rpx;'>
+      <image src='{{goods.goods_img}}' mode='aspectFill' class='book-image'></image>
+      <view class='col-1'>
+        <view class='book-name one_line'>{{goods.goods_name}}</view>
+        <view class='book-number flex_row flex_center'>
+          数量：
+          <view class='iconfont icon-jianshao flex_row flex_center {{num==1?"defalut":""}}' bindtap='{{num==1?"":"updateNum"}}' data-type='{{-1}}' ></view>
+          <text>{{num}}</text>
+          <view class='iconfont icon-jia1 flex_row flex_center' bindtap='updateNum' data-type='{{1}}'></view>
         </view>
-      </picker>
+        <view class='book-price'>单价：￥{{goods.shop_price}}</view>
+        <view class='book-price'>快递费：￥{{goods.postage}}</view>
+      </view>
     </view>
-    <view class='input-view flex_row flex_center'>
-      <view class='title'>详细地址</view>
-      <input placeholder='详细地址' class='col-1' placeholder-class='input_placeholder'></input>
-    </view>
-  </view>
+    
+    <navigator url='/pages/myCoupon/myCoupon?title=优惠券&select=1&goods_id={{goods.goods_id}}&num={{num}}' class='book-info'>
+      <view class='input-view flex_row flex_center'>
+        {{coupon.id?'已选择优惠券 '+coupon.price+' '+(coupon.type==1?'元':'折'):'选择优惠券'}}
+      </view>
+    </navigator>
 
-  <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定并支付</view>
-</view>
+    <!-- <view class='coupon-cover {{coupon_show?"active":""}}' bindtap='couponHide'>
+      <view class='coupon' catchtap='stop'>
+        <view class='coupon-item' wx:for='{{5}}' wx:key='{{index}}'>123</view>
+      </view>
+    </view> -->
+
+    <view class='book-info'>
+      <view class='input-view flex_row flex_center'>
+        <view class='title'>收货人</view>
+        <input placeholder='姓名' class='col-1' placeholder-class='input_placeholder' bindinput='inputValue' data-type='name' hidden='{{coupon_show}}'></input>
+        <view class='input col-1' hidden='{{!coupon_show}}'>{{name}}</view>
+      </view>
+      <view class='input-view flex_row flex_center'>
+        <view class='title'>联系方式</view>
+        <input placeholder='联系方式' class='col-1' placeholder-class='input_placeholder' bindinput='inputValue' data-type='phone' hidden='{{coupon_show}}'></input>
+        <view class='input col-1' hidden='{{!coupon_show}}'>{{phone}}</view>
+      </view>
+      <view class='input-view flex_row flex_center'>
+        <view class='title'>地区信息</view>
+        <picker mode="region" class='col-1' bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker flex_row">
+            {{region[0]}}，{{region[1]}}，{{region[2]}}
+          </view>
+        </picker>
+      </view>
+      <view class='input-view flex_row flex_center'>
+        <view class='title'>详细地址</view>
+        <input placeholder='详细地址' class='col-1' placeholder-class='input_placeholder' bindinput='inputValue' data-type='desc' hidden='{{coupon_show}}'></input>
+        <view class='input col-1' hidden='{{!coupon_show}}'>{{desc}}</view>
+      </view>
+    </view>
+
+    <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定并支付</view>
+  </view>
 </view>

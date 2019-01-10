@@ -2,7 +2,6 @@
 @import '/app.wxss';
 
 .add{
-  background-color: #21e495;
   color: #fff;
   border: 1px soild #29D695;
   box-shadow: 0 0 20rpx #21e495;

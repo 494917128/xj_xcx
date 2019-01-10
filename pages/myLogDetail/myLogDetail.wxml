@@ -2,75 +2,63 @@
   <view class='item content-page'>
     <view class='item flex_column'>
       <view class='item-title flex_row'>
-        <image src='{{image_url+"back_pic/1.jpg"}}' mode='aspectFill' class='item-bg'></image>
-        <view class='item-title-content col-1 flex_row'>
-          <image src='{{list[content_index]?list[content_index]:userInfo.avatarUrl}}' class='item-image'></image>
+        <image src='{{data.banner}}' mode='aspectFill' class='item-bg'></image>
+        <view class='item-title-content col-1 flex_row' wx:if='{{data.user}}'>
+          <image src='{{data.user.head_portrait}}' class='item-image'></image>
           <view class='col-1' style='margin-top: 40rpx;'>
-            <view>名字名字名字</view>
-            <view class='date'>2018-12-12 12:12</view>
+            <view>{{data.user.nickname}}</view>
+            <view class='date'>{{data.add_time}}</view>
           </view>
         </view>
       </view>
       <image src='/images/dotted.png' class='dotted' mode='aspectFill'></image>
-      <scroll-view scroll-y style='height: calc(100vh - 470rpx)'>
+      <scroll-view scroll-y style='height: calc(100vh - 370rpx)'>
         <view class='content flex_column'>
           <view class='text flex_row flex_center'>
             <text class='iconfont icon-PC-keyanchengguo'></text>
-            <text>今日总结：今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今</text>
+            <text class='col-1'>今日总结：{{data.summary}}</text>
           </view>
           <view class='text flex_row flex_center'>
             <text class='iconfont icon-nidinghuibao'></text>
-            <text>今日收货：今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今</text>
+            <text class='col-1'>今日收货：{{data.harvest}}</text>
           </view>
           <view class='text flex_row flex_center'>
             <text class='iconfont icon-jihua'></text>
-            <text>明日计划：明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划</text>
+            <text class='col-1'>明日计划：{{data.plan}}</text>
           </view>
         </view>
 
-        <view class='scroll-title flex_row'><text class='iconfont icon-dianzan'></text>点赞：</view>
-        <scroll-view scroll-x class='like-scroll'>
-          <view class='like flex_row'>
-            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
-              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
-              <view class='one_line'>名字名字名字名字名字</view>
+        <block wx:if='{{data.click_head_portrait&&data.click_head_portrait.length}}'>
+          <view class='scroll-title flex_row'><text class='iconfont icon-dianzan'></text>点赞：</view>
+          <scroll-view scroll-x class='like-scroll'>
+            <view class='like flex_row'>
+              <view class='like_image flex_column' wx:for='{{data.click_head_portrait}}' wx:key='{{index}}'>
+                <image src='{{item.head_portrait}}'></image>
+                <view class='one_line'>{{item.nickname}}</view>
+              </view>
             </view>
-            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
-              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
-              <text>名字</text>
+          </scroll-view>
+        </block>
+        <block wx:if='{{data.focus_head_portrait&&data.focus_head_portrait.length}}'>
+          <view class='scroll-title flex_row'><text class='iconfont icon-shoucang1'></text>关注：</view>
+          <scroll-view scroll-x class='like-scroll'>
+            <view class='like flex_row'>
+              <view class='like_image flex_column' wx:for='{{data.focus_head_portrait}}' wx:key='{{index}}'>
+                <image src='{{item.head_portrait}}'></image>
+                <view class='one_line'>{{item.nickname}}</view>
+              </view>
             </view>
-            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
-              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
-              <text>名字</text>
-            </view>
-          </view>
-        </scroll-view>
-        <view class='scroll-title flex_row'><text class='iconfont icon-shoucang1'></text>关注：</view>
-        <scroll-view scroll-x class='like-scroll'>
-          <view class='like flex_row'>
-            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
-              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
-              <view class='one_line'>名字名字名字名字名字</view>
-            </view>
-            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
-              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
-              <text>名字</text>
-            </view>
-            <view class='like_image flex_column' wx:for='{{8}}' wx:key='{{index}}'>
-              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}'></image>
-              <text>名字</text>
-            </view>
-          </view>
-        </scroll-view>
+          </scroll-view>
+        </block>
       </scroll-view>
 
 
-      <view class='button-view flex_row flex_center'>
+      <!-- <view class='button-view flex_row flex_center'>
         <view class='button flex_column flex_center'>
           <view class='iconfont icon-lajitong'></view>
           删除
         </view>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

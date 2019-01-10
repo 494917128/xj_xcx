@@ -4,7 +4,7 @@
     <view class='dateTime flex_row' bindtap='nav'>
       <view class='date-mouth'>{{month}}月</view>
       <view>
-        <view class='date-day'>1天前</view>
+        <view class='date-day'>{{day_gap}}</view>
         <view class='date-year flex_row flex_center'>{{year}}年<text class='iconfont icon-jiantou-copy {{is_nav?"active":""}}'></text></view>
       </view>
     </view>
@@ -22,9 +22,6 @@
       </view>
     </view>
 
-    <view class='search'>
-      <view></view>
-    </view>
   </view>
 
   <view class='calendar' wx:if='{{nav_index==0}}'>
@@ -34,41 +31,77 @@
     <swiper current='{{current}}' bindanimationfinish='swiper' duration='{{duration}}'>
       <swiper-item class='calendar-body flex_row' wx:for='{{dateList}}' wx:key='{{index}}'>
         <block wx:for='{{item.list}}' wx:for-item='date' wx:for-index='idx' wx:key='{{idx}}'>
+          <!-- 前一月 -->
           <view class='calendar-date before flex_row flex_center' bindtap='beforeMonth' data-day='{{date.num}}' wx:if='{{date.type=="before"}}'><text class='text'>{{date.num}}</text></view>
-          <view class='calendar-date flex_row flex_center {{date.num==day&&current==index?"active":""}}' bindtap='selectDay' data-day='{{date.num}}' wx:elif='{{date.type=="now"}}'><text class='text'>{{date.num}}</text></view>
-          <view class='calendar-date flex_row flex_center {{date.num==day&&current==index?"active":""}}' bindtap='selectDay' data-day='{{date.num}}' wx:elif='{{date.type=="today"}}'><view class='text flex_column flex_center'><text>.</text>{{date.num}}</view></view>
+          <!-- 当前月 -->
+          <view class='calendar-date flex_row flex_center {{date.num==day&&current==index?"active":""}}' bindtap='selectDay' data-day='{{date.num}}' wx:elif='{{date.type=="now"}}'><text class='text'><text class='has_plan' wx:if='{{date.has_plan}}'></text>{{date.num}}</text></view>
+          <!-- 今日 -->
+          <view class='calendar-date flex_row flex_center {{date.num==day&&current==index?"active":""}}' bindtap='selectDay' data-day='{{date.num}}' wx:elif='{{date.type=="today"}}'><view class='text flex_column flex_center'><text class='has_plan' wx:if='{{date.has_plan}}'></text>{{date.num}}</view></view>
+          <!-- 后一月 -->
           <view class='calendar-date after flex_row flex_center' bindtap='afterMonth' data-day='{{date.num}}' wx:elif='{{date.type=="after"}}'><text class='text'>{{date.num}}</text></view>
         </block>
       </swiper-item>
     </swiper>
   </view>
 
-  <scroll-view scroll-y class='list'>
-    <view class='list-item-view' wx:for='{{nav_index==0?list_1:list_2}}' wx:key='{{index}}'>
+  <scroll-view scroll-y class='list' hidden='{{nav_index!=0}}'>
+    <view style='height: 1px;'></view>
+    <view class='list-item-view' wx:if='{{list_1.length}}'>
       <view class='list-mouth flex_row'>
-        2018年11月
+        {{year}}年{{month}}月
       </view>
-      <navigator url='/pages/myLogDetail/myLogDetail' class='list-item flex_row flex_center' wx:for='{{item.list}}' wx:key='{{index}}'>
+      <navigator url='/pages/myLogDetail/myLogDetail?id={{item.log_id}}' class='list-item flex_row flex_center' wx:for='{{list_1}}' wx:key='{{index}}'>
         <view class='list-day flex_column flex_center'>
-          <view class='list-number'>21</view>
-          <view>周三</view>
+          <view class='list-number'>{{item.day}}</view>
+          <view>周{{date[item.weeks]}}</view>
         </view>
-        <view class='list-content flex_column'>
-          <view class='flex_row flex_center'>
+        <view class='list-content flex_column col-1'>
+          <view class='list-content-text flex_row'>
             <text class='iconfont icon-PC-keyanchengguo'></text>
-            <text class='one_line'>今日总结：今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结</text>
+            <view class='one_line'>今日总结：{{item.summary}}</view>
           </view>
-          <view class='flex_row flex_center'>
+          <view class='list-content-text flex_row'>
             <text class='iconfont icon-nidinghuibao'></text>
-            <text class='one_line'>今日收货：今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货</text>
+            <view class='one_line'>今日收货：{{item.harvest}}</view>
           </view>
-          <view class='flex_row flex_center'>
+          <view class='list-content-text flex_row'>
             <text class='iconfont icon-jihua'></text>
-            <text class='one_line'>明日计划：明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划</text>
+            <view class='one_line'>明日计划：{{item.plan}}</view>
           </view>
         </view>
       </navigator>
     </view>
+    <view class='list-none flex_row flex_center' hidden='{{nav_index==0?list_1.length:list_2.length}}'>暂无日志</view>
+  </scroll-view>
+  <scroll-view scroll-y scroll-into-view='{{nav_index==1&&list_2.length?"bottom":""}}' class='list' hidden='{{nav_index!=1}}'>
+    <view style='height: 1px;'></view>
+    <view class='list-item-view' wx:for='{{list_2}}' wx:key='{{index}}'>
+      <view class='list-mouth flex_row'>
+        {{item.year}}年{{item.month}}月
+      </view>
+      <navigator url='/pages/myLogDetail/myLogDetail?id={{item.log_id}}' class='list-item flex_row flex_center' wx:for='{{item.list}}' wx:key='{{index}}'>
+        <view class='list-day flex_column flex_center'>
+          <view class='list-number'>{{item.day}}</view>
+          <view>周{{date[item.weeks]}}</view>
+        </view>
+        <view class='list-content flex_column col-1'>
+          <view class='list-content-text flex_row'>
+            <text class='iconfont icon-PC-keyanchengguo'></text>
+            <view class='one_line'>今日总结：{{item.summary}}</view>
+          </view>
+          <view class='list-content-text flex_row'>
+            <text class='iconfont icon-nidinghuibao'></text>
+            <view class='one_line'>今日收货：{{item.harvest}}</view>
+          </view>
+          <view class='list-content-text flex_row'>
+            <text class='iconfont icon-jihua'></text>
+            <view class='one_line'>明日计划：{{item.plan}}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view id='bottom' style='height: 20px;'></view>
+    <view class='list-none flex_row flex_center' hidden='{{nav_index==0?list_1.length:list_2.length}}'>暂无日志</view>
   </scroll-view>
 
   <view class='today_btn flex_row flex_center' bindtap='gotoToday'>今</view>

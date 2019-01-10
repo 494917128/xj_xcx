@@ -4,10 +4,8 @@
     "pages/index2/index2",
     "pages/poster/poster",
     "pages/plan/plan",
-    "pages/planSuccess/planSuccess",
     "pages/planImage/planImage",
     "pages/afterBook/afterBook",
-    "pages/afterBookSuccess/afterBookSuccess",
 
     "pages/success/success",
     
@@ -20,18 +18,22 @@
     
     "pages/book/book",
     "pages/bookBuy/bookBuy",
-    "pages/bookBuySuccess/bookBuySuccess",
     
     "pages/my/my",
     "pages/myInfo/myInfo",
     "pages/myIntegral/myIntegral",
+    "pages/myIntegralShop/myIntegralShop",
     "pages/myOrder/myOrder",
     "pages/myOrderDetail/myOrderDetail",
+    "pages/myCoupon/myCoupon",
     "pages/method/method",
-    "pages/methodContent/methodContent"
+    "pages/about/about",
+    "pages/content/content",
+
+    "pages/feedback/feedback"
   ],
   "tabBar": {
-    "color": "#666666",
+    "color": "#707070",
     "selectedColor": "#76CEC7",
     "list": [
       {

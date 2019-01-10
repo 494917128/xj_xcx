@@ -1,7 +1,6 @@
 {
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
-  "navigationBarTitleText": "首页",
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "myAdd": "/components/myAdd/myAdd",

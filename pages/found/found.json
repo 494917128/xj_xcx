@@ -5,6 +5,9 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "myBtn": "/components/myBtn/myBtn",
-    "myOpenSetting": "/components/myOpenSetting/myOpenSetting"
-  }
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "myLoading": "/components/myLoading/myLoading",
+    "myHeader": "/components/myHeader/myHeader"
+  },
+  "enablePullDownRefresh": true
 }

@@ -1,17 +1,30 @@
-<scroll-view scroll-y='{{!content_index&&content_index!==0}}' bindscroll='scroll' class='container {{is_content?"bgCover":""}}'>
-  <image src='{{image_url+"back_pic/1.jpg"}}' mode='aspectFill' class='header'></image>
+<view class='container {{is_content?"bgCover":""}}'>
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' >
+  <scroll-view scroll-x class='feedback-scroll'>
+    <view class='flex_row'> 
+      <navigator url='/pages/feedback/feedback' class='feedback-view flex_column flex_center' wx:for='{{book_feedback}}' wx:key='{{index}}'>
+        <image src='{{item.user.head_portrait}}' class='feedback-image'></image>
+        <view class='feedback-text col-1'>
+          <view class='three_line'>{{item.content||''}}</view>
+        </view>
+      </navigator>
+    </view>
+  </scroll-view>
+  </myHeader>
 
-  <view class='title'>猜你喜欢</view>
+
+
+  <view class='title'>发现更多优秀的人</view>
   <view class='list flex_column'>
-    <view class='item flex_column' wx:for='{{8}}' wx:key='{{index}}' bindtap='contentAmin' data-index='{{index}}'>
+    <view class='item flex_column' wx:for='{{list}}' wx:key='{{index}}' bindtap='contentAmin' data-index='{{index}}'>
       <view class='item-title flex_row'>
-        <image src='{{image_url+"back_pic/"+(index+1)+".jpg"}}' mode='aspectFill' class='item-bg'></image>
+        <image src='{{item.banner}}' mode='aspectFill' class='item-bg'></image>
         <view class='item-title-content col-1 flex_row'>
-          <image src='{{list[index]?list[index]:userInfo.avatarUrl}}' class='item-image'></image>
+          <image src='{{item.user.head_portrait}}' class='item-image'></image>
           <view class='col-1' style='margin-top: 40rpx;'>
-            <view>名字名字名字</view>
-            <view class='date'>2018-12-12 12:12</view>
-            <view class='like'><text class='iconfont icon-zan2'></text>100</view>
+            <view>{{item.user.nickname}}</view>
+            <view class='date'>{{item.add_time}}</view>
+            <view class='like'><text class='iconfont icon-zan2'></text>{{item.click_total||0}}</view>
           </view>
         </view>
       </view>
@@ -19,46 +32,49 @@
       <view class='content flex_column'>
         <view class='text flex_row flex_center'>
           <text class='iconfont icon-PC-keyanchengguo'></text>
-          <text class='one_line'>今日总结：今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结</text>
+          <view class='three_line'>今日总结：{{item.summary}}</view>
         </view>
         <view class='text flex_row flex_center'>
           <text class='iconfont icon-nidinghuibao'></text>
-          <text class='one_line'>今日收货：今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货</text>
+          <view class='three_line'>今日收货：{{item.harvest}}</view>
         </view>
         <view class='text flex_row flex_center' wx:if=''>
           <text class='iconfont icon-jihua'></text>
-          <text class='one_line'>明日计划：明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划</text>
+          <view class='three_line'>明日计划：{{item.plan}}</view>
         </view>
       </view>
     </view>
   </view>
-</scroll-view>
+  
+  <myLoading loading='{{loading}}' list_max='{{list_max}}' />
+</view>
 
-<myBtn>
+<!-- <myBtn>
   <navigator url='/pages/myLog/myLog'>
     <image src='{{userInfo.avatarUrl}}' mode='aspectFill' class='person_center_iconfont iconfont icon-wode flex_row flex_center'></image>
     <view>我的</view>
     <view>日志</view>
   </navigator>
-</myBtn>
+</myBtn> -->
 
 <myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />
 
   
-<view class='item content-page {{is_content?"active":""}}' style='{{top?"transform: translateY("+top+"px);":""}} {{is_anim?"transition: all 0.5s;":""}}'>
+<view style='position:fixed;top:0;left:0;right:0;bottom:0;' wx:if='{{is_content}}' catchtouchmove='stop'></view>
+<view class='item content-page {{is_content?"active":""}}' style='{{top?"transform: translateY("+top+"px);":""}} {{is_anim?"transition: all 0.5s;":""}}; height:{{!is_content&&height}}' catchtouchmove='stop'>
   <view class='item flex_column'>
     <view class='item-title flex_row'>
-      <image src='{{image_url+"back_pic/"+(content_index+1)+".jpg"}}' mode='aspectFill' class='item-bg'></image>
+      <image src='{{list[content_index].banner}}' mode='aspectFill' class='item-bg'></image>
       <view class='item-title-content col-1 flex_row'>
-        <image src='{{list[content_index]?list[content_index]:userInfo.avatarUrl}}' class='item-image'></image>
+        <image src='{{list[content_index].user.head_portrait}}' class='item-image'></image>
         <view class='col-1' style='margin-top: 40rpx;'>
-          <view>名字名字名字</view>
-          <view class='date'>2018-12-12 12:12</view>
+          <view>{{list[content_index].user.nickname}}</view>
+          <view class='date'>{{list[content_index].add_time}}</view>
           <view class='like flex_row flex_center'>
             <view class='like_image flex_row'>
-              <image src='{{list[index]?list[index]:userInfo.avatarUrl}}' wx:for='{{8}}' wx:key='{{index}}'></image>
+              <image src='{{item.head_portrait}}' wx:for='{{list[content_index].click_head_portrait}}' wx:key='{{index}}' wx:if='{{index<8}}'></image>
             </view>
-            <text class='iconfont icon-zan2'></text>100
+            <text class='iconfont icon-zan2'></text>{{list[content_index].click_total||0}}
           </view>
         </view>
       </view>
@@ -68,15 +84,15 @@
       <view class='content flex_column'>
         <view class='text flex_row flex_center'>
           <text class='iconfont icon-PC-keyanchengguo'></text>
-          <text>今日总结：今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今日总结今</text>
+          <text>今日总结：{{list[content_index].summary}}</text>
         </view>
         <view class='text flex_row flex_center'>
           <text class='iconfont icon-nidinghuibao'></text>
-          <text>今日收货：今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今日收货今</text>
+          <text>今日收货：{{list[content_index].harvest}}</text>
         </view>
         <view class='text flex_row flex_center' wx:if=''>
           <text class='iconfont icon-jihua'></text>
-          <text>明日计划：明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划明日计划</text>
+          <text>明日计划：{{list[content_index].plan}}</text>
         </view>
       </view>
     </scroll-view>
@@ -85,17 +101,16 @@
 
 
 <view class='content_button_view {{is_content?"show":""}} flex_row'>
-<view class='content_button flex_column flex_center {{is_like?"active":""}}' bindtap='like'>
-  <text class='iconfont icon-zan2'></text>
-  点赞
-</view>
-<view class='content_button flex_column flex_center {{is_collect?"active":""}}' bindtap='collect'>
-  <text class='iconfont icon-shoucang'></text>
-  关注
-</view>
-<view class='content_button flex_column flex_center' bindtap='back'>
-  <text class='iconfont icon-back1'></text>
-  返回
-</view>
-
+  <view class='content_button flex_column flex_center main_bg {{list[content_index].user_click?"active like_active":""}}' bindtap='{{list[content_index].user_click?"":"like"}}'>
+    <text class='iconfont icon-zan2'></text>
+    点赞
+  </view>
+  <view class='content_button flex_column flex_center main_bg {{list[content_index].user_focus?"active collect_active":""}}' bindtap='{{list[content_index].user_focus?"":"collect"}}'>
+    <text class='iconfont icon-shoucang'></text>
+    关注
+  </view>
+  <view class='content_button flex_column flex_center main_bg' style='background-color: #FEA836;' bindtap='back'>
+    <text class='iconfont icon-back1'></text>
+    返回
+  </view>
 </view>

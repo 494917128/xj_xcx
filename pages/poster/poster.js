@@ -10,29 +10,16 @@ Page({
       { title: '海报', icon: 'icon-ht_gain', url: '/pages/indexCreat/indexCreat' },
       { title: '购买书籍', icon: 'icon-studyplan', url: '/pages/book/book' },
     ],
-    list: [
-      'haibao/haibao (1).jpg',
-      'haibao/haibao (2).jpg',
-      'haibao/haibao (3).jpg',
-      'haibao/haibao (4).jpg',
-      'haibao/haibao (5).jpg',
-      'haibao/haibao (7).jpg',
-      'haibao/haibao (8).jpg',
-      'haibao/haibao (9).jpg',
-      'haibao/haibao (10).jpg',
-      'haibao/haibao (11).jpg',
-      'haibao/haibao (12).jpg',
-      'haibao/haibao (13).jpg',
-    ]
+    list: []
   },
   swiper_index: 0, // 轮播图的index
   // 图片预览
   previewImage(e) {
-    var url = app.image_url + e.currentTarget.dataset.url
+    var url = e.currentTarget.dataset.url
     var list = this.data.list
     var urls = []
     list.map((item,index)=>{
-      urls.push(app.image_url + item)
+      urls.push(item.playbill_images)
     })
     wx.previewImage({
       current: url,
@@ -46,11 +33,11 @@ Page({
     var list = this.data.list,
       index = this.swiper_index,
       _this = this
-    console.log(app.image_url + list[index])
+    wx.showLoading({ title: '保存中...' })
     util.authorize('scope.writePhotosAlbum', function () {
       util.saveImage({
         _this: this,
-        url: app.image_url + list[index],
+        url: list[index].playbill_images,
         callback(res) {
           wx.hideLoading()
           wx.showToast({ title: '保存完成' })
@@ -61,9 +48,44 @@ Page({
       })
     }, _this)
   },
+  pageData(){
+    var _this = this
+    util.request({
+      url: 'v1/index/playbill',
+      data: {},
+      type: 'form',
+      success(res){
+        _this.setData({
+          list: res.data.data
+        })
+      }
+    })
+  },
   onLoad() {
-    util.wxLogin()
+    this.pageData()
+  },
+  share(){
+    var _this = this
+    setTimeout(()=>{
+      util.request({
+        url: 'v1/users/share-playbill',
+        data: {},
+        type: 'form',
+        success(res) {
+          wx.showModal({
+            title: '提示',
+            content: '分享成功',
+            showCancel: false,
+          })
+        }
+      })
+    },0)
   },
   onShareAppMessage: function () {
+    return {
+      path: '/pages/index/index',
+      title: '21天改变之旅',
+      imageUrl: this.data.list[this.swiper_index].playbill_images,
+    }
   }
 })

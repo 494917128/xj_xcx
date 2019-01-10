@@ -1,34 +1,61 @@
-<view class='container'>
-  <myHeader bg_color='#90D4C5' font_color='#ffffff' bg_image='/images/my_bg.jpg' >
+<view class='container flex_column'>
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' >
     <view class='header flex_column'>
-      <view class='header_title'>{{title}}</view>
-
       <view class='header_num col-1 flex_row'>
-        3<text style='font-size: 24rpx;padding:10rpx;'>个</text>
+        {{TotalCount}}<text style='font-size: 24rpx;padding:10rpx;'>个</text>
       </view>
     </view>
   </myHeader>
 
-  <view class='list flex_column'>
-    <navigator url='/pages/myOrderDetail/myOrderDetail' class='item' wx:for='{{list}}' wx:key='{{index}}'>
+  <view class='list flex_column' wx:if='{{list.length||loading}}'>
+    <navigator url='/pages/myOrderDetail/myOrderDetail?id={{item.order_id}}' class='item' wx:for='{{list}}' wx:key='{{index}}'>
       <view class='order'>
         <view class='title flex_row'>
           <view class='col-1'>
-            <text class='number'>123456789123456</text>
+            <text class='number'>编号：{{item.order_sn}}</text>
           </view>
-          <view class='status'>
-            <view>已收货</view>
-          </view>
-        </view>
         <view class='flex_row'>
-          <image src='/images/image_none.png' mode='aspectFill' class='image'></image>
-          <view class='info col-1 flex_column'>
-            <view class='info-title two_line'>title</view>
-            <text class='info-num'>*1</text>
+          <view class="main_label danger_bg" wx:if="{{item.order_status==0}}">未确定</view>
+          <view class="main_label primary_bg" wx:elif="{{item.order_status==1}}">已确定</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==2}}">已取消</view>
+          <view class="main_label danger_bg" wx:elif="{{item.order_status==3}}">无效</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==4}}">退货</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==5}}">已分单</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==6}}">部分分单</view>
+
+          <view class="main_label define_bg" wx:if="{{item.pay_status==0}}">未付款</view>
+          <view class="main_label primary_bg" wx:elif="{{item.pay_status==1}}">部分付款</view>
+          <view class="main_label info_bg"  wx:elif="{{item.pay_status==2}}">已付款</view>
+
+          <view class="main_label define_bg" wx:if="{{item.shipping_status==0}}">未发货</view>
+          <view class="main_label primary_bg" wx:elif="{{item.shipping_status==1}}">已发货</view>
+          <view class="main_label primary_bg" wx:elif="{{item.shipping_status==2}}">已收货</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==3}}">备货中</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==4}}">已发货(部分商品)</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==5}}">发货中(处理分单)</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==6}}">已发货(部分商品)</view>
+        </view> 
+        </view>
+        <view class='order_item flex_row'>
+          <image src='{{item.goods.goods_img}}' mode='aspectFill' class='order_item_image'></image>
+          <view class='order_item_info'>
+            <view class='order_item_info_name flex_row'>
+              <view class='flex_row flex_center'>
+                <text>{{item.goods.goods_name}}</text>
+                <view wx:if="{{goods.is_gift}}" class="main_label danger_bg">赠品</view>
+              </view>
+              <!-- <text style='color:#666;'>￥{{item.goods.goods_number*item.goods.shop_price}}</text> -->
+            </view>
+            <view class='order_item_info_num'>数量：{{item.goods.goods_number}}</view>
+            <!-- <view class='order_item_info_price'>价格：{{item.goods.shop_price}}</view>
+            <view class='order_item_info_price'>运费：{{item.goods.postage}}</view> -->
           </view>
         </view>
-        <view class='price flex_row'>￥1000</view>
+        <view class='price flex_row'>￥{{item.order_amount}}</view>
       </view>
     </navigator>
+    <myLoading loading='{{loading}}' list_max='{{list_max}}' />
   </view>
+  <view class='flex_row flex_center col-1' wx:else>暂无订单</view>
+
 </view>

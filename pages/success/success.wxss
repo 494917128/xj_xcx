@@ -1,5 +1,7 @@
 .container{
+  width: 100vw;
   min-height: 100vh;
+  overflow: hidden;
   position: relative;
   color: #333;
 }
@@ -117,7 +119,9 @@
   position: absolute;
   right: 0;
   bottom: -1px;
-  width: 400%;
+  width: 100%;
+  transform-origin: 100% 100%;
+  transform: scale(4);
   opacity: .75;
   animation: cloud 15s linear infinite;
 }
@@ -132,8 +136,8 @@
   animation-delay: -8s;
 }
 @keyframes cloud {
-  from {transform: translate(0)}
-  to {transform: translate(50%)}
+  0% {transform: translate(0) scale(4)}
+  100% {transform: translate(200%) scale(4)}
 }
 .cover{
   position: absolute;
@@ -143,11 +147,32 @@
   height: 40rpx;
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))
 }
+.cloud_canvas{
+  height:145rpx;
+  width:100vw;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
 
+
+.bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.bg image{
+  width: 100%;
+  height: 100%;
+}
 .title{
-  font-size: 50rpx;
+  font-size: 44rpx;
   color: #0074C7;
   text-align: center;
+  width: 80%;
+  line-height: 1.4;
 }
 .line{
   height: 4rpx;
@@ -156,7 +181,7 @@
   background-color: #0074C7;
 }
 .text{
-  font-size: 40rpx;
+  font-size: 36rpx;
   text-align: center;
   color: #0074C7;
   margin: 40rpx 0;
@@ -168,11 +193,13 @@
   border: 1px soild #0074C7;
   box-shadow: 0 0 20rpx #0074C7;
   width: calc(100% - 100rpx);
-  height: 80rpx;
   padding: 0;
 
   font-size: 40rpx;
   transition: all .3s;
+  height: 100rpx;
+  border-radius: 50rpx;
+  letter-spacing: 8rpx;
 }
 
 .title,.line,.text,.share{

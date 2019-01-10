@@ -41,23 +41,22 @@
         {{order.consignee}}
       </view>
       <view class='order_item_info_num'>{{order.mobile}}</view>
-      <view class='order_item_info_price'>{{order.user_address}}</view>
+      <view class='order_item_info_price'>{{order.address}}</view>
     </view>
-    <view class='iconfont icon-right flex_row flex_center'></view>
   </view>
 
   <view class='order_title'>购买商品</view>
   <view class='flex_row'>
-    <view style='flex:1'>
-      <view class='order_item_body flex_row flex_center' wx:for="{{order.goods_list}}" wx:for-item="goods" wx:key="{{index}}">
-        <image src='{{image_url+goods.goods_img}}' mode='aspectFill' class='order_item_image'></image>
+    <view class='col-1'>
+      <view class='order_item_body flex_row flex_center'>
+        <image src='{{order.goods.goods_img}}' mode='aspectFill' class='order_item_image'></image>
         <view class='order_item_info'>
           <view class='order_item_info_name flex_row'>
-            <text>{{goods.goods_name}}</text>
-            <text style='color:#666;'>￥{{goods.goods_number*goods.goods_price}}</text>
+            <text>{{order.goods.goods_name}}</text>
+            <text style='color:#666;'>￥{{order.goods.goods_number*order.goods.shop_price}}</text>
           </view>
-          <view class='order_item_info_num'>数量：{{goods.goods_number}}</view>
-          <view class='order_item_info_price'>价格：{{goods.goods_price}}</view>
+          <view class='order_item_info_num'>数量：{{order.goods.goods_number}}</view>
+          <view class='order_item_info_price'>价格：{{order.goods.shop_price}}</view>
         </view>
       </view>
     </view>
@@ -68,6 +67,10 @@
     <view class='order_item_allprice flex_row'>
       <text>商品总额</text>
       <text class='danger_color'>￥{{order.goods_amount}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:if="{{order.coupons.coupons_type==2&&order.coupons.coupons_amount!=0}}">
+      <text>-折扣券</text>
+      <text class='danger_color'>{{order.coupons.coupons_amount}}折</text>
     </view>
     <view class='order_item_allprice flex_row' wx:if="{{order.shipping_fee!=0}}">
       <text>+运费</text>
@@ -85,9 +88,9 @@
       <text>-账户余额</text>
       <text class='danger_color'>￥{{order.surplus}}</text>
     </view>
-    <view class='order_item_allprice flex_row' wx:if="{{order.bonus!=0}}">
-      <text>-红包支付</text>
-      <text class='danger_color'>￥{{order.bonus}}</text>
+    <view class='order_item_allprice flex_row' wx:if="{{order.coupons.coupons_type==1&&order.conpous_fee!=0}}">
+      <text>-抵用券</text>
+      <text class='danger_color'>￥{{order.conpous_fee}}</text>
     </view>
     <view class='order_item_allprice flex_row' wx:if="{{1*order.order_amount>0}}">
       <text></text>
@@ -106,8 +109,8 @@
     </view>
   </view>
 
-  <view class='order_item_footer flex_row' wx:if='{{is_admin}}'>
-    <navigator url='/pages/admin/orderSend/orderSend' class="order_item_footer_button danger_bg">发货</navigator>
+  <view class='order_item_footer flex_row'>
+    <view class="order_item_footer_button danger_bg" hover-class='button_hover' bindtap='pay' wx:if='{{order.pay_status!=2}}'>去支付</view>
   </view>
 
 </view>

@@ -1,0 +1,39 @@
+<view class='container'>
+  <view class='header flex_row flex_center'>
+    <view class='header-view flex_column'>
+      <view class='header-top flex_row flex_center'>
+        <view class='flex_row flex_center'>
+          <image src='{{info.head_portrait}}' class='header-image'></image>
+          我的积分
+        </view>
+        <navigator url='/pages/method/method?title=了解玩法' class='header-method flex_row flex_center'>
+          <image src='/images/integral.png' class='header-image'></image>
+          如何赚积分
+        </navigator>
+      </view>
+      <view class='header-integral flex_row flex_center'>{{info.user_integral}}</view>
+    </view>
+  </view>
+
+  <view class='nav-title flex_row'>积分兑换</view>
+
+  <view class='list flex_row'>
+    <view class='item flex_column flex_center' bindtap='integral' data-id='{{item.coupons_id}}' wx:for='{{list}}' wx:key='{{index}}'>
+      <view class='item-image flex_row flex_center'>
+        <view class='item-ticket flex_column flex_center'>
+          <view class='item-ticket-price'>
+            <text class='item-ticket-type' wx:if='{{item.coupons_type==1}}'>￥</text>
+            <text>{{item.coupons_amount * 1}}</text>
+            <text wx:if='{{item.coupons_type==2}}'>折</text>
+          </view>
+          <text class='item-ticket-type'>
+            <text wx:if='{{item.coupons_type==1}}'>抵用券</text>
+            <text wx:if='{{item.coupons_type==2}}'>折扣券</text>
+          </text>
+        </view>
+      </view>
+      <view class='item-name'>{{item.coupons_name}}</view>
+      <view class='item-integral'>{{item.integral}} 积分</view>
+    </view>
+  </view>
+</view>

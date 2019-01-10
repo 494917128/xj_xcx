@@ -1,4 +1,7 @@
 {
   "navigationBarBackgroundColor": "#fff",
-  "navigationBarTitleText": "行动计划"
+  "navigationBarTitleText": "行动计划",
+  "usingComponents": {
+    "myHeader": "/components/myHeader/myHeader"
+  }
 }

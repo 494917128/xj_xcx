@@ -6,6 +6,9 @@ Component({
     bg_color: {
       type: String,
       value: '#509AFF',
+      observer(newVal, oldVal, changedPath) {
+        this.ready()
+      }
     },
     font_color: {
       type: String,
@@ -19,12 +22,19 @@ Component({
   },
 
   methods: {
-
+    ready() {
+      wx.setNavigationBarColor({
+        frontColor: this.data.font_color || '#ffffff',
+        backgroundColor: this.data.bg_color,
+      })
+      wx.setBackgroundColor({
+        backgroundColor: this.data.bg_color,
+        backgroundColorTop: this.data.bg_color,
+        backgroundColorBottom: this.data.bg_color,
+      })
+    }
   },
   ready() {
-    wx.setNavigationBarColor({
-      frontColor: this.data.font_color||'#ffffff',
-      backgroundColor: this.data.bg_color,
-    })
+    this.ready()
   }
 })

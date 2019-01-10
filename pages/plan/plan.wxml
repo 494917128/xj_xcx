@@ -1,12 +1,20 @@
 <view class='container flex_column'>
 
-  <navigator url='/pages/planImage/planImage?image={{title_image}}' class='title-image'>
-    <image src='{{user_defined?user_defined:image_url+title_image}}' mode='widthFix'></image>
-    <view class='prompt flex_row flex_center'>修改背景图</view>
-  </navigator>
-  <textarea placeholder-class='input_placeholder' placeholder='今日总结'></textarea>
-  <textarea placeholder-class='input_placeholder' placeholder='今日收获'></textarea>
-  <textarea placeholder-class='input_placeholder' placeholder='明日计划'></textarea>
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' />
 
-  <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定</view>
+  <!-- <view url='/pages/planImage/planImage?image={{title_image}}' class='title-image'>
+    <image src='{{banner}}' mode='widthFix'></image>
+  </view> -->
+  <view class='flex_column' style='padding: 30rpx 30rpx 0;'>
+    <textarea placeholder-class='input_placeholder' placeholder='今日总结' bindinput='textarea' data-type='summary'></textarea>
+    <textarea placeholder-class='input_placeholder' placeholder='今日收获' bindinput='textarea' data-type='harvest'></textarea>
+    <textarea placeholder-class='input_placeholder' placeholder='明日计划' bindinput='textarea' data-type='plan'></textarea>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox flex_row flex_center" >
+        <checkbox value="1" />同意此日志内容在发现页公开展示
+      </label>
+    </checkbox-group>
+
+    <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定</view>
+  </view>
 </view>

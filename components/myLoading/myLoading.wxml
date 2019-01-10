@@ -1,0 +1,2 @@
+<view class='loading_text' wx:if='{{loading}}'>努力加载中 _(:з」∠)_ </view>
+<view class='loading_text' wx:elif='{{list_max}}'>--------我是有底线的--------</view>

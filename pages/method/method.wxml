@@ -1,13 +1,12 @@
 <view class='container'>
-  <myHeader bg_color='#4DAED9' font_color='#ffffff' bg_image='/images/my_bg.jpg' >
-
-  </myHeader>
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' />
 
   <view class='list'>
-    <navigator url='/pages/methodContent/methodContent' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
-      <text class='col-1'>{{item.name}}</text>
+    <navigator url='/pages/content/content?id={{item.article_id}}&url=v1/article/details' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
+      <text class='col-1'>{{index+1}}.{{item.title}}</text>
       <view class='iconfont icon-right'></view>
     </navigator>
+    <myLoading loading='{{loading}}' list_max='{{list_max}}' />
   </view>
 
 </view>

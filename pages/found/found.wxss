@@ -1,17 +1,60 @@
 @import '/components/myBtn/myBtn.wxss';
 .container{
   height: 100vh;
+  position: relative;
 }
 
 .container .header{
-  margin: 50rpx 30rpx 0;
-  width: calc(100vw - 60rpx);
+  width: 100vw;
   height: 360rpx;
-  border-radius: 20rpx;
+}
+.header_cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 360rpx;
+  background-color: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 40rpx;
 }
 
+
+.feedback-scroll{
+  width: 100%;
+  color: #000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.feedback-view{
+  border-radius: 20rpx;
+  background-color: #f7f4f0;
+  width: 300rpx;
+  height: 142rpx;
+  margin: 50rpx 20rpx 20rpx;
+  padding: 0 20rpx 20rpx;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.feedback-image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-top: -50rpx;
+}
+.feedback-text{
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+
 .container .title{
-  padding: 0 30rpx;
+  padding: 20rpx 30rpx 0;
+  font-size: 32rpx;
 }
 .container .list{
   padding: 0 30rpx;
@@ -85,6 +128,7 @@
   line-height: 1.5;
   color: #666;
   align-items: flex-start;
+  justify-content: flex-start;
 }
 .item .text .iconfont{
   margin-right: 20rpx;
@@ -139,14 +183,13 @@
 }
 
 .content_button_view{
-  position: absolute;
-  bottom: 40rpx;
-  left: 20rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right: 40rpx;
 
   transform: scale(0);
   visibility: hidden;
   opacity: 0;
-  transition: all 0.5s;
 }
 .content_button_view.show{
   transform: scale(1);
@@ -158,11 +201,46 @@
   height: 80rpx;
   margin-right: 20rpx;
   box-shadow: 0 0 20rpx #999;
-  color: #888;
-  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   font-size: 24rpx;
+  position: relative;
 }
 .content_button.active .iconfont{
   color: red;
+}
+.like_active .iconfont,.collect_active .iconfont{
+  transform-origin: 0% 0%;
+  animation: like 1s;
+}
+.collect_active::before{
+  content: '未来我们一起精进哦';
+  color: #888;
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  left: -100%;
+  right: -100%;
+  justify-content: center;
+  font-size: 24rpx;
+  background-color: #fff;
+  padding: 4rpx 0;
+  border-radius: 10rpx;
+  box-shadow: 2rpx 2rpx 10rpx #a0a0a0;
+  pointer-events: none;
+
+  opacity: 0;
+  top: -50rpx;
+  animation: collect 2s;
+}
+@keyframes collect{
+  0%{ opacity: 0;transform: translateY(100%) }
+  30%{ opacity: 1;transform: translateY(0) }
+  60%{ opacity: 1;transform: translateY(0) }
+  100%{ opacity: 0; }
+}
+@keyframes like{
+  0%{ transform: scale(1) }
+  50%{ transform: scale(1.3) }
+  100%{ transform: scale(1) }
 }

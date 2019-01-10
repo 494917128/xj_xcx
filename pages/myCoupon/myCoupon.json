@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#f0f4f7",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "myHeader": "/components/myHeader/myHeader",
+    "myNavbar": "/components/myNavbar/myNavbar",
+    "myLoading": "/components/myLoading/myLoading"
+  },
+  "enablePullDownRefresh": true
+}

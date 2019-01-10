@@ -1,0 +1,5 @@
+<view class='container flex_column'>
+  <view class='title'>{{title}}</view>
+  <view class='time'>{{time}}</view>
+  <rich-text nodes="{{content}}" bindtap="tap"></rich-text>
+</view>

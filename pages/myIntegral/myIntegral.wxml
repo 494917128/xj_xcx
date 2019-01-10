@@ -1,12 +1,14 @@
 <view class='container'>
-  <myHeader bg_color='#d73a7f' font_color='#ffffff' bg_image='/images/my_bg3.jpg' >
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' >
     <view class='header flex_column'>
       <view class='header_title'></view>
 
       <view class='header_num col-1 flex_row'>
-        100<text style='font-size: 24rpx;padding:10rpx;'>个</text>
+        {{account}}
+        <text style='font-size: 24rpx;padding:10rpx;'>积分</text>
       </view>
     </view>
   </myHeader>
   <myList list='{{list}}' />
+  <myLoading loading='{{loading}}' list_max='{{list_max}}' />
 </view>

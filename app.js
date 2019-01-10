@@ -15,16 +15,15 @@ App({
     })
     var _this = this
   },
-  url: 'https://api.saiminet.com/api/index.php?r=',
-  image_url: 'https://file.saiminet.com/book/',
+  url: 'https://book.saiminet.com/api/index.php?r=',
+  image_url: 'https://saimi-book.oss-cn-beijing.aliyuncs.com/',
   webview_url: 'https://wx.saiminet.com/mby/webview.html?web_view_src=',
-  upload_url: 'https://api.saiminet.com/api/index.php?r=file/ali-oss',
-  AppID: 'wx77c8e93db22f6d55',
-  AppSecret: 'eb92b5a969f378e908a4c4d3930c420e',
+  upload_url: 'https://book.saiminet.com/api/index.php?r=v1/file/oss',
+  AppID: 'wx3d8d41fdef650d0d',
+  AppSecret: '7fab1777f75c96f8412baafe444b5d63',
   globalData: {
-    userInfo: null,
-    qrCode: '',
-    first_launch: true, // 首次进入小程序，跳转到小程序页面
+    userInfo: null, // 用户信息
+    sys: null, // 小程序配置
     data: {},
   }
 })

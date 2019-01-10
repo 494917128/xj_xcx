@@ -1,0 +1,21 @@
+<view class='container'>
+  <view class='title flex_column flex_center'>
+    <image class='title-header' src='https://wx.qlogo.cn/mmhead/Q3auHgzwzM7qH0yiaV1MPhVn9x6a0GvK5Cqc2Y9g44ZMs5YJ3KcByOw/0' mode='aspectFill'></image>
+    <view class='title-name'>{{title}}</view>
+    <view class='title-desc'>
+      {{detail}}
+    </view>
+  </view>
+  <view class='content'>
+    <view class='item flex_row' hover-class='button_hover' bindtap='code'>
+      <view class='item-title'>二维码</view>
+      <view class='iconfont icon-right'></view>
+    </view>
+    <view class='item flex_row'>
+      <view class='item-title'>制作单位</view>
+      <view class='item-text col-1'>{{company}}</view>
+    </view>
+  </view>
+
+  <button class='btn flex_row flex_center main_bg' hover-class='button_hover'>进入公众号</button>
+</view>
