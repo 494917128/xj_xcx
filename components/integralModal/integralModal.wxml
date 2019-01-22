@@ -1,0 +1,9 @@
+<view class='modal-cover flex_row flex_center {{modal_show?"active":""}}' bindtap='closeModal'>
+  <view class='modal flex_column flex_center' catchtap='stop'>
+    <view class='modal-close iconfont icon-close flex_row flex_center' bindtap='closeModal'></view>
+    <image class='modal-image' src='/images/poster_modal.png' mode='widthFix'></image>
+    <view class='modal-number flex_row flex_center'>{{integral||''}}</view>
+    <view class='modal-text flex_row flex_center'>{{modal_text||'获得了积分'}}</view>
+    <view class='modal-btn main_button flex_row flex_center' hover-class='button_hover' bindtap='closeModal'>确定</view>
+  </view>
+</view>

@@ -14,6 +14,9 @@ Page({
     list: [],
     book_feedback: [],
     list_max: false, // 是否加载完毕（我是有底线的）
+    modal_show: false,
+    integral: '',
+    text: '',
   },
   // 阻止冒泡
   stop(){},
@@ -57,10 +60,14 @@ Page({
       },
       type: 'form',
       success(res) {
-        wx.showToast({
-          title: '点赞成功，积分+1',
-          icon: 'none'
-        })
+        if (res.data.integral) {
+          _this.setData({
+            modal_show: true,
+            integral: res.data.integral.integral,
+            modal_text: res.data.integral.name
+          })
+        }
+        
         var click_head_portrait = _this.data.list[index].click_head_portrait
         click_head_portrait.push({
           head_portrait: app.globalData.userInfo.avatarUrl
@@ -84,10 +91,18 @@ Page({
       },
       type: 'form',
       success(res) {
-        wx.showToast({
-          title: '关注成功，积分+1',
-          icon: 'none'
-        })
+        if (res.data.integral) {
+          _this.setData({
+            modal_show: true,
+            integral: res.data.integral.integral,
+            modal_text: res.data.integral.name
+          })
+        } else {
+          wx.showToast({
+            title: '关注成功',
+            icon: 'none'
+          })
+        }
         _this.setData({
           ['list[' + index + '].user_focus']: true,
         })

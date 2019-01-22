@@ -97,6 +97,7 @@
   </view>
 </view>
 
+<integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' />
 
 <view class='content_button_view {{is_content?"show":""}} flex_row'>
   <view class='content_button flex_column flex_center main_bg {{list[content_index].user_click?"active like_active":""}}' bindtap='{{list[content_index].user_click?"":"like"}}'>

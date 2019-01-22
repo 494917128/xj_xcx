@@ -50,15 +50,17 @@ rich-text .rich-img {
   background: linear-gradient(to right, #EE8240, #E64330);
 }
 .main_button{
-  padding: 0;
   height: 100rpx;
   border-radius: 50rpx;
   overflow: hidden;
-  font-size: 30rpx;
+  /* font-size: 30rpx; */
   box-sizing: border-box;
   box-shadow: 0 0 40rpx #bbb;
   position: relative;
   background: linear-gradient(to right, #EE8240, #E64330);
+  color: #fff;
+  padding: 0 20rpx;
+  font-size: 36rpx;
 }
 .main_button::after{
   content: '';

@@ -64,14 +64,11 @@ Page({
           var pages = getCurrentPages();
           var prevPage = pages[pages.length - 2];  //上一个页面
           prevPage.pageData()
-          if (true) {
-            wx.navigateBack({ delta: 1 })
+          if (res.data.integral) {
+            integralAdd(res.data.integral, '')
           } else {
-            // wx.redirectTo({
-            //   url: '/pages/success/success?type=plan',
-            // })
+            wx.navigateBack({ delta: 1 })
           }
-
         },1500)
       }
     })

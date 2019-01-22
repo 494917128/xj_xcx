@@ -465,9 +465,7 @@ const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callb
     success(res) {
       wx.hideLoading()
       callback && callback()
-      wx.redirectTo({
-        url: '/pages/success/success?type=cart',
-      })
+      integralAdd(res.data.integral, 'cart')
     },
     fail(res) {
       wx.hideLoading()
@@ -490,6 +488,19 @@ const getHeader = (name) => {
   })
 }
 
+// 添加积分返回方法
+const integralAdd = (integral,type) => {
+  if (integral) {
+    wx.redirectTo({
+      url: '/pages/success/success?type=' + type + '&integral=' + integral.integral,
+    })
+  } else {
+    wx.redirectTo({
+      url: '/pages/success/success?type=' + type,
+    })
+  }
+}
+
 module.exports = {
   wxSys,
   wxLogin,
@@ -501,4 +512,5 @@ module.exports = {
   upload,
   getWxPay,
   getHeader,
+  integralAdd,
 }

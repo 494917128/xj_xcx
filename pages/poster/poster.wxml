@@ -13,4 +13,6 @@
 </view>
 <!-- <view class='skip flex_row flex_center' hover-class='skip_hover'>跳过</view> -->
 
+<integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' />
+
 <myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

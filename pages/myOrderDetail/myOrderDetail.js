@@ -15,7 +15,7 @@ Page({
     util.getWxPay(this.data.id, function(){
       var pages = getCurrentPages();
       var prevPage = pages[pages.length - 2];  //上一个页面
-      prevPage.onPullDownRefresh() // 刷新数据
+      prevPage.onPullDownRefresh && prevPage.onPullDownRefresh() // 刷新数据
     })
   },
   pageData(){

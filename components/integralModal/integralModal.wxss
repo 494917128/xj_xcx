@@ -1,0 +1,76 @@
+@import '/fonts/iconfont.wxss';
+@import '/app.wxss';
+
+.modal-cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.modal-cover.active{
+  visibility: initial;
+  opacity: 1;
+}
+.modal{
+  width: 80%;
+  border-radius: 20rpx;
+  position: relative;
+  color: #fff;
+
+  transform: scale(0);
+  transition: all 0.3s;
+}
+.modal-cover.active .modal{
+  transform: scale(1);
+}
+.modal-close{
+  position: absolute;
+  top: -2%;
+  right: 5%;
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  background-color: #fff;
+  color: #ff5555;
+  border-radius: 50%;
+  transform: translate(30rpx, -30rpx);
+}
+.modal-number{
+  position: absolute;
+  top: 160rpx;
+  left: 0;
+  right: 0;
+  bottom: 380rpx;
+  margin: auto;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+.modal-text{
+  position: absolute;
+  top: 280rpx;
+  left: 0;
+  right: 0;
+  bottom: 250rpx;
+  margin: auto;
+  font-size: 28rpx;
+}
+.modal-image{
+  width: 674rpx;
+}
+.modal-btn{
+  position: absolute;
+  bottom: 0;
+  top: 450rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 240rpx;
+  height: 72rpx;
+}

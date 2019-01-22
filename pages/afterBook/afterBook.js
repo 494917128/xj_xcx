@@ -112,10 +112,7 @@ Page({
       },
       type: 'form',
       success(res){
-
-        wx.redirectTo({
-          url: '/pages/success/success?type=feedback',
-        })
+        util.integralAdd(res.data.integral,'feedback')
       }
     })
   },

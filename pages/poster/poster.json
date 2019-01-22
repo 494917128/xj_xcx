@@ -5,6 +5,7 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "myAdd": "/components/myAdd/myAdd",
-    "myOpenSetting": "/components/myOpenSetting/myOpenSetting"
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "integralModal": "/components/integralModal/integralModal"
   }
 }

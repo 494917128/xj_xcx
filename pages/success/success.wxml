@@ -20,7 +20,7 @@
       <image src='/images/success_bg.png' mode='widthFix'></image>
     </view>
     <text class='title'>{{title}}</text>
-    <view class='text'>获得积分 {{integral}}个</view>
+    <view class='text' wx:if='{{integral}}'>获得积分 {{integral}}个</view>
     <button open-type='share' hover-class='button_hover' class='share flex_row flex_center main_button'>分享</button>
   </view>
 </view>

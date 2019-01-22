@@ -43,9 +43,7 @@ Page({
             app.globalData.userInfo = res.data.data
           }
         })
-        wx.redirectTo({
-          url: '/pages/success/success?type=plan',
-        })
+        util.integralAdd(res.data.integral, 'plan')
       }
     })
   },

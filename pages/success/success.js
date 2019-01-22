@@ -9,11 +9,6 @@ Page({
 
   onLoad(options) {
     util.getHeader('success')
-    this.setData({
-      title: options.title,
-      integral: options.integral||'',
-    })
-
     var type = options.type
     if (type) {
       this.setData({
@@ -22,8 +17,12 @@ Page({
         share_prompt: app.globalData.sys['min_' + type + '_share_prompt'],
         share_image: app.globalData.sys['min_' + type + '_share_images'],
       })
-
     }
+
+    this.setData({
+      title: options.title,
+      integral: options.integral || '',
+    })
   },
   onShareAppMessage: function () {
     return {

@@ -7,6 +7,9 @@ Page({
     image_url: app.image_url,
     list: [],
     bg_img: '',
+    modal_show: false,
+    integral: '',
+    modal_text: '',
   },
   swiper_index: 0, // 轮播图的index
   // 图片预览
@@ -82,11 +85,19 @@ Page({
         data: {},
         type: 'form',
         success(res) {
-          wx.showModal({
-            title: '提示',
-            content: '分享成功',
-            showCancel: false,
-          })
+          if (res.data.integral) {
+            _this.setData({
+              modal_show: true,
+              integral: res.data.integral.integral,
+              modal_text: res.data.integral.name
+            })
+          }
+
+          // wx.showModal({
+          //   title: '提示',
+          //   content: '分享成功',
+          //   showCancel: false,
+          // })
         }
       })
     },0)
