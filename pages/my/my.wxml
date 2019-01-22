@@ -1,18 +1,24 @@
 <view class='container'>
-  <myHeader bg_color='#58C9F5' font_color='#ffffff' bg_image='/images/my_bg.jpg' >
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' >
     <view class='header_content flex_row'>
       <image src='{{info.head_portrait}}' class='header_image'></image>
       <view class='flex_column'>
         <text>{{info.nickname}}</text>
-        <text style='font-size: 28rpx;'>你的日志已经坚持了1天</text>
+        <text style='font-size: 28rpx;'>你的日志已经坚持了{{info.log_count}}天</text>
       </view>
     </view>
-    <image src='/images/index_cloud.png' mode='widthFix' class='index_cloud'></image>
+    <!-- <image src='/images/index_cloud.png' mode='widthFix' class='index_cloud'></image>
     <image src='/images/balloon1.png' mode='widthFix' class='balloon'></image>
     <image src='/images/balloon2.png' mode='widthFix' class='balloon balloon2'></image>
     <image src='/images/cloud.png' mode='widthFix' class='cloud'></image>
     <image src='/images/cloud.png' mode='widthFix' class='cloud2'></image>
-    <image src='/images/cloud.png' mode='widthFix' class='cloud3'></image>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud3'></image> -->
+
+    <navigator url='/pages/myImprovement/myImprovement?title=完善个人资料' class='header-method flex_row flex_center'>
+      <image src='/images/improvement.png' class='header-image'></image>
+      完善个人资料
+    </navigator>
+
   </myHeader>
 
 
@@ -20,8 +26,8 @@
     <view data-url='/pages/myInfo/myInfo?title=消息' bindtap='hideDot' class='flex_column flex_center col-1'>
       <view>{{info.messages_total||0}}</view>
       <view class='item flex_row flex_center'>
-        <image src='/images/icon/info.png' class='icon-image' mode='aspectFit'></image>
-        <!-- <view class='iconfont icon-xiaoxi main_color'></view> -->
+        <!-- <image src='/images/icon/info.png' class='icon-image' mode='aspectFit'></image> -->
+        <view class='iconfont icon-xiaoxi flex_row flex_center main_color'></view>
         <view style='position: relative'>
           <text>我的消息</text>
           <view class='message_prompt' hidden='{{info.messages_total&&info.messages_total==0}}'></view>
@@ -32,8 +38,8 @@
     <navigator url='/pages/myIntegral/myIntegral?title=积分' class='flex_column flex_center col-1'>
       <view>{{info.user_integral||0}}</view>
       <view class='item flex_row flex_center'>
-        <image src='/images/icon/integral.png' class='icon-image' mode='aspectFit'></image>
-        <!-- <view class='iconfont icon-jifen main_color'></view> -->
+        <!-- <image src='/images/icon/integral.png' class='icon-image' mode='aspectFit'></image> -->
+        <view class='iconfont icon-jifen flex_row flex_center main_color'></view>
         我的积分
       </view>
     </navigator>
@@ -41,8 +47,8 @@
 
   <view class='list'>
     <navigator url='{{item.link}}' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
-      <image src='{{item.icon_image}}' class='icon-image' mode='aspectFit'></image>
-      <!-- <view class='icon iconfont {{item.icon}} flex_row flex_center main_color'></view> -->
+      <!-- <image src='{{item.icon_image}}' class='icon-image' mode='aspectFit'></image> -->
+      <view class='icon iconfont {{item.icon}} flex_row flex_center main_color'></view>
       <text class='col-1'>{{item.name}}</text>
       <view class='iconfont icon-right'></view>
     </navigator>

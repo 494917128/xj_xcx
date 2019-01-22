@@ -34,6 +34,15 @@ Page({
       },
       type: 'form',
       success(res){
+        // 重新请求刷新全局的数据
+        util.request({
+          url: 'v1/users/info',
+          data: {},
+          type: 'form',
+          success(res) {
+            app.globalData.userInfo = res.data.data
+          }
+        })
         wx.redirectTo({
           url: '/pages/success/success?type=plan',
         })

@@ -12,6 +12,7 @@ Page({
     num: 1,
     order_id: '', // 点提交后会产生，支付成功后需要
     coupon: {},
+    discounts_code: '',
   },
   // // 优惠券
   // coupon() {
@@ -83,6 +84,7 @@ Page({
         goods_number: this.data.num,
         address: this.data.region[0] + this.data.region[1] + this.data.region[2] + this.data.desc,
         user_coupons_id: this.data.coupon.id || '',
+        discounts_code: this.data.discounts_code||''
       },
       type: 'form',
       success(res){

@@ -39,29 +39,30 @@ rich-text .rich-img {
   margin: auto;
   width: 60rpx;
   height: 4rpx;
-  background-color: #21e495;
+  background-color: #FF2700;
 }
 .main_line{
   height: 60rpx;
   width: 3rpx;
   background-color: #ccc;
 }
+.main_button_bg{
+  background: linear-gradient(to right, #EE8240, #E64330);
+}
 .main_button{
-  flex: 1;
   padding: 0;
   height: 100rpx;
   border-radius: 50rpx;
   overflow: hidden;
   font-size: 30rpx;
-  border: 3rpx solid #fff;
   box-sizing: border-box;
-  box-shadow: 0 0 40rpx #dcdcdc;
+  box-shadow: 0 0 40rpx #bbb;
   position: relative;
+  background: linear-gradient(to right, #EE8240, #E64330);
 }
 .main_button::after{
   content: '';
   border:none;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
   position: absolute;
   top: 0;
   left: 0;
@@ -76,7 +77,7 @@ rich-text .rich-img {
 }
 .secondary_title::after{
   content: "";
-  background-color: #21e495;
+  background-color: #FF2700;
   width: 110rpx;
   height: 4rpx;
 }
@@ -174,7 +175,7 @@ rich-text .rich-img {
 
 
 .main_color{
-  color: #21e495;
+  color: #FF2700;
 }
 .primary_bg{
   color: #ffffff;
@@ -182,7 +183,7 @@ rich-text .rich-img {
 }
 .info_bg{
   color: #ffffff;
-  background-color: #21e495;
+  background-color: #FF2700;
 }
 .danger_bg{
   color: #ffffff;
@@ -200,11 +201,11 @@ rich-text .rich-img {
 }
 .main_bg{
   /* background-color: #76cec7; */
-  background-color: #21e495;
+  background-color: #FF2700;
   color: #fff;
 }
 .main_border{
-  border: 1px solid #21e495;
+  border: 1px solid #FF2700;
 }
 
 

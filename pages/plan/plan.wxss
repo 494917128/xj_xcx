@@ -49,13 +49,14 @@
   border-radius: 100rpx;
   font-size: 36rpx;
   margin-top: 40rpx;
-  background-color: #21e495;
+  /* background-color: #21e495; */
   color: #fff;
 }
 
 .checkbox{
   font-size: 28rpx;
   justify-content: flex-start;
+  color: #999;
 }
 .checkbox checkbox{
   zoom: 0.6;

@@ -10,5 +10,5 @@
         <text>{{item.title}}</text>
       </view>
     </view>
-    <view class='add iconfont icon-close flex_row flex_center main_bg {{add?"active":""}}' bindtap='Add'></view>
+    <view class='add iconfont icon-close flex_row flex_center main_button {{add?"active":""}}' bindtap='Add'></view>
   </view>

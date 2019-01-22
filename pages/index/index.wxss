@@ -21,7 +21,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 207rpx;
+  top: 465rpx;
   margin: auto;
   animation: circle 6s ease-in infinite;
   opacity: 0;
@@ -92,6 +92,7 @@
   border-radius: 50rpx;
   letter-spacing: 8rpx;
   margin-right: 30rpx;
+  box-shadow: 0 0 20rpx #FF2700;
 }
 
 

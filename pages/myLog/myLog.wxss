@@ -4,8 +4,8 @@
 }
 .header{
   border-bottom: 1px solid #dcdcdc;
-  background-color: #4A52F2;
-  color: #fff;
+  /* background-color: #4A52F2; */
+  /* color: #fff; */
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
@@ -106,13 +106,14 @@ swiper{
 }
 .calendar-date.active .text{
   border-radius: 50%;
-  background-color: #4A52F2;
+  background-color: #ff2700;
   color: #fff;
 }
 .calendar-date.before,.calendar-date.after{
   color: #ccc;
 }
 .calendar-date .text{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,8 +212,10 @@ swiper{
 }
 .today_btn{
   right: 190rpx;
-  background-color: #4A52F2;
-  box-shadow: 2rpx 4rpx 20rpx #4A52F2;
+  background-color: #ff2700;
+  box-shadow: 2rpx 4rpx 20rpx #ff2700;
+  /* background-color: #4A52F2;
+  box-shadow: 2rpx 4rpx 20rpx #4A52F2; */
 }
 .add_btn{
   right: 50rpx;

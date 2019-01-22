@@ -3,8 +3,8 @@
 
 .add{
   color: #fff;
-  border: 1px soild #29D695;
-  box-shadow: 0 0 20rpx #21e495;
+  border: 1px soild #FF2700;
+  box-shadow: 0 0 20rpx #FF2700;
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
@@ -75,10 +75,10 @@
   border-radius: 50%;
 }
 .add-item .iconfont{
-  background-color: #21e495;
+  background-color: #FF2700;
   color: #fff;
-  border: 1px soild #29D695;
-  box-shadow: 0 0 20rpx #21e495;
+  border: 1px soild #FF2700;
+  box-shadow: 0 0 20rpx #FF2700;
   width: 120rpx;
   height: 120rpx;
   font-size: 60rpx;

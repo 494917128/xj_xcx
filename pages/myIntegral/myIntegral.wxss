@@ -17,3 +17,25 @@
   font-size: 100rpx;
   line-height: 1;
 }
+.header-image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.header-method{
+  position:absolute;
+  right:0;
+  top:20px;
+  background-color: #ff2700;
+  margin-right: -30rpx;
+  padding: 10rpx;
+  padding-right: 40rpx;
+  border-radius: 35rpx 0 0 35rpx;
+  font-size: 26rpx;
+}
+.header-integral{
+  font-size: 80rpx;
+  padding-top: 40rpx;
+  padding-bottom: 60rpx;
+}

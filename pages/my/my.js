@@ -5,12 +5,11 @@ const app = getApp(),
 Page({
   data: {
     list: [
-      { name: '我的日志', icon: 'icon-woderizhi', icon_image: '/images/icon/log.png', link: '/pages/myLog/myLog' },
-      { name: '我的订单', icon: 'icon-icon', icon_image: '/images/icon/order.png', link: '/pages/myOrder/myOrder?title=订单' },
-      { name: '积分商城', icon: 'icon-icon-test', icon_image: '/images/icon/shop.png', link: '/pages/myIntegralShop/myIntegralShop?title=积分商城' },
-      { name: '我的优惠券', icon: 'icon-youhuiquan01', icon_image: '/images/icon/coupon.png', link: '/pages/myCoupon/myCoupon?title=优惠券' },
-      { name: '了解玩法', icon: 'icon-lejiejieshou', icon_image: '/images/icon/method.png', link: '/pages/method/method?title=' },
-      { name: '关于小程序', icon: 'icon-guanyuwomen', icon_image: '/images/icon/about.png', link: '/pages/about/about?title=关于小程序' },
+      { name: '我的日志', icon: 'icon-hangdongrizhi', link: '/pages/myLog/myLog' },
+      { name: '我的订单', icon: 'icon-dingdan1', link: '/pages/myOrder/myOrder?title=订单' },
+      { name: '我的优惠券', icon: 'icon-qian01', link: '/pages/myCoupon/myCoupon?title=优惠券' },
+      { name: '了解玩法', icon: 'icon-gou', link: '/pages/method/method?title=了解玩法' },
+      { name: '关于小程序', icon: 'icon-fill147', link: '/pages/about/about?title=关于小程序' },
     ],
     info: {},
   },
@@ -31,6 +30,7 @@ Page({
       data: {},
       type: 'form',
       success(res){
+        app.globalData.userInfo = res.data.data
         _this.setData({
           info: res.data.data
         })
@@ -38,8 +38,14 @@ Page({
     })
   },
   onLoad() { 
+    util.getHeader('my')
     util.getUserInfo()
     this.pageData()
+  },
+  onShow(){
+    this.setData({
+      info: app.globalData.userInfo
+    })
   }
 })
 

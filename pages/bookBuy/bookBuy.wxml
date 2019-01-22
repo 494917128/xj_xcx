@@ -52,8 +52,13 @@
         <input placeholder='详细地址' class='col-1' placeholder-class='input_placeholder' bindinput='inputValue' data-type='desc' hidden='{{coupon_show}}'></input>
         <view class='input col-1' hidden='{{!coupon_show}}'>{{desc}}</view>
       </view>
+      <view class='input-view flex_row flex_center'>
+        <view class='title'>优惠码</view>
+        <input placeholder='优惠码' class='col-1' placeholder-class='input_placeholder' bindinput='inputValue' data-type='discounts_code' hidden='{{coupon_show}}'></input>
+        <view class='input col-1' hidden='{{!coupon_show}}'>{{desc}}</view>
+      </view>
     </view>
 
-    <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定并支付</view>
+    <view hover-class='button_hover' class='btn flex_row flex_center main_button' bindtap='submit'>确定并支付</view>
   </view>
 </view>

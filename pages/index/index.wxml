@@ -1,24 +1,24 @@
 <view class='container flex_column'>
 
-  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' style='border-top:180rpx solid #58c7c3' >
-    <view class='myHeader_title flex_row flex_center'>
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' style='border-top:0 solid {{myHeader_color}}' >
+    <!-- <view class='myHeader_title flex_row flex_center'>
       <image src='{{title_image}}' mode='widthFix'></image>
-    </view>
+    </view> -->
     <view class='circle'></view>
     <view class='circle circle2'></view>
     <view class='circle circle3'></view>
     <view class='circle circle4'></view>
-    <image src='/images/cloud.png' mode='widthFix' class='cloud'></image>
+    <!-- <image src='/images/cloud.png' mode='widthFix' class='cloud'></image>
     <image src='/images/cloud.png' mode='widthFix' class='cloud2'></image>
-    <image src='/images/cloud.png' mode='widthFix' class='cloud3'></image>
+    <image src='/images/cloud.png' mode='widthFix' class='cloud3'></image> -->
   </myHeader>
 
   <view class='flex_row flex_center' style='position: relative;flex: 1'>
-    <navigator url='/pages/plan/plan' class='btn flex_row flex_center main_bg' hover-class='button_hover'>开始旅行</navigator>
+    <navigator url='/pages/plan/plan' class='btn flex_row flex_center main_button' hover-class='button_hover'>开始旅行</navigator>
     <myAdd nav='{{nav}}' class='add' bg_color='#39B54A' />
   </view>
 
-  <image src='{{foot_image}}' mode='widthFix' style='width:100%;display:block'></image>
+  <image src='{{foot_image}}' mode='widthFix' style='width:100%;display:block;height:0;'></image>
 </view>
 
 <view class='guide-cover flex_row flex_center {{guide?"active":""}}' bindtap='guideClose'>

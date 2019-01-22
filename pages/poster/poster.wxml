@@ -1,5 +1,5 @@
 <view class='login-container'>
-  <image src='/images/poster_bg.jpg' mode='' class='bg'></image>
+  <image src='{{bg_img}}' mode='aspectFill' class='bg'></image>
   <swiper previous-margin='100rpx' next-margin='100rpx' bindchange='swiper'>
     <swiper-item class='flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
       <image src='{{item.playbill_images}}' mode='widthFix' bindtap='previewImage' data-url='{{item.playbill_images}}'></image>

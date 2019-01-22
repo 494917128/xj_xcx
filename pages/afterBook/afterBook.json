@@ -1,6 +1,6 @@
 {
   "backgroundTextStyle": "light",
-  "navigationBarTitleText": "阅后感",
+  "navigationBarTitleText": "读后感",
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "myHeader": "/components/myHeader/myHeader"

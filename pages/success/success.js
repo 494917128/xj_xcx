@@ -8,8 +8,9 @@ Page({
   },
 
   onLoad(options) {
+    util.getHeader('success')
     this.setData({
-      title: options.title||'',
+      title: options.title,
       integral: options.integral||'',
     })
 

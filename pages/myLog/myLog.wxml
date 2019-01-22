@@ -1,6 +1,5 @@
 <view class='container flex_column'>
-  <view class='header'>
-    <image src='/images/my_bg9.jpg' mode='widthFix' class='bg'></image>
+  <view class='header main_bg'>
     <view class='dateTime flex_row' bindtap='nav'>
       <view class='date-mouth'>{{month}}月</view>
       <view>

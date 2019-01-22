@@ -18,7 +18,7 @@
 }
 .success_line{
   height: 10rpx;
-  background-color: #a5dc86;
+  background-color: #fff;
   display: block;
   border-radius: 4rpx;
   position: absolute;
@@ -123,17 +123,23 @@
   transform-origin: 100% 100%;
   transform: scale(4);
   opacity: .75;
-  animation: cloud 15s linear infinite;
+  animation: cloud 0 linear infinite;
 }
 .cloud2 {
   opacity: .6;
   animation-duration: 7s;
+  animation-duration: 0;
   animation-delay: -4s;
+  transform: translate(60%) scale(4)
+
 }
 .cloud3{
   opacity: .3;
   animation-duration: 3s;
+  animation-duration: 0;
   animation-delay: -8s;
+  transform: translate(30%) scale(4)
+
 }
 @keyframes cloud {
   0% {transform: translate(0) scale(4)}
@@ -169,7 +175,7 @@
 }
 .title{
   font-size: 44rpx;
-  color: #0074C7;
+  color: #FA5100;
   text-align: center;
   width: 80%;
   line-height: 1.4;
@@ -178,20 +184,18 @@
   height: 4rpx;
   width: 320rpx;
   margin: 10rpx 0;
-  background-color: #0074C7;
+  background-color: #FA5100;
 }
 .text{
   font-size: 36rpx;
   text-align: center;
-  color: #0074C7;
+  color: #FA5100;
   margin: 40rpx 0;
 }
 .share{
   margin: 80rpx 0 30rpx;
-  background-color: #0074C7;
   color: #fff;
-  border: 1px soild #0074C7;
-  box-shadow: 0 0 20rpx #0074C7;
+  box-shadow: 0 0 20rpx #ff2700;
   width: calc(100% - 100rpx);
   padding: 0;
 

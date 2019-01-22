@@ -5,12 +5,8 @@ const app = getApp(),
 Page({
   data: {
     image_url: app.image_url,
-    nav: [
-      { title: '阅后感', icon: 'icon-wodeshouhuo', url: '/pages/afterBook/afterBook' },
-      { title: '海报', icon: 'icon-ht_gain', url: '/pages/indexCreat/indexCreat' },
-      { title: '购买书籍', icon: 'icon-studyplan', url: '/pages/book/book' },
-    ],
-    list: []
+    list: [],
+    bg_img: '',
   },
   swiper_index: 0, // 轮播图的index
   // 图片预览
@@ -63,6 +59,20 @@ Page({
   },
   onLoad() {
     this.pageData()
+    this.setData({
+      bg_img: app.globalData.sys.min_posters_background_image
+    })
+
+    var color = app.globalData.sys.min_posters_title
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: color,
+    })
+    wx.setBackgroundColor({
+      backgroundColor: color,
+      backgroundColorTop: color,
+      backgroundColorBottom: color,
+    })
   },
   share(){
     var _this = this

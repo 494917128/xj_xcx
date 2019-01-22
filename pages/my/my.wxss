@@ -27,6 +27,30 @@
   width: 100%;
   z-index: -1;
 }
+.header-image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.header-method{
+  position:absolute;
+  right:0;
+  top:20px;
+  background-color: #ffc443;
+  margin-right: -30rpx;
+  padding: 10rpx;
+  padding-right: 40rpx;
+  border-radius: 35rpx 0 0 35rpx;
+  font-size: 26rpx;
+  z-index: 1;
+}
+.header-integral{
+  font-size: 80rpx;
+  padding-top: 40rpx;
+  padding-bottom: 60rpx;
+}
+
 .balloon{
   width: 60rpx;
   position: absolute;
@@ -99,7 +123,7 @@
 .nav_line{
   width: 1px;
   height: 100rpx;
-  background-color: #90D4C5;
+  background-color: #eee;
 }
 
 .icon-image{
@@ -111,7 +135,8 @@
   margin-right: 20rpx;
   width: 50rpx;
   height: 50rpx;
-  font-size: 50rpx;
+  font-size: 40rpx;
+  border-radius: 10rpx;
 }
 
 .container .list .item{
@@ -133,8 +158,8 @@
   margin-right: 40rpx;
   width: 50rpx;
   height: 50rpx;
-  font-size: 50rpx;
-  text-align: center;
+  font-size: 40rpx;
+  border-radius: 10rpx; 
 }
 .container .list .item::after{
   content: '';
@@ -143,5 +168,5 @@
   right: 30rpx;
   left: 110rpx;
   height: 1px;
-  background-color: #90D4C5;
+  background-color: #eee;
 }

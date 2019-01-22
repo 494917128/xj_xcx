@@ -1,5 +1,6 @@
 <view class='container flex_column'>
-  <myHeader bg_color='#0074C7' font_color='#ffffff' bg_image='/images/my_bg10.jpg' >
+  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' >
+  <!-- <myHeader bg_color='#0074C7' font_color='#ffffff' bg_image='/images/my_bg10.jpg' > -->
     <view class='success flex_column flex_center'>
       <view class='success_line success_line1'></view>
       <view class='success_line success_line2'></view>
@@ -20,6 +21,6 @@
     </view>
     <text class='title'>{{title}}</text>
     <view class='text'>获得积分 {{integral}}个</view>
-    <button open-type='share' hover-class='button_hover' class='share flex_row flex_center'>分享</button>
+    <button open-type='share' hover-class='button_hover' class='share flex_row flex_center main_button'>分享</button>
   </view>
 </view>

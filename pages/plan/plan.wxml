@@ -6,15 +6,15 @@
     <image src='{{banner}}' mode='widthFix'></image>
   </view> -->
   <view class='flex_column' style='padding: 30rpx 30rpx 0;'>
-    <textarea placeholder-class='input_placeholder' placeholder='今日总结' bindinput='textarea' data-type='summary'></textarea>
-    <textarea placeholder-class='input_placeholder' placeholder='今日收获' bindinput='textarea' data-type='harvest'></textarea>
-    <textarea placeholder-class='input_placeholder' placeholder='明日计划' bindinput='textarea' data-type='plan'></textarea>
+    <textarea placeholder-class='input_placeholder' placeholder='今日总结' bindinput='textarea' data-type='summary' maxlength='-1'></textarea>
+    <textarea placeholder-class='input_placeholder' placeholder='今日收获' bindinput='textarea' data-type='harvest' maxlength='-1'></textarea>
+    <textarea placeholder-class='input_placeholder' placeholder='明日计划' bindinput='textarea' data-type='plan' maxlength='-1'></textarea>
     <checkbox-group bindchange="checkboxChange">
       <label class="checkbox flex_row flex_center" >
-        <checkbox value="1" />同意此日志内容在发现页公开展示
+        <checkbox value="1" />同意将此日志内容在发现页公开展示
       </label>
     </checkbox-group>
 
-    <view hover-class='button_hover' class='btn flex_row flex_center' bindtap='submit'>确定</view>
+    <view hover-class='button_hover' class='btn flex_row flex_center main_button' bindtap='submit'>确定</view>
   </view>
 </view>

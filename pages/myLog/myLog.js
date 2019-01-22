@@ -63,6 +63,7 @@ Page({
     }
 
     var list_1 = []
+    console.log(year,month,day)
     if (this.data.list[year] && this.data.list[year][month] && this.data.list[year][month][day]) {
       list_1 = this.data.list[year][month][day]
     }

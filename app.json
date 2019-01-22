@@ -20,6 +20,7 @@
     "pages/bookBuy/bookBuy",
     
     "pages/my/my",
+    "pages/myImprovement/myImprovement",
     "pages/myInfo/myInfo",
     "pages/myIntegral/myIntegral",
     "pages/myIntegralShop/myIntegralShop",
@@ -34,7 +35,7 @@
   ],
   "tabBar": {
     "color": "#707070",
-    "selectedColor": "#76CEC7",
+    "selectedColor": "#FF2700",
     "list": [
       {
         "pagePath": "pages/index/index",

@@ -8,6 +8,11 @@
         <text style='font-size: 24rpx;padding:10rpx;'>积分</text>
       </view>
     </view>
+
+    <navigator url='/pages/myIntegralShop/myIntegralShop?title=积分商城' class='header-method flex_row flex_center'>
+      <image src='/images/shop.png' class='header-image'></image>
+      积分商城
+    </navigator>
   </myHeader>
   <myList list='{{list}}' />
   <myLoading loading='{{loading}}' list_max='{{list_max}}' />

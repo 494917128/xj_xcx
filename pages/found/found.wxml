@@ -13,8 +13,6 @@
   </myHeader>
 
 
-
-  <view class='title'>发现更多优秀的人</view>
   <view class='list flex_column'>
     <view class='item flex_column' wx:for='{{list}}' wx:key='{{index}}' bindtap='contentAmin' data-index='{{index}}'>
       <view class='item-title flex_row'>
@@ -36,7 +34,7 @@
         </view>
         <view class='text flex_row flex_center'>
           <text class='iconfont icon-nidinghuibao'></text>
-          <view class='three_line'>今日收货：{{item.harvest}}</view>
+          <view class='three_line'>今日收获：{{item.harvest}}</view>
         </view>
         <view class='text flex_row flex_center' wx:if=''>
           <text class='iconfont icon-jihua'></text>
@@ -88,9 +86,9 @@
         </view>
         <view class='text flex_row flex_center'>
           <text class='iconfont icon-nidinghuibao'></text>
-          <text>今日收货：{{list[content_index].harvest}}</text>
+          <text>今日收获：{{list[content_index].harvest}}</text>
         </view>
-        <view class='text flex_row flex_center' wx:if=''>
+        <view class='text flex_row flex_center'>
           <text class='iconfont icon-jihua'></text>
           <text>明日计划：{{list[content_index].plan}}</text>
         </view>
@@ -105,11 +103,11 @@
     <text class='iconfont icon-zan2'></text>
     点赞
   </view>
-  <view class='content_button flex_column flex_center main_bg {{list[content_index].user_focus?"active collect_active":""}}' bindtap='{{list[content_index].user_focus?"":"collect"}}'>
+  <view class='content_button content_button2 flex_column flex_center {{list[content_index].user_focus?"active collect_active":""}}' bindtap='{{list[content_index].user_focus?"":"collect"}}'>
     <text class='iconfont icon-shoucang'></text>
     关注
   </view>
-  <view class='content_button flex_column flex_center main_bg' style='background-color: #FEA836;' bindtap='back'>
+  <view class='content_button content_button3 flex_column flex_center' bindtap='back'>
     <text class='iconfont icon-back1'></text>
     返回
   </view>

@@ -19,10 +19,12 @@ Page({
     })
     util.getUserInfo()
     this.setData({
+      logo: app.globalData.sys.min_about_logo,
       detail: app.globalData.sys.min_about_details,
       code: app.globalData.sys.min_about_qrcode_images,
       company: app.globalData.sys.min_about_company,
       title: app.globalData.sys.min_about_title,
+      tel: app.globalData.sys.min_about_tel,
     })
   }
 })

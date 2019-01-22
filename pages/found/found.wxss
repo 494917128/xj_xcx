@@ -203,10 +203,27 @@
   box-shadow: 0 0 20rpx #999;
   border-radius: 50%;
   font-size: 24rpx;
+  color: #fff;
+  background-color: #fb3c20;
   position: relative;
 }
-.content_button.active .iconfont{
-  color: red;
+.content_button.active{
+  background-color: #fff;
+  color: #fb3c20;
+}
+.content_button2{
+  background-color: #FC3F65;
+}
+.content_button2.active{
+  background-color: #fff;
+  color: #FC3F65;
+}
+.content_button3{
+  background-color: #1095dc;
+}
+.content_button3.active{
+  background-color: #fff;
+  color: #1095dc;
 }
 .like_active .iconfont,.collect_active .iconfont{
   transform-origin: 0% 0%;

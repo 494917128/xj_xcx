@@ -1,5 +1,6 @@
+<video src='{{goods.goods_video}}' wx:if='{{goods.goods_video}}'></video>
 <rich-text nodes='{{goods.goods_details}}'></rich-text>
 
-<view class='button flex_row flex_center' hover-class='button_hover' bindtap='submit'>购买</view>
+<view class='button flex_row flex_center main_button_bg' hover-class='button_hover' bindtap='submit'>购买</view>
 
 <myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />
