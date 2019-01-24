@@ -2,5 +2,8 @@
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#f0f4f7",
   "navigationBarTitleText": "",
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "integralModal": "/components/integralModal/integralModal"
+  }
 }

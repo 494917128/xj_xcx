@@ -14,6 +14,9 @@ Page({
     email: '',
     profession: '',
     permanent_land: '',
+    modal_show: false,
+    integral: '',
+    modal_text: '',
   },
   selectSex(e){
     this.setData({
@@ -65,7 +68,11 @@ Page({
           var prevPage = pages[pages.length - 2];  //上一个页面
           prevPage.pageData()
           if (res.data.integral) {
-            integralAdd(res.data.integral, '')
+            _this.setData({
+              modal_show: true,
+              integral: res.data.integral.integral,
+              modal_text: res.data.integral.name
+            })
           } else {
             wx.navigateBack({ delta: 1 })
           }
