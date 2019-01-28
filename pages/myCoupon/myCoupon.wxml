@@ -10,7 +10,9 @@
         <view class='item-left-bg flex_row flex_center'>￥</view>
       </view>
       <view class='item-right col-1 flex_column flex_center'>
-        <view class='item-right-title'>{{item.coupons[0].coupons_name}}</view>
+        <view class='item-right-title'>
+          <text class='main_color' wx:if='{{item.coupons[0].on_line_name}}'>({{item.coupons[0].on_line_name}})</text>{{item.coupons[0].coupons_name}}
+        </view>
         <view class='item-right-text'>有效期至 {{item.coupons[0].validity_time}}</view>
         <navigator url='/pages/book/book' class='item-use' wx:if='{{!select}}'>去使用 ></navigator>
         <view class='item-lastTime flex_row flex_center' style='background-color: #F43530;' wx:if='{{item.state==1}}'>已使用</view>

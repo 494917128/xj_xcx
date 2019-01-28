@@ -5,7 +5,7 @@
 .list .item{
   margin: 15rpx 30rpx;
   background-color: #fff;
-  border-radius: 6rpx;
+  border-radius: 20rpx;
   box-shadow: 2rpx 4rpx 20rpx #ddd;
 }
 .list .item:nth-child(3n+1){

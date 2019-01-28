@@ -114,3 +114,5 @@
   </view>
 
 </view>
+
+<integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' />

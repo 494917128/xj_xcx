@@ -148,10 +148,14 @@ Page({
           return;
         }
         list.push(...res.data.data.list)
-
+        if(_this.data.page==1){
+          _this.setData({
+            book_feedback: res.data.data.book_feedback.list
+          })
+        }
         _this.setData({
           loading: false,
-          book_feedback: res.data.data.book_feedback.list,
+          // book_feedback: res.data.data.book_feedback.list,
           list: list,
           page: _this.data.page + 1
         })

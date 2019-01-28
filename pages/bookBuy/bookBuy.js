@@ -13,6 +13,9 @@ Page({
     order_id: '', // 点提交后会产生，支付成功后需要
     coupon: {},
     discounts_code: '',
+    modal_show: false,
+    integral: '',
+    modal_text: '',
   },
   // // 优惠券
   // coupon() {

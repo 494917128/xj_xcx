@@ -62,3 +62,5 @@
     <view hover-class='button_hover' class='btn flex_row flex_center main_button' bindtap='submit'>确定并支付</view>
   </view>
 </view>
+
+<integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' />

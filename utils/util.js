@@ -451,11 +451,12 @@ const getWxPay = (order_id, callback, callbackFail) => {
     type: 'form',
     success(res) {
       var data = res.data.data
-      wxPay(data.timestamp, data.nonceStr, data.package, data.signType, data.paySign, callback, callbackFail)
+      res.data.integral = { name: 'asdfkljsadf', integral:100}
+      wxPay(data.timestamp, data.nonceStr, data.package, data.signType, data.paySign, callback, callbackFail, res.data.integral)
     }
   })
 }
-const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callbackFail) => {
+const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callbackFail, integral) => {
   wx.requestPayment({
     timeStamp: timeStamp,
     nonceStr: nonceStr,
@@ -465,7 +466,16 @@ const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callb
     success(res) {
       wx.hideLoading()
       callback && callback()
-      integralAdd(res.data.integral, 'cart')
+      if(integral) {
+        var pages = getCurrentPages();
+        var Page = pages[pages.length - 1];  // 当前页面
+        Page.setData({
+          modal_show: true,
+          integral: integral.integral,
+          modal_text: integral.name
+        })
+      }
+      // integralAdd(integral, 'cart')
     },
     fail(res) {
       wx.hideLoading()
@@ -481,8 +491,8 @@ const getHeader = (name) => {
     color = app.globalData.sys['min_' + name + '_banner_color']
 
   var pages = getCurrentPages();
-  var prevPage = pages[pages.length - 1];  // 当前页面
-  prevPage.setData({
+  var Page = pages[pages.length - 1];  // 当前页面
+  Page.setData({
     myHeader_image: image,
     myHeader_color: color,
   })

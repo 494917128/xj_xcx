@@ -6,6 +6,9 @@ Page({
     image_url: app.image_url,
     id: '',
     order: {},
+    modal_show: false,
+    integral: '',
+    modal_text: '',
   },
   webView(e) {
     e.currentTarget.dataset.src = app.webview_url + e.currentTarget.dataset.src

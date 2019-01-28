@@ -32,7 +32,8 @@
     <view class='item flex_row'>
       <view class='item-title'>常住地</view>
       <picker mode="region" value="{{region}}" bindchange="selectAddress" class='item-input col-1 flex_row'>
-        <view class="picker flex_row flex_center col-1">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+        <view class="picker flex_row flex_center col-1" wx:if='{{region[0]}}'>{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+        <view class="picker input_placeholder flex_row flex_center col-1" wx:else>点击选择地址</view>
       </picker>
     </view>
     <view class='item flex_row'>

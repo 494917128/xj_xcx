@@ -53,6 +53,7 @@ Page({
     data.birthday = this.data.birthday
     data.profession = this.data.profession
     data.permanent_land = region[0] + ',' + region[1] + ',' + region[2] + ',' + this.data.permanent_land
+    data.status = this.data.is_guide
 
     console.log(data)
     util.request({
@@ -73,6 +74,7 @@ Page({
               integral: res.data.integral.integral,
               modal_text: res.data.integral.name
             })
+            setTimeout(function () { wx.navigateBack({ delta: 1 })},3000)
           } else {
             wx.navigateBack({ delta: 1 })
           }
@@ -96,6 +98,7 @@ Page({
       email: userInfo.email,
       profession: userInfo.profession,
       permanent_land: address[3],
+      status: options.status?1:0, // 判断是否是熊首页导航框进入
     })
   },
 

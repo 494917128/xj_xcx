@@ -28,6 +28,7 @@ Page({
       _this.setData({ 
         title_image: app.globalData.sys.min_index_title_images,
         guide_image: app.globalData.sys.min_index_modal_images,
+        mini_url: app.globalData.sys.mini_index_url_popup,
         foot_image: app.globalData.sys.min_index_foot_images,
       })
       util.getHeader('index')

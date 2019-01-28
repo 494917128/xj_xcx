@@ -5,6 +5,7 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
-    "myHeader": "/components/myHeader/myHeader"
+    "myHeader": "/components/myHeader/myHeader",
+    "integralModal": "/components/integralModal/integralModal"
   }
 }
