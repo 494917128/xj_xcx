@@ -42,7 +42,7 @@ Page({
     util.getUserInfo()
     this.pageData()
     this.setData({
-      btn1: app.globalData.sys.min_book_but_5,
+      btn1: app.globalData.sys.min_book_but_5!='0',
     })
   },
   onShow(){

@@ -39,7 +39,7 @@ Page({
     this.pageData()
     this.setData({
       btn: app.globalData.sys.min_book_but_3,
-      btn1: app.globalData.sys.min_book_but_5,
+      btn1: app.globalData.sys.min_book_but_5!='0',
     })
   }
 })

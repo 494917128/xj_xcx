@@ -52,8 +52,8 @@ Page({
     data.email = this.data.email
     data.birthday = this.data.birthday
     data.profession = this.data.profession
-    data.permanent_land = region[0] + ',' + region[1] + ',' + region[2] + ',' + this.data.permanent_land
-    data.status = this.data.is_guide
+    // data.permanent_land = region[0] + ',' + region[1] + ',' + region[2] + ',' + this.data.permanent_land
+    data.status = this.data.is_guide||''
 
     console.log(data)
     util.request({
@@ -67,7 +67,7 @@ Page({
         setTimeout(()=>{
           var pages = getCurrentPages();
           var prevPage = pages[pages.length - 2];  //上一个页面
-          prevPage.pageData()
+          prevPage.pageData && prevPage.pageData()
           if (res.data.integral) {
             _this.setData({
               modal_show: true,

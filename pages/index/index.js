@@ -34,7 +34,7 @@ Page({
         'nav[0].title': app.globalData.sys.min_book_but_1,
         'nav[2].title': app.globalData.sys.min_book_but_2,
       })
-      if (!app.globalData.sys.min_book_but_5) {
+      if (!app.globalData.sys.min_book_but_5 || app.globalData.sys.min_book_but_5=='0') {
         var nav = _this.data.nav
         nav.splice(2,1)
         _this.setData({
