@@ -38,6 +38,7 @@
 }
 
 .add-view{
+  justify-content: center;
   width: calc(100vw - 60rpx);
   background-color: #fff;
   border-radius: 20rpx;

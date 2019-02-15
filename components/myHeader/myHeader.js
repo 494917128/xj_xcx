@@ -15,6 +15,7 @@ Component({
       value: '#ffffff',
     },
     bg_image: String,
+    title: String,
   },
 
   data: {
@@ -32,6 +33,11 @@ Component({
         backgroundColorTop: this.data.bg_color,
         backgroundColorBottom: this.data.bg_color,
       })
+      if (this.data.title) {
+        wx.setNavigationBarTitle({
+          title: this.data.title
+        })
+      }
     }
   },
   ready() {

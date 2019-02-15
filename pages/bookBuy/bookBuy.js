@@ -36,7 +36,7 @@ Page({
       region: e.detail.value
     })
   },
-  // 书的数量
+  // 数量
   updateNum(e) {
     var type = e.currentTarget.dataset.type,
       num = this.data.num
@@ -108,8 +108,21 @@ Page({
 
   onLoad() {
     util.getHeader('cart')
-
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: this.data.myHeader_color,
+    })
+    wx.setBackgroundColor({
+      backgroundColor: this.data.myHeader_color,
+      backgroundColorTop: this.data.myHeader_color,
+      backgroundColorBottom: this.data.myHeader_color,
+    })
+    wx.setNavigationBarTitle({
+      title: app.globalData.sys.min_cart_banner_title
+    })
     this.setData({
+      btn: app.globalData.sys.min_book_but_4,
+      buy_book_carousel: app.globalData.sys.buy_book_carousel,
       goods: app.globalData.goods
     })
   }

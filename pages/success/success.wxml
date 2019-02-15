@@ -24,3 +24,5 @@
     <button open-type='share' hover-class='button_hover' class='share flex_row flex_center main_button'>分享</button>
   </view>
 </view>
+
+<integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' />

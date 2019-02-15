@@ -5,9 +5,9 @@ const app = getApp(),
 Page({
   data: {
     nav: [
-      { title: '提交读后感', icon: 'icon-studyplan', image: '/images/book.png', image_bg: '#FF7575', url: '/pages/afterBook/afterBook' },
+      { title: '', icon: 'icon-studyplan', image: '/images/book.png', image_bg: '#FF7575', url: '/pages/afterBook/afterBook' },
       { title: '分享海报', icon: 'icon-ht_gain', image: '/images/haibao.png', image_bg: '#FFAA00', url: '/pages/poster/poster' },
-      { title: '购买书籍', icon: 'icon-wodeshouhuo', image: '/images/book2.png', image_bg: '#21e495', url: '/pages/book/book' },
+      { title: '', icon: 'icon-wodeshouhuo', image: '/images/book2.png', image_bg: '#21e495', url: '/pages/book/book' },
     ],
   },
   guideClose() {
@@ -30,11 +30,22 @@ Page({
         guide_image: app.globalData.sys.min_index_modal_images,
         mini_url: app.globalData.sys.mini_index_url_popup,
         foot_image: app.globalData.sys.min_index_foot_images,
-      })
-      util.getHeader('index')
 
+        'nav[0].title': app.globalData.sys.min_book_but_1,
+        'nav[2].title': app.globalData.sys.min_book_but_2,
+      })
+      if (!app.globalData.sys.min_book_but_5) {
+        var nav = _this.data.nav
+        nav.splice(2,1)
+        _this.setData({
+          nav:nav
+        })
+      }
+      util.getHeader('index')
+      
     })
     util.wxLogin()
+    util.getUserInfo()
   },
   onShareAppMessage: function () {
     return {

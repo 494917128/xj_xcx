@@ -181,7 +181,7 @@ const login = (res) => {
   Page.setData({
     userInfo: res.userInfo
   })
-  app.globalData.userInfo = res.userInfo
+  // app.globalData.userInfo = res.userInfo
   console.log(res)
   request({
     url: 'v1/mini-program/login',
@@ -274,10 +274,13 @@ const getUserInfo = () => {
   if (app.globalData.userInfo){
     Page.setData({ userInfo: app.globalData.userInfo })
   } else { 
-    wx.getUserInfo({
-      success: function (res) {
-        Page.setData({ userInfo: res.userInfo })
-      },
+    request({
+      url: 'v1/users/info',
+      data: {},
+      type: 'form',
+      success(res) {
+        app.globalData.userInfo = res.data.data
+      }
     })
   }
 }
@@ -488,13 +491,15 @@ const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callb
 // 获取myHeader的参数
 const getHeader = (name) => {
   var image = app.globalData.sys['min_' + name + '_banner_images'],
-    color = app.globalData.sys['min_' + name + '_banner_color']
+    color = app.globalData.sys['min_' + name + '_banner_color'],
+    title = app.globalData.sys['min_' + name + '_banner_title']||''
 
   var pages = getCurrentPages();
   var Page = pages[pages.length - 1];  // 当前页面
   Page.setData({
     myHeader_image: image,
     myHeader_color: color,
+    myHeader_title: title,
   })
 }
 

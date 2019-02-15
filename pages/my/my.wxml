@@ -46,7 +46,7 @@
   </view>
 
   <view class='list'>
-    <navigator url='{{item.link}}' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}'>
+    <navigator url='{{item.link}}' class='item flex_row flex_center' wx:for='{{list}}' wx:key='{{index}}' hidden='{{!btn1&&index==1}}'>
       <!-- <image src='{{item.icon_image}}' class='icon-image' mode='aspectFit'></image> -->
       <view class='icon iconfont {{item.icon}} flex_row flex_center main_color'></view>
       <text class='col-1'>{{item.name}}</text>

@@ -118,5 +118,8 @@ Page({
   },
   onLoad() {
     util.getHeader('feedback')
+    this.setData({
+      placeholder: app.globalData.sys.min_book_but_1 + '，优质内容将获更多奖励',
+    })
   }
 })

@@ -1,5 +1,10 @@
 <view class='container flex_column'>
-  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' />
+  <!-- <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' /> -->
+  <swiper autoplay indicator-dots style='width: 100%;height: 400rpx;'>
+    <swiper-item wx:for='{{buy_book_carousel}}' wx:key='{{index}}'>
+      <image mode='aspectFill' src='{{item}}' style='width:100%;height:100%;'></image>
+    </swiper-item>
+  </swiper>
   <view class='flex_column' style='padding: 30rpx;'>
     <view class='book-info flex_row flex_center' style='padding: 10rpx 20rpx;'>
       <image src='{{goods.goods_img}}' mode='aspectFill' class='book-image'></image>
@@ -12,7 +17,7 @@
           <view class='iconfont icon-jia1 flex_row flex_center' bindtap='updateNum' data-type='{{1}}'></view>
         </view>
         <view class='book-price'>单价：￥{{goods.shop_price}}</view>
-        <view class='book-price'>快递费：￥{{goods.postage}}</view>
+        <view class='book-price' wx:if='{{goods.postage=="0.00"}}'>邮费：包邮</view>
       </view>
     </view>
     
@@ -30,7 +35,7 @@
 
     <view class='book-info'>
       <view class='input-view flex_row flex_center'>
-        <view class='title'>收货人</view>
+        <view class='title'>联系人</view>
         <input placeholder='姓名' class='col-1' placeholder-class='input_placeholder' bindinput='inputValue' data-type='name' hidden='{{coupon_show}}'></input>
         <view class='input col-1' hidden='{{!coupon_show}}'>{{name}}</view>
       </view>
@@ -59,7 +64,7 @@
       </view>
     </view>
 
-    <view hover-class='button_hover' class='btn flex_row flex_center main_button' bindtap='submit'>确定并支付</view>
+    <view hover-class='button_hover' class='btn flex_row flex_center main_button' bindtap='submit'>{{btn}}</view>
   </view>
 </view>
 

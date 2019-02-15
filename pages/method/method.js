@@ -4,64 +4,53 @@ const app = getApp(),
 
 Page({
   data: {
-    list: [],
-    page: 1,
-    loading: false,
-    list_max: false, // 是否加载完毕（我是有底线的）
+    content: '',
   },
   pageData(){
-    var _this = this,
-      list = this.data.list
+    var _this = this
 
-    this.setData({ loading: true })
     this.ajax = util.request({
       url: 'v1/article/list',
       data: {
         id: 1,
-        page: this.data.page,
       },
       type: 'form',
       success(res) {
-        if (res.data.data.list.length == 0) {
-          _this.setData({
-            list_max: true,
-            loading: false,
-          })
-          wx.showToast({
-            title: '没有更多了',
-            icon: 'none',
-          })
-          return;
-        }
-        list.push(...res.data.data.list)
 
         _this.setData({
-          loading: false,
-          list: list,
-          page: _this.data.page + 1
+          content: res.data.data.content,
         })
       },
     })
   },
   onLoad(options) {
     util.getHeader('play')
-    this.pageData()
-  },
-  // 上拉加载
-  onReachBottom() {
-    if (!this.data.loading) {
-      this.ajax && this.ajax.abort()
-      this.pageData && this.pageData()
-    }
-  },
-  // 下拉刷新
-  onPullDownRefresh() {
-    this.setData({
-      list: [],
-      page: 1,
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: this.data.myHeader_color,
     })
-    this.ajax && this.ajax.abort()
+    wx.setBackgroundColor({
+      backgroundColor: this.data.myHeader_color,
+      backgroundColorTop: this.data.myHeader_color,
+      backgroundColorBottom: this.data.myHeader_color,
+    })
     this.pageData()
-    setTimeout(() => { wx.stopPullDownRefresh() }, 1000)
   },
+  // // 上拉加载
+  // onReachBottom() {
+  //   if (!this.data.loading) {
+  //     this.ajax && this.ajax.abort()
+  //     this.pageData && this.pageData()
+  //   }
+  // },
+  // // 下拉刷新
+  // onPullDownRefresh() {
+  //   this.setData({
+  //     list: [],
+  //     page: 1,
+  //   })
+  //   this.ajax && this.ajax.abort()
+  //   this.pageData()
+  //   setTimeout(() => { wx.stopPullDownRefresh() }, 1000)
+  // },
 })

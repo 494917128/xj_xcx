@@ -4,6 +4,7 @@
   "navigationBarTitleText": "恭喜达成",
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "myHeader": "/components/myHeader/myHeader"
+    "myHeader": "/components/myHeader/myHeader",
+    "integralModal": "/components/integralModal/integralModal"
   }
 }

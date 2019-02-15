@@ -1,8 +1,8 @@
 <view class='container flex_column'>
-  <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' />
+  <myHeader bg_color='{{myHeader_color}}' title='{{myHeader_title}}' font_color='#ffffff' bg_image='{{myHeader_image}}' />
   
   <view class='content'>
-    <textarea placeholder-class='input_placeholder' placeholder='填写分享书籍读后感，优质内容将获更多奖励' bindinput='content' maxlength='-1'></textarea>
+    <textarea placeholder-class='input_placeholder' placeholder='{{placeholder}}' bindinput='content' maxlength='-1'></textarea>
 
     <view class='flex_row'>
       <!-- <button class='img_button flex_row flex_center info_bg' hover-class='button_hover' bindtap='chooseImage'>选择图片</button> -->
@@ -13,7 +13,7 @@
     </view>
     <checkbox-group class='prompt' bindchange="checkboxChange" style='padding-bottom: 30rpx;'>
       <label class="checkbox flex_row flex_center" >
-        <checkbox value="1" />同意此读后感内容在发现页公开展示
+        <checkbox value="1" />同意此内容在发现页公开展示
       </label>
     </checkbox-group>
     <!-- <view class='prompt'>只要提交就有奖励，优质内容更有意外惊喜</view> -->

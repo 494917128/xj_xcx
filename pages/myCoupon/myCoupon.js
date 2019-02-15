@@ -37,9 +37,9 @@ Page({
       },
       type: 'form',
       success(res) {
-        var list = res.data.data.list
+        var list = res.data.data.list || []
 
-        if (res.data.data.list.length == 0) {
+        if (list.length == 0) {
           _this.setData({
             list_max: true,
             loading: false,
@@ -121,7 +121,7 @@ Page({
         num: options.num,
         select: options.select || '',
       })
-      this.pageData = this.pageData2
+      this.pageData = this.pageData2 // 如果是选择优惠券入口进来的执行pageData2
     }
     util.getHeader('coupons')
     this.pageData()

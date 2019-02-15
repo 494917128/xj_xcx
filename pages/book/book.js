@@ -25,6 +25,9 @@ Page({
         _this.setData({
           goods: res.data.data
         })
+        wx.setNavigationBarTitle({
+          title: res.data.data.goods_name
+        })
       }
     })
   },
@@ -34,5 +37,9 @@ Page({
       backgroundColor: app.globalData.sys.min_book_title,
     })
     this.pageData()
+    this.setData({
+      btn: app.globalData.sys.min_book_but_3,
+      btn1: app.globalData.sys.min_book_but_5,
+    })
   }
 })

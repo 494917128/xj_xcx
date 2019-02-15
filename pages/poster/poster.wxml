@@ -9,7 +9,7 @@
 
 <view class='btn-view flex_row flex_center'>
   <view class='btn flex_row flex_center' hover-class='button_hover' bindtap='saveImage'>保存</view>
-  <button open-type='share' class='btn btn_2 flex_row flex_center' hover-class='button_hover' bindtap='share'>分享</button>
+  <button open-type='share' class='btn btn_2 flex_row flex_center' hover-class='button_hover'>分享</button>
 </view>
 <!-- <view class='skip flex_row flex_center' hover-class='skip_hover'>跳过</view> -->
 

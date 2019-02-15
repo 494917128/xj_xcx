@@ -1,6 +1,6 @@
 {
   "backgroundTextStyle": "light",
-  "navigationBarTitleText": "书籍",
+  "navigationBarTitleText": "",
   "usingComponents": {
     "myOpenSetting": "/components/myOpenSetting/myOpenSetting"
   }

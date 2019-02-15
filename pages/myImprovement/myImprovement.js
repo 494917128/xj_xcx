@@ -83,10 +83,13 @@ Page({
     })
   },
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: options.title || '',
-    })
+    if (options.title){
+      wx.setNavigationBarTitle({
+        title: options.title,
+      })
+    }
     var userInfo = app.globalData.userInfo
+    console.log(userInfo)
     var address = userInfo.permanent_land.split(',')
     this.setData({
       title: options.title,
