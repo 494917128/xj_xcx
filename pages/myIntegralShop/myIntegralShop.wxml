@@ -22,9 +22,9 @@
       <view class='item-image flex_row flex_center'>
         <view class='item-ticket flex_column flex_center'>
           <view class='item-ticket-price'>
-            <text class='item-ticket-type' wx:if='{{item.coupons_type==1}}'>￥</text>
+            <text class='item-ticket-type'>￥</text>
             <text>{{item.coupons_amount * 1}}</text>
-            <text wx:if='{{item.coupons_type==2}}'>折</text>
+            <!-- <text wx:if='{{item.coupons_type==2}}'>折</text> -->
           </view>
           <text class='item-ticket-type'>
             <text wx:if='{{item.coupons_type==1}}'>优惠券</text>

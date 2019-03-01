@@ -6,7 +6,7 @@
   <view class='list flex_column flex_center' wx:if='{{list.length||loading}}'>
     <view bindtap='select' data-index='{{index}}' class='item flex_row {{item.state!=0||item.is_validity==1?"active":""}}' wx:for='{{list}}' wx:key='{{index}}'>
       <view class='item-left flex_row flex_center'>
-        <text class='item-left-text'>{{item.coupons[0].coupons_amount*1}}{{item.coupons[0].coupons_type==2?'折':''}}</text>
+        <text class='item-left-text'>{{item.coupons[0].coupons_amount*1}}</text>
         <view class='item-left-bg flex_row flex_center'>￥</view>
       </view>
       <view class='item-right col-1 flex_column flex_center'>

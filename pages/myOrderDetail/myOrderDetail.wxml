@@ -68,10 +68,10 @@
       <text>商品总额</text>
       <text class='danger_color'>￥{{order.goods_amount}}</text>
     </view>
-    <view class='order_item_allprice flex_row' wx:if="{{order.coupons.coupons_type==2&&order.coupons.coupons_amount!=0}}">
+    <!-- <view class='order_item_allprice flex_row' wx:if="{{order.coupons.coupons_type==2&&order.coupons.coupons_amount!=0}}">
       <text>-折扣券</text>
       <text class='danger_color'>{{order.coupons.coupons_amount}}折</text>
-    </view>
+    </view> -->
     <view class='order_item_allprice flex_row' wx:if="{{order.shipping_fee!=0}}">
       <text>+运费</text>
       <text class='danger_color'>￥{{order.shipping_fee}}</text>

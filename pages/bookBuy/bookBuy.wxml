@@ -23,7 +23,7 @@
     
     <navigator url='/pages/myCoupon/myCoupon?title=优惠券&select=1&goods_id={{goods.goods_id}}&num={{num}}' class='book-info'>
       <view class='input-view flex_row flex_center'>
-        {{coupon.id?'已选择优惠券 '+coupon.price+' '+(coupon.type==1?'元':'折'):'选择优惠券'}}
+        {{coupon.id?'已选择优惠券 '+coupon.price+' 元':'选择优惠券'}}
       </view>
     </navigator>
 
