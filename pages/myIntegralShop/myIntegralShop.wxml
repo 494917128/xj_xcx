@@ -27,8 +27,8 @@
             <text wx:if='{{item.coupons_type==2}}'>折</text>
           </view>
           <text class='item-ticket-type'>
-            <text wx:if='{{item.coupons_type==1}}'>抵用券</text>
-            <text wx:if='{{item.coupons_type==2}}'>折扣券</text>
+            <text wx:if='{{item.coupons_type==1}}'>优惠券</text>
+            <text wx:if='{{item.coupons_type==2}}'>抵用券</text>
           </text>
         </view>
       </view>

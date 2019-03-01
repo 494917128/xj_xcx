@@ -14,8 +14,12 @@ Page({
     coupon: {},
     discounts_code: '',
     modal_show: false,
-    integral: '',
-    modal_text: '',
+    min_order_end_img: '',
+  },
+  guideClose(){
+    this.setData({
+      modal_show: false,
+    })
   },
   // // 优惠券
   // coupon() {
@@ -96,7 +100,9 @@ Page({
           order_id: order_id
         })
         util.getWxPay(order_id,function(){
-
+          wx.navigateTo({
+            url: '/pages/myOrderDetail/myOrderDetail?id=' + order_id,
+          })
         },function(){
           wx.navigateTo({
             url: '/pages/myOrderDetail/myOrderDetail?id='+order_id,

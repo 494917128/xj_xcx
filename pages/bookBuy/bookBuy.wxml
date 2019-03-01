@@ -68,4 +68,11 @@
   </view>
 </view>
 
-<integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' />
+<!-- <integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' /> -->
+
+<view class='guide-cover flex_row flex_center {{modal_show?"active":""}}' bindtap='guideClose'>
+  <view class='guide' catchtap='guideClose'>
+    <image src='{{min_order_end_img}}' mode='widthFix'></image>
+    <view class='guide-close iconfont icon-close flex_row flex_center' bindtap='guideClose'></view>
+  </view>
+</view>

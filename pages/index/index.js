@@ -18,9 +18,7 @@ Page({
   onLoad() { 
     var _this = this
     // if(!wx.getStorageSync('firstLogin')){
-      this.setData({
-        guide: true,
-      })
+
       // wx.setStorageSync('firstLogin', true)
     // }
     // wx.removeStorageSync('firstLogin')
@@ -45,7 +43,13 @@ Page({
       
     })
     util.wxLogin()
-    util.getUserInfo()
+    util.getUserInfo(function(res){
+      if (!res.realname){
+        _this.setData({
+          guide: true,
+        })
+      }
+    })
   },
   onShareAppMessage: function () {
     return {

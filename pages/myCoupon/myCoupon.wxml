@@ -13,8 +13,8 @@
         <view class='item-right-title'>
           <text class='main_color' wx:if='{{item.coupons[0].on_line_name}}'>({{item.coupons[0].on_line_name}})</text>{{item.coupons[0].coupons_name}}
         </view>
-        <view class='item-right-text'>有效期至 {{item.coupons[0].validity_time}}</view>
-        <navigator url='/pages/book/book' class='item-use' wx:if='{{item.state==0&&item.is_validity==0}}'>去使用 ></navigator>
+        <view class='item-right-text'>有效期至 {{item.validity_time}}</view>
+        <navigator url='/pages/book/book' class='item-use' wx:if='{{item.state==0&&item.is_validity==0&&item.coupons[0].on_line_name==1}}'>去使用 ></navigator>
         <view class='item-lastTime flex_row flex_center' style='background-color: #F43530;' wx:if='{{item.state==1}}'>已使用</view>
         <view class='item-lastTime flex_row flex_center' style='background-color: #F43530;' wx:elif='{{item.state==2}}'>无效</view>
         <view class='item-lastTime flex_row flex_center' style='background-color: #F43530;' wx:elif='{{item.is_validity==1}}'>已过期</view>

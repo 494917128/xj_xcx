@@ -1,7 +1,9 @@
 <view class='container'>
   <myHeader bg_color='{{myHeader_color}}' font_color='#ffffff' bg_image='{{myHeader_image}}' >
     <view class='header_content flex_row'>
-      <image src='{{info.head_portrait}}' class='header_image'></image>
+      <navigator url='/pages/myImprovement/myImprovement?title=完善个人资料'>
+        <image src='{{info.head_portrait}}' class='header_image'></image>
+      </navigator>
       <view class='flex_column'>
         <text>{{info.nickname}}</text>
         <text style='font-size: 28rpx;'>你的日志已经坚持了{{info.log_count}}天</text>

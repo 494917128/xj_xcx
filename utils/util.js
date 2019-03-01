@@ -268,7 +268,7 @@ const loginCallback = (res) => {
     })
   }
 }
-const getUserInfo = () => {
+const getUserInfo = (callback) => {
   var pages = getCurrentPages();
   var Page = pages[pages.length - 1];  //当前页面
   if (app.globalData.userInfo){
@@ -280,6 +280,7 @@ const getUserInfo = () => {
       type: 'form',
       success(res) {
         app.globalData.userInfo = res.data.data
+        callback && callback(res.data.data)
       }
     })
   }
@@ -454,12 +455,12 @@ const getWxPay = (order_id, callback, callbackFail) => {
     type: 'form',
     success(res) {
       var data = res.data.data
-      res.data.integral = { name: 'asdfkljsadf', integral:100}
-      wxPay(data.timestamp, data.nonceStr, data.package, data.signType, data.paySign, callback, callbackFail, res.data.integral)
+
+      wxPay(data.timestamp, data.nonceStr, data.package, data.signType, data.paySign, callback, callbackFail)
     }
   })
 }
-const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callbackFail, integral) => {
+const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callbackFail) => {
   wx.requestPayment({
     timeStamp: timeStamp,
     nonceStr: nonceStr,
@@ -469,15 +470,14 @@ const wxPay = (timeStamp, nonceStr, _package, signType, paySign, callback, callb
     success(res) {
       wx.hideLoading()
       callback && callback()
-      if(integral) {
+      setTimeout(()=>{
         var pages = getCurrentPages();
         var Page = pages[pages.length - 1];  // 当前页面
         Page.setData({
           modal_show: true,
-          integral: integral.integral,
-          modal_text: integral.name
+          min_order_end_img: app.globalData.sys.min_order_end_img,
         })
-      }
+      },1000)
       // integralAdd(integral, 'cart')
     },
     fail(res) {

@@ -7,8 +7,12 @@ Page({
     id: '',
     order: {},
     modal_show: false,
-    integral: '',
-    modal_text: '',
+    min_order_end_img: '',
+  },
+  guideClose() {
+    this.setData({
+      modal_show: false,
+    })
   },
   webView(e) {
     e.currentTarget.dataset.src = app.webview_url + e.currentTarget.dataset.src

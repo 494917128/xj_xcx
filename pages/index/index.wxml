@@ -23,7 +23,7 @@
 
 <view class='guide-cover flex_row flex_center {{guide?"active":""}}' bindtap='guideClose'>
   <view class='guide' catchtap='close'>
-    <navigator url='{{mini_url}}' bindtap='guideClose'><image src='{{guide_image}}' mode='widthFix'></image></navigator>
+    <navigator url='{{mini_url}}?status=1' bindtap='guideClose'><image src='{{guide_image}}' mode='widthFix'></image></navigator>
     <view class='guide-close iconfont icon-close flex_row flex_center' bindtap='guideClose'></view>
   </view>
 </view>

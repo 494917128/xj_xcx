@@ -53,7 +53,7 @@ Page({
     data.birthday = this.data.birthday
     data.profession = this.data.profession
     // data.permanent_land = region[0] + ',' + region[1] + ',' + region[2] + ',' + this.data.permanent_land
-    data.status = this.data.is_guide||''
+    data.status = this.data.status||''
 
     console.log(data)
     util.request({
@@ -68,7 +68,7 @@ Page({
           var pages = getCurrentPages();
           var prevPage = pages[pages.length - 2];  //上一个页面
           prevPage.pageData && prevPage.pageData()
-          if (res.data.integral) {
+          if (res.data.integral && res.data.integral!='0') {
             _this.setData({
               modal_show: true,
               integral: res.data.integral.integral,
@@ -90,17 +90,17 @@ Page({
     }
     var userInfo = app.globalData.userInfo
     console.log(userInfo)
-    var address = userInfo.permanent_land.split(',')
+    // var address = userInfo.permanent_land.split(',')
     this.setData({
       title: options.title,
-      sex_index: userInfo.sex - 1,
+      sex_index: (userInfo.sex||0) - 1,
       birthday: userInfo.birthday,
-      region: [address[0], address[1], address[2]],
+      // region: [address[0], address[1], address[2]],
       real_name: userInfo.realname,
       mobile_phone: userInfo.mobile_phone,
       email: userInfo.email,
       profession: userInfo.profession,
-      permanent_land: address[3],
+      // permanent_land: address[3],
       status: options.status?1:0, // 判断是否是熊首页导航框进入
     })
   },
