@@ -101,7 +101,7 @@ Page({
       email: userInfo.email,
       profession: userInfo.profession,
       // permanent_land: address[3],
-      status: options.status?1:0, // 判断是否是熊首页导航框进入
+      status: options.status?1:0, // 判断是否是是首页引导框进入
     })
   },
 

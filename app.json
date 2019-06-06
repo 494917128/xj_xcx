@@ -1,24 +1,18 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/index2/index2",
     "pages/poster/poster",
     "pages/plan/plan",
     "pages/planImage/planImage",
     "pages/afterBook/afterBook",
-
     "pages/success/success",
-    
     "pages/indexCreat/indexCreat",
-
     "pages/found/found",
-
     "pages/myLog/myLog",
     "pages/myLogDetail/myLogDetail",
-    
     "pages/book/book",
     "pages/bookBuy/bookBuy",
-    
     "pages/my/my",
     "pages/myImprovement/myImprovement",
     "pages/myInfo/myInfo",
@@ -30,7 +24,6 @@
     "pages/method/method",
     "pages/about/about",
     "pages/content/content",
-
     "pages/feedback/feedback"
   ],
   "tabBar": {
@@ -57,12 +50,12 @@
       }
     ]
   },
-    
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f0f4f7",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#f0f4f7"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

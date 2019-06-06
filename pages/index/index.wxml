@@ -14,7 +14,11 @@
   </myHeader>
 
   <view class='flex_row flex_center' style='position: relative;flex: 1'>
-    <navigator url='/pages/plan/plan' class='btn flex_row flex_center main_button' hover-class='button_hover'>开始旅行</navigator>
+    <view class='btn flex_row main_button'>
+      <navigator url='/pages/plan/plan' class='btn-view col-1 flex_row flex_center' hover-class='button_hover'>开始旅行</navigator>
+      <view class='btn-line' wx:if='{{buy_title}}'></view>
+      <navigator url='/pages/book/book' class='btn-view col-1 flex_row flex_center' hover-class='button_hover' wx:if='{{buy_title}}'>{{buy_title}}</navigator>
+    </view>
     <myAdd nav='{{nav}}' class='add' bg_color='#39B54A' />
   </view>
 

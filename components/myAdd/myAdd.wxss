@@ -5,8 +5,8 @@
   color: #fff;
   border: 1px soild #FF2700;
   box-shadow: 0 0 20rpx #FF2700;
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   border-radius: 50%;
   position: relative;
 
@@ -39,17 +39,17 @@
 
 .add-view{
   justify-content: center;
-  width: calc(100vw - 60rpx);
+  width: calc(100vw - 220rpx);
   background-color: #fff;
   border-radius: 20rpx;
   position: absolute;
-  right: 30rpx;
-  top: -140rpx;
-  bottom: 140rpx;
-  height: 274rpx;
+  right: 60rpx;
+  top: -0;
+  bottom: 0;
+  height: 240rpx;
   margin: auto;
   flex-wrap: wrap;
-  padding: 35rpx 50rpx;
+  padding: 0 50rpx;
   box-sizing: border-box;
   color: #000;
 
@@ -63,7 +63,7 @@
   opacity: 1;
 }
 .add-item{
-  width: 33.33333333%;
+  width: 50%;
   font-size: 28rpx;
   margin: 20rpx 0;
 }

@@ -45,4 +45,4 @@
   <button class='btn flex_row flex_center main_button' hover-class='button_hover' bindtap='submit'>确认提交</button>
 </view>
 
-<integralModal modal_show='{{modal_show}}' integral='{{integral}}' text='{{modal_text}}' />
+<integralModal modal_show='{{modal_show}}' integral='{{integral}}' modal_text='{{modal_text}}' />
