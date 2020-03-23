@@ -17,7 +17,8 @@
           <view class='iconfont icon-jia1 flex_row flex_center' bindtap='updateNum' data-type='{{1}}'></view>
         </view>
         <view class='book-price'>单价：￥{{goods.shop_price}}</view>
-        <view class='book-price' wx:if='{{goods.postage=="0.00"}}'>邮费：包邮</view>
+        <view class='book-price' wx:if='{{goods.postage=="0.00"}}'>邮费：包邮<text style="color: red">(偏远地区除外)</text></view>
+        <view class='book-price' wx:else>邮费：{{goods.postage}}</view>
       </view>
     </view>
     

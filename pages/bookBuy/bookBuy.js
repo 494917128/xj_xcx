@@ -33,12 +33,29 @@ Page({
   //   })
   // },
   // stop (){},
+  // 获取邮费
+  getShippingFee(){
+    var _this = this
+    util.request({
+      url: 'v1/order/get-shipping-fee',
+      data: {
+        region: this.data.region[0],
+      },
+      type: 'form',
+      success(res) {
+        _this.setData({
+          'goods.postage': res.data.data
+        })
+      }
+    })
+  },
   // 三级联动
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
     })
+    this.getShippingFee()
   },
   // 数量
   updateNum(e) {
@@ -90,6 +107,7 @@ Page({
         mobile: this.data.phone,
         goods_number: this.data.num,
         address: this.data.region[0] + this.data.region[1] + this.data.region[2] + this.data.desc,
+        region: this.data.region[0],
         user_coupons_id: this.data.coupon.id || '',
         discounts_code: this.data.discounts_code||''
       },
@@ -131,5 +149,6 @@ Page({
       buy_book_carousel: app.globalData.sys.buy_book_carousel,
       goods: app.globalData.goods
     })
+    this.getShippingFee()
   }
 })

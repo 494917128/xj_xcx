@@ -35,7 +35,7 @@ Page({
       })
       if (!app.globalData.sys.min_book_but_5 || app.globalData.sys.min_book_but_5=='0') {
         _this.setData({
-          // buy_title:''
+          buy_title:''
         })
       }
       util.getHeader('index')
